@@ -11,52 +11,19 @@
 
 TYPE
 	AxisStatus_Int_typ : 	STRUCT 
-		ReadDriveStatus : MC_ReadAxisInfo;
+		ReadAxisInfo : MC_ReadAxisInfo;
 		ReadActualPosition : MC_ReadActualPosition;
-		ReadCyclicPosition : MC_BR_ReadCyclicPosition;
 		ReadActualVelocity : MC_ReadActualVelocity;
-		ReadStatus : MC_ReadStatus;
 	END_STRUCT;
-	AxisLib_DriveStatus_typ : 	STRUCT 
+	AxisLib_AxisInfo_typ : 	STRUCT 
+		AdditionalInfo : McAddInfoType;
+		AxisWarning : BOOL;
+		CommunicationReady : BOOL;
+		IsHomed : BOOL;
+		PowerOn : BOOL;
+		ReadyForPowerOn : BOOL;
 		Simulation : BOOL;
-		NetworkInit : BOOL;
-		HomeSwitch : BOOL;
-		PosHWSwitch : BOOL;
-		NegHWSwitch : BOOL;
-		Trigger1 : BOOL;
-		Trigger2 : BOOL;
-		DriveEnable : BOOL;
-		ControllerReady : BOOL;
-		ControllerStatus : BOOL;
-		HomingOk : BOOL;
-		AxisError : BOOL;
-		LagWarning : BOOL;
-		ResetDone : BOOL;
-		HoldingBrakeControlStatus : BOOL;
 	END_STRUCT;
-	AxisLib_PLCOpenState_typ : 	STRUCT  (*PLCOpen state information.*)
-		State : AXISLIB_PLCOPEN_ST_enum;
-		Errorstop : BOOL; (*If set, axis is in state Errorstop.*)
-		Disabled : BOOL; (*If set, axis is in state Disabled.*)
-		StandStill : BOOL; (*If set, axis is in state StandStill.*)
-		Stopping : BOOL; (*If set, axis is in state Stopping.*)
-		Homing : BOOL; (*If set, axis is in state Homing.*)
-		DiscreteMotion : BOOL; (*If set, axis is in state DiscreteMotion.*)
-		SynchronizedMotion : BOOL; (*If set, axis is in state SynchronizedMotion.*)
-		ContinuousMotion : BOOL; (*If set, axis is in state ContinousMotion.*)
-	END_STRUCT;
-	AXISLIB_PLCOPEN_ST_enum : 
-		(
-		AXISLIB_PLCOPEN_ST_INVALID := 0,
-		AXISLIB_PLCOPEN_ST_ERRORSTOP,
-		AXISLIB_PLCOPEN_ST_DISABLED,
-		AXISLIB_PLCOPEN_ST_STANDSTILL,
-		AXISLIB_PLCOPEN_ST_STOPPING,
-		AXISLIB_PLCOPEN_ST_HOMING,
-		AXISLIB_PLCOPEN_ST_DISCRETEMOTN,
-		AXISLIB_PLCOPEN_ST_SYNCMOTN,
-		AXISLIB_PLCOPEN_ST_CONTMOTN
-		);
 END_TYPE
 
 (*Reference*)

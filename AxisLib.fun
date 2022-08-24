@@ -13,14 +13,11 @@ FUNCTION_BLOCK AxisStatus (*Gather status information about an axis*) (*$GROUP=U
 	VAR_INPUT
 		Axis : UDINT;
 		Enable : BOOL;
-		ReadCyclicPositionParID : UINT; (*ParID that is read cyclically, 0... set position*)
 	END_VAR
 	VAR_OUTPUT
-		ActualPosition : REAL;
-		ActualCyclicPosition : LREAL;
+		ActualPosition : LREAL;
 		ActualVelocity : REAL;
-		DriveStatus : AxisLib_DriveStatus_typ;
-		PLCOpenState : AxisLib_PLCOpenState_typ;
+		AxisInfo : AxisLib_AxisInfo_typ;
 		Valid : BOOL;
 		Busy : BOOL;
 		Error : BOOL;
