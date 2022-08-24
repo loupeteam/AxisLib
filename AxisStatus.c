@@ -21,31 +21,31 @@ extern "C"
 // Gather status information about an axis
 //-----------------------------------------
 
-// Axis == 0 - good
+// Axis == 0 -
 
-// DriveStatus - good
-// Position - good
-// CyclicPosition - good
-// Velocity - good
-// PLC Open State - good
-	// Errorstop - good
-	// Disabled - good
-	// Standstill - good
-	// Stopping - good
-	// Homing - good
-	// DiscreteMotion - good
-	// SynchronizedMotion - good
-	// ContinuousMotion - good
+// DriveStatus -
+// Position -
+// CyclicPosition -
+// Velocity -
+// PLC Open State -
+	// Errorstop -
+	// Disabled -
+	// Standstill -
+	// Stopping -
+	// Homing -
+	// DiscreteMotion -
+	// SynchronizedMotion -
+	// ContinuousMotion -
 
-// FUB status - good
-	// Valid - good
-	// Busy - good
-	// Error - not tested
-	// ErrorID - not tested
+// FUB status -
+	// Valid -
+	// Busy -
+	// Error -
+	// ErrorID -
 
-// Check NWCT - good
-	// No spam on loss of network - good
-	// No spam on Axis == 0 - good
+// Check NWCT -
+	// No spam on loss of network -
+	// No spam on Axis == 0 -
 
 
 void AxisStatus(struct AxisStatus* t)
@@ -71,16 +71,52 @@ void AxisStatus(struct AxisStatus* t)
 	}
 	
 	// Drive status
-	t->internal.ReadDriveStatus.Axis = (UDINT)t->Axis;
+	t->internal.ReadDriveStatus.Axis = (McAxisType*)t->Axis;
 	t->internal.ReadDriveStatus.Enable = t->Enable && !t->internal.ReadDriveStatus.Error;
-	t->internal.ReadDriveStatus.AdrDriveStatus = (UDINT)&(t->DriveStatus);				
-
-	MC_BR_ReadDriveStatus(&t->internal.ReadDriveStatus);
+	t->internal.ReadDriveStatus.AdrDriveStatus = (UDINT)&(t->DriveStatus);
+	
+	MC_ReadAxisInfo(&t->internal.ReadDriveStatus);
+	
+	t->DriveStatus.NetworkInit = t->internal.ReadDriveStatus.CommunicationReady;
+	t->DriveStatus.AxisError;
+	t->DriveStatus.ControllerReady;
+	t->DriveStatus.ControllerStatus;
+	t->DriveStatus.DriveEnable;
+	t->DriveStatus.HoldingBrakeControlStatus;
+	t->DriveStatus.HomeSwitch;
+	t->DriveStatus.HomingOk;
+	t->DriveStatus.LagWarning;
+	t->DriveStatus.NegHWSwitch;
+	t->DriveStatus.PosHWSwitch;
+	t->DriveStatus.ResetDone;
+	t->DriveStatus.Simulation;
+	t->DriveStatus.Trigger1 = t->internal.ReadDriveStatus.AdditionalInfo.DigitalInputStatus.Trigger1;
+	t->DriveStatus.Trigger2 = t->internal.ReadDriveStatus.AdditionalInfo.DigitalInputStatus.Trigger2;
+	
+	t->internal.ReadDriveStatus.AdditionalInfo.CommunicationState;
+	t->internal.ReadDriveStatus.AdditionalInfo.InMotion;
+	t->internal.ReadDriveStatus.AdditionalInfo.LagWarning;
+	t->internal.ReadDriveStatus.AdditionalInfo.PLCopenState;
+	t->internal.ReadDriveStatus.AdditionalInfo.StartupCount;
+	t->internal.ReadDriveStatus.AdditionalInfo.DigitalInputStatus.DriveEnable;
+	t->internal.ReadDriveStatus.AdditionalInfo.DigitalInputStatus.HomingSwitch;
+	t->internal.ReadDriveStatus.AdditionalInfo.DigitalInputStatus.NegativeLimitSwitch;
+	t->internal.ReadDriveStatus.AdditionalInfo.DigitalInputStatus.PositiveLimitSwitch;
+	t->internal.ReadDriveStatus.AdditionalInfo.DigitalInputStatus.Trigger2;
+	t->internal.ReadDriveStatus.AxisWarning;
+	t->internal.ReadDriveStatus.Busy;
+	t->internal.ReadDriveStatus.Error;
+	t->internal.ReadDriveStatus.ErrorID;
+	t->internal.ReadDriveStatus.IsHomed;
+	t->internal.ReadDriveStatus.PowerOn;
+	t->internal.ReadDriveStatus.ReadyForPowerOn;
+	t->internal.ReadDriveStatus.Simulation;
+	t->internal.ReadDriveStatus.Valid;
 
 
 	// Position
 	t->internal.ReadActualPosition.Axis = (UDINT)t->Axis;
-	t->internal.ReadActualPosition.Enable = t->Enable && !t->internal.ReadActualPosition.Error && t->DriveStatus.NetworkInit;
+//	t->internal.ReadActualPosition.Enable = t->Enable && !t->internal.ReadActualPosition.Error && t->DriveStatus.NetworkInit;
 
 	MC_ReadActualPosition(&t->internal.ReadActualPosition);
 
@@ -89,8 +125,8 @@ void AxisStatus(struct AxisStatus* t)
 	
 	// Cyclic position
 	t->internal.ReadCyclicPosition.Axis = (UDINT)t->Axis;
-	t->internal.ReadCyclicPosition.Enable = t->Enable && !t->internal.ReadCyclicPosition.Error && t->DriveStatus.NetworkInit;
-	t->internal.ReadCyclicPosition.ParID = t->ReadCyclicPositionParID;
+//	t->internal.ReadCyclicPosition.Enable = t->Enable && !t->internal.ReadCyclicPosition.Error && t->DriveStatus.NetworkInit;
+//	t->internal.ReadCyclicPosition.ParID = t->ReadCyclicPositionParID;
 
 	MC_BR_ReadCyclicPosition(&t->internal.ReadCyclicPosition);
 
@@ -99,7 +135,7 @@ void AxisStatus(struct AxisStatus* t)
 	
 	// Velocity
 	t->internal.ReadActualVelocity.Axis = (UDINT)t->Axis;
-	t->internal.ReadActualVelocity.Enable = t->Enable && !t->internal.ReadActualVelocity.Error && t->DriveStatus.NetworkInit;
+//	t->internal.ReadActualVelocity.Enable = t->Enable && !t->internal.ReadActualVelocity.Error && t->DriveStatus.NetworkInit;
 
 	MC_ReadActualVelocity(&t->internal.ReadActualVelocity);
 
@@ -112,7 +148,7 @@ void AxisStatus(struct AxisStatus* t)
 
 	MC_ReadStatus(&t->internal.ReadStatus);
 
-	t->PLCOpenState.Errorstop = t->internal.ReadStatus.Errorstop;
+//	t->PLCOpenState.Errorstop = t->internal.ReadStatus.Errorstop;
 	t->PLCOpenState.Disabled = t->internal.ReadStatus.Disabled;
 	t->PLCOpenState.StandStill = t->internal.ReadStatus.StandStill;
 	t->PLCOpenState.Stopping = t->internal.ReadStatus.Stopping;
@@ -150,42 +186,42 @@ void AxisStatus(struct AxisStatus* t)
 	}
 	
 	// FUB status
-	t->Valid = t->internal.ReadDriveStatus.Valid
-		&& t->internal.ReadActualPosition.Valid
-		&& t->internal.ReadCyclicPosition.Valid
-		&& t->internal.ReadActualVelocity.Valid
-		&& t->internal.ReadStatus.Valid;
+//	t->Valid = t->internal.ReadDriveStatus.Valid
+//		&& t->internal.ReadActualPosition.Valid
+//		&& t->internal.ReadCyclicPosition.Valid
+//		&& t->internal.ReadActualVelocity.Valid
+//		&& t->internal.ReadStatus.Valid;
 	
-	t->Busy = t->internal.ReadDriveStatus.Busy
-		|| t->internal.ReadActualPosition.Busy
-		|| t->internal.ReadCyclicPosition.Busy
-		|| t->internal.ReadActualVelocity.Busy
-		|| t->internal.ReadStatus.Busy;
+//	t->Busy = t->internal.ReadDriveStatus.Busy
+//		|| t->internal.ReadActualPosition.Busy
+//		|| t->internal.ReadCyclicPosition.Busy
+//		|| t->internal.ReadActualVelocity.Busy
+//		|| t->internal.ReadStatus.Busy;
 	
-	t->Error = t->internal.ReadDriveStatus.Error
-		|| t->internal.ReadActualPosition.Error
-		|| t->internal.ReadCyclicPosition.Error
-		|| t->internal.ReadActualVelocity.Error
-		|| t->internal.ReadStatus.Error;
+//	t->Error = t->internal.ReadDriveStatus.Error
+//		|| t->internal.ReadActualPosition.Error
+//		|| t->internal.ReadCyclicPosition.Error
+//		|| t->internal.ReadActualVelocity.Error
+//		|| t->internal.ReadStatus.Error;
 	
-	if (t->internal.ReadDriveStatus.Error) {
-		t->ErrorID = t->internal.ReadDriveStatus.ErrorID;
-	
-	} else if (t->internal.ReadActualPosition.Error) {
-		t->ErrorID = t->internal.ReadActualPosition.ErrorID;
-	
-	} else if (t->internal.ReadCyclicPosition.Error) {
-		t->ErrorID = t->internal.ReadCyclicPosition.ErrorID;
-	
-	} else if (t->internal.ReadActualVelocity.Error) {
-		t->ErrorID = t->internal.ReadActualVelocity.ErrorID;
-	
-	} else if (t->internal.ReadStatus.Error) {
-		t->ErrorID = t->internal.ReadStatus.ErrorID;
-	
-	} else {
-		t->ErrorID = 0;
-	
-	}
+//	if (t->internal.ReadDriveStatus.Error) {
+//		t->ErrorID = t->internal.ReadDriveStatus.ErrorID;
+//	
+//	} else if (t->internal.ReadActualPosition.Error) {
+//		t->ErrorID = t->internal.ReadActualPosition.ErrorID;
+//	
+//	} else if (t->internal.ReadCyclicPosition.Error) {
+//		t->ErrorID = t->internal.ReadCyclicPosition.ErrorID;
+//	
+//	} else if (t->internal.ReadActualVelocity.Error) {
+//		t->ErrorID = t->internal.ReadActualVelocity.ErrorID;
+//	
+//	} else if (t->internal.ReadStatus.Error) {
+//		t->ErrorID = t->internal.ReadStatus.ErrorID;
+//	
+//	} else {
+//		t->ErrorID = 0;
+//	
+//	}
 	
 } // AxisStatus()
