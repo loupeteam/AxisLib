@@ -140,7 +140,7 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 //	MC_BR_InitModPos(&t->Internal.FUB.InitModPos);
 //	
 //	t->Internal.FUB.InitModPos.Execute = 0;
-
+	
 	
 	// Reference									
 	t->Internal.FUB.Reference.Axis = (UDINT)t->pAxisObject;
@@ -310,6 +310,12 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 
 	MC_Reset(&t->Internal.FUB.Reset);
 
+	
+	// Axis Status
+	t->internal.Status.Axis = (UDINT)t->pAxisObject;
+	t->internal.Status.Enable = !t->internal.Status.Error;
+	AxisStatus(&t->Internal.FUB.Status);
+	
 
 	// Reset AcknowledgeError and Reset
 	t->IN.CMD.AcknowledgeError = 0;
