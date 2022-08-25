@@ -85,7 +85,7 @@ void AxisReference(struct AxisReference* t)
 	// Is it okay for AxisReference to depend on AxisStatus?
 	t->internal.Status.Axis = t->Axis;
 	t->internal.Status.Enable = !t->internal.Status.Error;
-	AxisStatus(t->internal.Status);
+	AxisStatus(&t->internal.Status);
 	
 	
 	// Reset internal commands

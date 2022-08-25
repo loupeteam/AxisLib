@@ -312,8 +312,8 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 
 	
 	// Axis Status
-	t->internal.Status.Axis = (UDINT)t->pAxisObject;
-	t->internal.Status.Enable = !t->internal.Status.Error;
+	t->Internal.FUB.Status.Axis = (UDINT)t->pAxisObject;
+	t->Internal.FUB.Status.Enable = !t->internal.Status.Error;
 	AxisStatus(&t->Internal.FUB.Status);
 	
 

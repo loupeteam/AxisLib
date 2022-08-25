@@ -56,7 +56,6 @@ void AxisStatus(struct AxisStatus* t)
 	if (t->Axis == 0) {
 		
 		t->ActualPosition = 0;
-		memset(&t->ActualCyclicPosition, 0, sizeof(t->ActualCyclicPosition));
 		t->ActualVelocity = 0;
 		memset(&t->AxisInfo, 0, sizeof(t->AxisInfo));
 		
@@ -109,15 +108,15 @@ void AxisStatus(struct AxisStatus* t)
 	// FUB status
 	t->Valid = t->internal.ReadAxisInfo.Valid
 		&& t->internal.ReadActualPosition.Valid
-		&& t->internal.ReadActualVelocity.Valid
+		&& t->internal.ReadActualVelocity.Valid;
 	
 	t->Busy = t->internal.ReadAxisInfo.Busy
 		|| t->internal.ReadActualPosition.Busy
-		|| t->internal.ReadActualVelocity.Busy
+		|| t->internal.ReadActualVelocity.Busy;
 	
 	t->Error = t->internal.ReadAxisInfo.Error
 		|| t->internal.ReadActualPosition.Error
-		|| t->internal.ReadActualVelocity.Error
+		|| t->internal.ReadActualVelocity.Error;
 	
 	if (t->internal.ReadAxisInfo.Error) {
 		t->ErrorID = t->internal.ReadAxisInfo.ErrorID;
