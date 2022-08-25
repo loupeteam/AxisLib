@@ -89,7 +89,6 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 		t->OUT.Error = 1;
 		t->OUT.ErrorCount = 1;
 		t->OUT.ErrorID = 29200;
-		strcpy(t->OUT.ErrorString, "pAxisObject is 0. No function possible.");
 		
 		return 0;
 	
@@ -115,41 +114,30 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 	t->OUT.Active = t->IN.CFG.Active;
 
 	
+	// Axis Status
+	t->Internal.FUB.Status.Axis = (UDINT)t->pAxisObject;
+	t->Internal.FUB.Status.Enable = !t->Internal.FUB.Status.Error;
+	AxisStatus(&t->Internal.FUB.Status);
+	memcpy(&t->OUT.AxisInfo, &t->Internal.FUB.Status.AxisInfo, sizeof(t->Internal.FUB.Status.AxisInfo));
+	
+	
 	// Power
 	t->Internal.FUB.Power.Axis = t->pAxisObject;
 	t->Internal.FUB.Power.Enable = t->IN.CMD.Power; // 'dumb Power' input
-	//t->Internal.FUB.Power.Enable = t->IN.CMD.Power && t->OUT.DriveStatus.ControllerReady && t->OUT.DriveStatus.NetworkInit; // TODO: 'smart shouldPower' input - Don't use Errorstop based on PLCOpen state diagram
+	t->Internal.FUB.Power.Enable = t->IN.CMD.Power && t->OUT.AxisInfo.ReadyForPowerOn && t->OUT.AxisInfo.CommunicationReady; // TODO: 'smart shouldPower' input - Don't use Errorstop based on PLCOpen state diagram
 	if(t->Internal.FUB.Power.Enable || t->Internal.FUB.Power.Busy || t->Internal.FUB.Power.Error){
 		MC_Power(&t->Internal.FUB.Power);
 	}
-
-	
-	// InitModPos
-//	if (t->Internal.FUB.InitModPos.Period != t->IN.CFG.Period
-//	|| t->Internal.FUB.InitModPos.Factor != t->IN.CFG.Factor) {
-//	
-//		if (t->IN.CFG.Factor == 0) t->IN.CFG.Factor = 1;
-//		t->Internal.FUB.InitModPos.Period = t->IN.CFG.Period;
-//		t->Internal.FUB.InitModPos.Factor = t->IN.CFG.Factor;
-//		t->Internal.FUB.InitModPos.Execute = 1;
-//	
-//	}
-//
-//	t->Internal.FUB.InitModPos.Axis = (UDINT)t->pAxisObject;
-//	
-//	MC_BR_InitModPos(&t->Internal.FUB.InitModPos);
-//	
-//	t->Internal.FUB.InitModPos.Execute = 0;
 	
 	
 	// Reference									
 	t->Internal.FUB.Reference.Axis = (UDINT)t->pAxisObject;
 	t->Internal.FUB.Reference.RestorePositionVariableAddress = t->pRestorePosition;
-//	t->Internal.FUB.Reference.DefaultPosition = t->IN.CFG.DefaultPosition;
+	t->Internal.FUB.Reference.DefaultPosition = t->IN.CFG.DefaultPosition;
 	t->Internal.FUB.Reference.WaitToInitialize = t->IN.CMD.WaitToInitializeReference;
 	t->Internal.FUB.Reference.Reference = t->IN.CMD.Reference;
 	t->Internal.FUB.Reference.Position = t->IN.CFG.HomingPosition;
-//	t->Internal.FUB.Reference.HomingMode = t->IN.CFG.HomingMode;
+	t->Internal.FUB.Reference.HomingMode = t->IN.CFG.HomingMode;
 	t->Internal.FUB.Reference.ClearReference = t->IN.CMD.ClearReference;
 	
 	AxisReference(&t->Internal.FUB.Reference);
@@ -208,7 +196,7 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 	// Halt												
 	t->Internal.FUB.Halt.Axis = t->pAxisObject;
 	t->Internal.FUB.Halt.Execute = t->IN.CMD.Halt;
-//	t->Internal.FUB.Halt.Deceleration = t->IN.CFG.StopDeceleration;
+	t->Internal.FUB.Halt.Deceleration = t->IN.CFG.StopDeceleration;
 
 	MC_Halt(&t->Internal.FUB.Halt);
 
@@ -216,7 +204,7 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 	// Stop												
 	t->Internal.FUB.Stop.Axis = t->pAxisObject;
 	t->Internal.FUB.Stop.Execute = t->IN.CMD.Stop;
-//	t->Internal.FUB.Stop.Deceleration = t->IN.CFG.StopDeceleration;
+	t->Internal.FUB.Stop.Deceleration = t->IN.CFG.StopDeceleration;
 
 	MC_Stop(&t->Internal.FUB.Stop);
 
@@ -227,7 +215,6 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 		||	t->Internal.FUB.MoveAdditive.Busy
 		||	(t->Internal.FUB.MoveVelocity.Busy && t->Internal.FUB.MoveVelocity.Execute && !(t->Internal.FUB.MoveVelocity.InVelocity))
 		||	t->Internal.FUB.Jog.Busy
-		||	(t->Internal.FUB.MoveCyclicPosition.Busy && (!t->Internal.FUB.MoveCyclicPosition.Valid || (t->OUT.ActualPosition != t->IN.PAR.Position)) )
 		||	t->Internal.FUB.Halt.Busy
 		||	t->Internal.FUB.Stop.Busy
 		||	t->Internal.FUB.Reset.Busy;
@@ -238,7 +225,6 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 		||	t->Internal.FUB.MoveAbsolute.Done
 		||	t->Internal.FUB.MoveAdditive.Done
 		||	t->Internal.FUB.MoveVelocity.InVelocity
-		||	(t->Internal.FUB.MoveCyclicPosition.Valid && (t->OUT.ActualPosition == t->IN.PAR.Position))
 		||	t->Internal.FUB.Halt.Done
 		||	t->Internal.FUB.Stop.Done
 		||	t->Internal.FUB.Reset.Done;
@@ -247,23 +233,22 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 	// Get axis error information
 	t->Internal.FUB.ReadAxisError.Axis = t->pAxisObject;
 	t->Internal.FUB.ReadAxisError.Enable = !(t->Internal.FUB.ReadAxisError.Error);
-//	t->Internal.FUB.ReadAxisError.Acknowledge = t->IN.CMD.AcknowledgeError;
-//	t->Internal.FUB.ReadAxisError.Mode = mcTEXT;
-//
-//	t->Internal.FUB.ReadAxisError.Configuration.Format = mcWRAP + mcNULL;
-//	t->Internal.FUB.ReadAxisError.Configuration.LineLength = sizeof(t->Internal.ErrorString[0]);
-//	t->Internal.FUB.ReadAxisError.Configuration.DataLength = sizeof(t->Internal.ErrorString);
-//	t->Internal.FUB.ReadAxisError.Configuration.DataAddress = (UDINT)&(t->Internal.ErrorString);
-//	strcpy(t->Internal.FUB.ReadAxisError.Configuration.DataObjectName, t->ErrorTextModuleName);
-
-	MC_ReadAxisError(&t->Internal.FUB.ReadAxisError);
-
-
-	if (t->Internal.FUB.ReadAxisError.Valid) {
-//		t->OUT.WarningCount = t->Internal.FUB.ReadAxisError.AxisWarningCount;
-//		t->OUT.ErrorID = t->Internal.FUB.ReadAxisError.ErrorRecord.Number;
-//		t->OUT.ErrorCount = t->Internal.FUB.ReadAxisError.AxisErrorCount + t->Internal.FUB.ReadAxisError.FunctionBlockErrorCount;
-	}
+	t->OUT.ErrorCount = 0;
+	
+	do {
+		// read all axis errors
+		t->Internal.FUB.ReadAxisError.ReadNext = 1;
+		MC_ReadAxisError(&t->Internal.FUB.ReadAxisError);
+	
+		if (t->Internal.FUB.ReadAxisError.Valid && t->Internal.FUB.ReadAxisError.AxisErrorID) {
+			t->OUT.ErrorID = t->Internal.FUB.ReadAxisError.RecordID;
+			t->OUT.ErrorCount++;	
+		}
+	
+		// reset for positive edge
+		t->Internal.FUB.ReadAxisError.ReadNext = 0;
+		MC_ReadAxisError(&t->Internal.FUB.ReadAxisError);
+	} while (t->Internal.FUB.ReadAxisError.AxisErrorID && !t->Internal.FUB.ReadAxisError.Error);
 
 	if (t->Internal.FUB.ReadAxisError.Error) {
 		t->OUT.ErrorID = t->Internal.FUB.ReadAxisError.ErrorID;
@@ -278,49 +263,17 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 		t->OUT.Error = 0;
 	}
 	
-	if ( 1 /*t->Internal.FUB.ReadAxisError.AxisWarningCount != 0*/) {
-		t->OUT.Warning = 1;
-	} else {
-		t->OUT.Warning = 0;
-	}
+	t->OUT.Warning = t->OUT.AxisInfo.AxisWarning;
+
 	
-
-	// Copy Internal.ErrorString[0..3] to OUT.STAT.ErrorString 
-	strcpy(t->OUT.ErrorString, t->Internal.ErrorString[0]);
-
-	if (strcmp(t->Internal.ErrorString[1], "") != 0) {
-		strcat(t->OUT.ErrorString, " / ");
-		strcat(t->OUT.ErrorString, t->Internal.ErrorString[1]);
-	}
-
-	if (strcmp(t->Internal.ErrorString[2], "") != 0) {
-		strcat(t->OUT.ErrorString, " / ");
-		strcat(t->OUT.ErrorString, t->Internal.ErrorString[2]);
-	}
-
-	if (strcmp(t->Internal.ErrorString[3], "") != 0) {
-		strcat(t->OUT.ErrorString, " / ");
-		strcat(t->OUT.ErrorString, t->Internal.ErrorString[3]);
-	}
-
-
 	// Reset
 	t->Internal.FUB.Reset.Axis = t->pAxisObject;
 	t->Internal.FUB.Reset.Execute = t->IN.CMD.Reset;
 
 	MC_Reset(&t->Internal.FUB.Reset);
-
-	
-	// Axis Status
-	t->Internal.FUB.Status.Axis = (UDINT)t->pAxisObject;
-	t->Internal.FUB.Status.Enable = !t->internal.Status.Error;
-	AxisStatus(&t->Internal.FUB.Status);
 	
 
-	// Reset AcknowledgeError and Reset
-	t->IN.CMD.AcknowledgeError = 0;
-	t->TEST.CMD.AcknowledgeError = 0;
-
+	// Reset Reset
 	t->IN.CMD.Reset = 0;
 	t->TEST.CMD.Reset = 0;
 
@@ -329,15 +282,14 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 	t->TEST.STAT.Busy = t->OUT.Busy;
 	t->TEST.STAT.Done = t->OUT.Done;
 	t->TEST.STAT.Warning = t->OUT.Warning;
-	t->TEST.STAT.WarningCount = t->OUT.WarningCount;
 	t->TEST.STAT.Error = t->OUT.Error;
 	t->TEST.STAT.ErrorCount = t->OUT.ErrorCount;
 	t->TEST.STAT.ErrorID = t->OUT.ErrorID;
 	t->TEST.STAT.ActualPosition = t->OUT.ActualPosition;
 	t->TEST.STAT.ActualVelocity = t->OUT.ActualVelocity;
-//	t->TEST.STAT.NetworkInit = t->OUT.DriveStatus.NetworkInit;
-//	t->TEST.STAT.ControllerStatus = t->OUT.DriveStatus.ControllerStatus;
-//	t->TEST.STAT.HomingOk = t->OUT.DriveStatus.HomingOk;
+	t->TEST.STAT.CommunicationReady = t->OUT.AxisInfo.CommunicationReady;
+	t->TEST.STAT.PowerOn = t->OUT.AxisInfo.PowerOn;
+	t->TEST.STAT.IsHomed = t->OUT.AxisInfo.IsHomed;
 
 	return 0;
 	

@@ -63,7 +63,6 @@ TYPE
 		pRestorePosition : UDINT; (*Address of a permanent variable to use the InitEndlessPosition and mcHOMING_RESTORE_POSITION homing method. If this value is non-zero, the position will be restored on startup.*)
 		ErrorTextModuleName : STRING[12] := 'acp10etxen'; (*Name of the acp10 error text module to be used for the drive.*)
 		IN : AxisBasic_IN_typ; (*Axis manager inputs (read/write).*)
-		IO : AxisBasic_IO_typ; (*IO to map to generic IO. To use this, the IO must have "FORCED" in the axis configuration*)
 		OUT : AxisBasic_OUT_typ; (*Axis manager outputs (read only).*)
 		TEST : AxisBasic_TEST_typ; (*Adds functionality to test axis*)
 		Internal : AxisBasic_Internal_typ; (*Internal axis manager variables (not intended to be read or written).*)
@@ -85,18 +84,16 @@ TYPE
 		Halt : BOOL; (*Halt the axis. This command can be interrupted.*)
 		Stop : BOOL; (*Stop the axis. This command CANNOT be interrupted.*)
 		ClearReference : BOOL;
-		AcknowledgeError : BOOL; (*Acknowledge errors on the axis.*)
 		Reset : BOOL;
 		WaitToInitializeReference : BOOL;
 	END_STRUCT;
 	AxisBasic_IN_PAR_typ : 	STRUCT  (*Input parameters.*)
-		Position : REAL := 1000.0; (*Target position for absolute moves.*)
+		Position : LREAL := 1000.0; (*Target position for absolute moves.*)
 		Distance : REAL := 1000.0; (*Distance for additive moves.*)
-		CyclicPosition : LREAL := 0.0; (*Cyclic position input for tracking set position.*)
 		Velocity : REAL := 1000.0; (*Velocity for basic moves (not including jog moves).*)
 		Acceleration : REAL := 10000.0; (*Acceleration for basic moves (not including jog moves).*)
 		Deceleration : REAL := 10000.0; (*Deceleration for basic moves (not including jog moves and stopping).*)
-		Direction : USINT := mcDIR_POSITIVE; (*Direction for basic moves (not including jog moves).*)
+		Direction : McDirectionEnum := mcDIR_POSITIVE; (*Direction for basic moves (not including jog moves).*)
 		JogVelocity : REAL := 100.0; (*Velocity for jog moves.*)
 		JogAcceleration : REAL := 10000.0; (*Acceleration for jog moves.*)
 		JogDeceleration : REAL := 10000.0; (*Deceleration for jog moves.*)
@@ -104,39 +101,27 @@ TYPE
 	AxisBasic_IN_CFG_typ : 	STRUCT  (*Configuration inputs.  These are meant to be written only once.*)
 		Name : STRING[AXLIB_STRLEN_NAME];
 		Active : BOOL;
-		HomingPosition : REAL := 0.0; (*Homing position.*)
+		HomingPosition : LREAL := 0.0; (*Homing position.*)
 		HomingMode : McHomingModeEnum := mcHOMING_DEFAULT; (*Homing mode.*)
-		DefaultPosition : REAL;
+		DefaultPosition : LREAL;
 		StopDeceleration : REAL := 10000.0; (*Deceleration for stopping.*)
-		Factor : UDINT; (*PLCOpen Scale factor*)
-		Period : UDINT; (*Axis period*)
-	END_STRUCT;
-	AxisBasic_IO_typ : 	STRUCT  (*Axis IO, to use these you must add FORCE to the axis init table IO configuration*)
-		diHomeSwitch : BOOL;
-		diNegHWSwitch : BOOL;
-		diPosHWSwitch : BOOL;
-		diTrigger1 : BOOL;
-		diTrigger2 : BOOL;
 	END_STRUCT;
 	AxisBasic_OUT_typ : 	STRUCT  (*Axis manager outputs (read only).*)
 		Active : BOOL;
 		MotionInhibited : BOOL;
-		ActualPosition : REAL; (*Actual position of the axis [Units].*)
-		ActualPositionPrecise : LREAL; (*Actual position of the axis [Units].*)
-		ActualCyclicPosition : LREAL; (*Actual high resolution position of the axis [Units]*)
+		ActualPosition : LREAL; (*Actual position of the axis [Units].*)
 		ActualVelocity : REAL; (*Actual velocity of the axis [Units/s].*)
-		PLCOpenState : AxisLib_PLCOpenState_typ; (*PLCOpen state information.*)
+		AxisInfo : AxisLib_AxisInfo_typ;
+		PLCOpenState : McAxisPLCopenStateEnum; (*PLCOpen state information.*)
 		Referenced : BOOL; (*The axis has been properly referenced. This is set and reset by the application.*)
 		RestorePositionInitialized : BOOL; (*The endless position data has been initialized for the axis.*)
 		DataValid : BOOL; (*The endless position data is valid.*)
 		Done : BOOL; (*Axis is done with the current operation.*)
 		Busy : BOOL; (*Axis is currently performing an operation.*)
 		Warning : BOOL; (*Axis warning is present.*)
-		WarningCount : UINT; (*Number of warnings present on the axis.*)
 		Error : BOOL; (*Axis error is present.*)
 		ErrorCount : UINT; (*Number of errors present on the axis.*)
-		ErrorID : UINT; (*Error ID value for the axis.*)
-		ErrorString : STRING[AXLIB_STRLEN_ERROR]; (*Error description string.*)
+		ErrorID : DINT; (*Error ID value for the axis.*)
 	END_STRUCT;
 	AxisBasic_TEST_typ : 	STRUCT 
 		Enable : BOOL; (*Enable Test mode (Use Values from test CMD's and Pars)*)
@@ -148,19 +133,17 @@ TYPE
 		Busy : BOOL; (*Axis is currently performing an operation.*)
 		Done : BOOL; (*Axis is done with the current operation.*)
 		Warning : BOOL; (*Axis warning is present.*)
-		WarningCount : UINT; (*Number of warnings present on the axis.*)
 		Error : BOOL; (*Axis error is present.*)
 		ErrorCount : UINT; (*Number of errors present on the axis.*)
 		ErrorID : UINT; (*Error ID value for the axis.*)
-		ActualPosition : REAL; (*Actual position of the axis [Units].*)
+		ActualPosition : LREAL; (*Actual position of the axis [Units].*)
 		ActualVelocity : REAL; (*Actual velocity of the axis [Units/s].*)
-		NetworkInit : BOOL; (*shows that the network is initialized*)
-		ControllerStatus : BOOL; (*shows that the controller is turned on*)
-		HomingOk : BOOL; (*shows that the axis is referenced*)
+		CommunicationReady : BOOL; (*shows that the network is initialized*)
+		PowerOn : BOOL; (*shows that the controller is turned on*)
+		IsHomed : BOOL; (*shows that the axis is referenced*)
 	END_STRUCT;
 	AxisBasic_Internal_typ : 	STRUCT  (*Internal axis manager variables (not intended to be read or written).*)
 		FUB : AxisBasic_Int_FUB_typ;
-		ErrorString : ARRAY[0..3]OF STRING[79]; (*Error description string.*)
 		ResetOK : BOOL; (*It is OK to call MC_Reset. Necessary because of timing between Errorstop state and error reporting.*)
 	END_STRUCT;
 	AxisBasic_Int_FUB_typ : 	STRUCT 
