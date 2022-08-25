@@ -116,7 +116,7 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 
 	
 	// Power
-	t->Internal.FUB.Power.Axis = (UDINT)t->pAxisObject;
+	t->Internal.FUB.Power.Axis = t->pAxisObject;
 	t->Internal.FUB.Power.Enable = t->IN.CMD.Power; // 'dumb Power' input
 	//t->Internal.FUB.Power.Enable = t->IN.CMD.Power && t->OUT.DriveStatus.ControllerReady && t->OUT.DriveStatus.NetworkInit; // TODO: 'smart shouldPower' input - Don't use Errorstop based on PLCOpen state diagram
 	if(t->Internal.FUB.Power.Enable || t->Internal.FUB.Power.Busy || t->Internal.FUB.Power.Error){
@@ -160,7 +160,7 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 
 
 	// Move Absolute 
-	t->Internal.FUB.MoveAbsolute.Axis = (UDINT)t->pAxisObject;
+	t->Internal.FUB.MoveAbsolute.Axis = t->pAxisObject;
 	t->Internal.FUB.MoveAbsolute.Execute = t->IN.CMD.MoveAbsolute;
 	t->Internal.FUB.MoveAbsolute.Position = t->IN.PAR.Position;
 	t->Internal.FUB.MoveAbsolute.Velocity = t->IN.PAR.Velocity;
@@ -172,7 +172,7 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 
 
 	// Move Additive 
-	t->Internal.FUB.MoveAdditive.Axis = (UDINT)t->pAxisObject;
+	t->Internal.FUB.MoveAdditive.Axis = t->pAxisObject;
 	t->Internal.FUB.MoveAdditive.Execute = t->IN.CMD.MoveAdditive;
 	t->Internal.FUB.MoveAdditive.Distance = t->IN.PAR.Distance;
 	t->Internal.FUB.MoveAdditive.Velocity = t->IN.PAR.Velocity;
@@ -183,7 +183,7 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 
 
 	// Move Velocity 
-	t->Internal.FUB.MoveVelocity.Axis = (UDINT)t->pAxisObject;
+	t->Internal.FUB.MoveVelocity.Axis = t->pAxisObject;
 	t->Internal.FUB.MoveVelocity.Execute = t->IN.CMD.MoveVelocity;
 	t->Internal.FUB.MoveVelocity.Velocity = t->IN.PAR.Velocity;
 	t->Internal.FUB.MoveVelocity.Acceleration = t->IN.PAR.Acceleration;
@@ -194,7 +194,7 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 
 
 	// Jog 
-	t->Internal.FUB.Jog.Axis = (UDINT)t->pAxisObject;
+	t->Internal.FUB.Jog.Axis = t->pAxisObject;
 	t->Internal.FUB.Jog.Enable = t->IN.CMD.JogForward || t->IN.CMD.JogReverse || t->Internal.FUB.Jog.Jogging;
 	t->Internal.FUB.Jog.Velocity = t->IN.PAR.JogVelocity;
 	t->Internal.FUB.Jog.Acceleration = t->IN.PAR.JogAcceleration;
@@ -206,7 +206,7 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 
 
 	// Halt												
-	t->Internal.FUB.Halt.Axis = (UDINT)t->pAxisObject;
+	t->Internal.FUB.Halt.Axis = t->pAxisObject;
 	t->Internal.FUB.Halt.Execute = t->IN.CMD.Halt;
 //	t->Internal.FUB.Halt.Deceleration = t->IN.CFG.StopDeceleration;
 
@@ -214,7 +214,7 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 
 
 	// Stop												
-	t->Internal.FUB.Stop.Axis = (UDINT)t->pAxisObject;
+	t->Internal.FUB.Stop.Axis = t->pAxisObject;
 	t->Internal.FUB.Stop.Execute = t->IN.CMD.Stop;
 //	t->Internal.FUB.Stop.Deceleration = t->IN.CFG.StopDeceleration;
 
@@ -244,8 +244,8 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 		||	t->Internal.FUB.Reset.Done;
 					
 
-	// Get axis error information 
-	t->Internal.FUB.ReadAxisError.Axis = (UDINT)t->pAxisObject;
+	// Get axis error information
+	t->Internal.FUB.ReadAxisError.Axis = t->pAxisObject;
 	t->Internal.FUB.ReadAxisError.Enable = !(t->Internal.FUB.ReadAxisError.Error);
 //	t->Internal.FUB.ReadAxisError.Acknowledge = t->IN.CMD.AcknowledgeError;
 //	t->Internal.FUB.ReadAxisError.Mode = mcTEXT;
@@ -305,7 +305,7 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 
 
 	// Reset
-	t->Internal.FUB.Reset.Axis = (UDINT)t->pAxisObject;
+	t->Internal.FUB.Reset.Axis = t->pAxisObject;
 	t->Internal.FUB.Reset.Execute = t->IN.CMD.Reset;
 
 	MC_Reset(&t->Internal.FUB.Reset);

@@ -155,7 +155,7 @@ void AxisReference(struct AxisReference* t)
 			// If data is valid, initialize, then home restore pos
 			// If bad data, do not initialize, then direct home to DefaultPosition
 	
-			t->internal.CheckRestorePos.Axis = t->Axis;
+			t->internal.CheckRestorePos.Axis = (McAxisType*)t->Axis;
 			t->internal.CheckRestorePos.DataAddress = t->RestorePositionVariableAddress;
 			t->internal.CheckRestorePos.Execute = 1;
 		
@@ -191,7 +191,7 @@ void AxisReference(struct AxisReference* t)
 		
 		case AXISLIB_REFST_START_INIT:
 	
-			t->internal.InitHome.Axis = t->Axis;
+			t->internal.InitHome.Axis = (McAxisType*)t->Axis;
 			t->internal.InitHome.HomingParameters.RestorePositionVariableAddress = t->RestorePositionVariableAddress;
 			t->internal.InitHome.HomingParameters.HomingMode = t->HomingMode;
 			t->internal.InitHome.Execute = 1;
@@ -221,7 +221,7 @@ void AxisReference(struct AxisReference* t)
 		
 		case AXISLIB_REFST_START_HOME:
 
-			t->internal.Home.Axis = t->Axis;
+			t->internal.Home.Axis = (McAxisType*)t->Axis;
 			t->internal.Home.Execute = 1;
 			t->internal.Home.Position = t->DefaultPosition;
 			
@@ -336,7 +336,7 @@ void AxisReference(struct AxisReference* t)
 		
 		case AXISLIB_REFST_REF_INIT:
 	
-			t->internal.InitHome.Axis = t->Axis;
+			t->internal.InitHome.Axis = (McAxisType*)t->Axis;
 			t->internal.InitHome.HomingParameters.RestorePositionVariableAddress = t->RestorePositionVariableAddress;
 			t->internal.InitHome.HomingParameters.HomingMode = t->HomingMode;
 			t->internal.InitHome.HomingParameters.Position = t->Position;
@@ -370,7 +370,7 @@ void AxisReference(struct AxisReference* t)
 		
 		case AXISLIB_REFST_REF_HOME:
 
-			t->internal.Home.Axis = t->Axis;
+			t->internal.Home.Axis = (McAxisType*)t->Axis;
 			t->internal.Home.Execute = 1;
 			t->internal.Home.HomingMode = mcHOMING_INIT;
 			
@@ -414,7 +414,7 @@ void AxisReference(struct AxisReference* t)
 		case AXISLIB_REFST_CLEAR_INIT:
 		
 			// Init to internal and clear external to REALLY clear the reference
-			t->internal.InitHome.Axis = t->Axis;
+			t->internal.InitHome.Axis = (McAxisType*)t->Axis;
 			t->internal.InitHome.HomingParameters.RestorePositionVariableAddress = (UDINT)&(t->internal.restorePos);
 			t->internal.InitHome.Execute = 1;
 

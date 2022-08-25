@@ -85,7 +85,7 @@ void AxisStatus(struct AxisStatus* t)
 
 	
 	// Position
-	t->internal.ReadActualPosition.Axis = (UDINT)t->Axis;
+	t->internal.ReadActualPosition.Axis = (McAxisType*)t->Axis;
 	t->internal.ReadActualPosition.Enable = t->Enable && !t->internal.ReadActualPosition.Error && t->AxisInfo.CommunicationReady;
 
 	MC_ReadActualPosition(&t->internal.ReadActualPosition);
@@ -97,7 +97,7 @@ void AxisStatus(struct AxisStatus* t)
 	
 	
 	// Velocity
-	t->internal.ReadActualVelocity.Axis = (UDINT)t->Axis;
+	t->internal.ReadActualVelocity.Axis = (McAxisType*)t->Axis;
 	t->internal.ReadActualVelocity.Enable = t->Enable && !t->internal.ReadActualVelocity.Error && t->AxisInfo.CommunicationReady;
 
 	MC_ReadActualVelocity(&t->internal.ReadActualVelocity);
