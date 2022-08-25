@@ -11,9 +11,9 @@
 
 TYPE
 	AxisStatus_Int_typ : 	STRUCT 
-		ReadAxisInfo : MC_ReadAxisInfo;
 		ReadActualPosition : MC_ReadActualPosition;
 		ReadActualVelocity : MC_ReadActualVelocity;
+		ReadAxisInfo : MC_ReadAxisInfo;
 	END_STRUCT;
 	AxisLib_AxisInfo_typ : 	STRUCT 
 		AdditionalInfo : McAddInfoType;
@@ -30,13 +30,17 @@ END_TYPE
 
 TYPE
 	AxisReference_Int_typ : 	STRUCT 
-		state : AXISLIB_REFST_enum; (*driveStatus : MC_DRIVESTATUS_TYP;*) (*endlessPosition : MC_ENDLESS_POSITION;*)
-		Reference : BOOL;
-		ClearReference : BOOL;
+		clearReference : BOOL;
 		needToClearReference : BOOL;
-		oldNetworkInit : BOOL; (*initHomeParam : ACP10HOMPA_typ;*) (*readDriveStatus : MC_BR_ReadDriveStatus;*)
-		readStatus : MC_ReadStatus; (*checkEndlessPos : MC_BR_CheckEndlessPosition;*) (*initEndlessPos : MC_BR_InitEndlessPosition;*)
-		home : MC_Home;
+		oldCommunicationReady : BOOL;
+		oldStartupCount : UDINT;
+		reference : BOOL;
+		restorePos : McAcpAxRestorePosType;
+		state : AXISLIB_REFST_enum;
+		CheckRestorePos : MC_BR_CheckRestorePositionData;
+		InitHome : MC_BR_InitHome_AcpAx;
+		Home : MC_Home;
+		Status : AxisStatus;
 	END_STRUCT;
 	AXISLIB_REFST_enum : 
 		(
@@ -104,7 +108,6 @@ TYPE
 		HomingMode : McHomingModeEnum := mcHOMING_DEFAULT; (*Homing mode.*)
 		DefaultPosition : REAL;
 		StopDeceleration : REAL := 10000.0; (*Deceleration for stopping.*)
-		ReadCyclicPositionParID : UINT; (*ParID to use for reading the cyclic position. 0 implies SGEN_S_SET.*)
 		Factor : UDINT; (*PLCOpen Scale factor*)
 		Period : UDINT; (*Axis period*)
 	END_STRUCT;
@@ -121,7 +124,7 @@ TYPE
 		ActualPosition : REAL; (*Actual position of the axis [Units].*)
 		ActualPositionPrecise : LREAL; (*Actual position of the axis [Units].*)
 		ActualCyclicPosition : LREAL; (*Actual high resolution position of the axis [Units]*)
-		ActualVelocity : REAL; (*Actual velocity of the axis [Units/s].*) (*DriveStatus : MC_DRIVESTATUS_TYP; MC_ReadAxisInfo (*Drive status information.*)
+		ActualVelocity : REAL; (*Actual velocity of the axis [Units/s].*)
 		PLCOpenState : AxisLib_PLCOpenState_typ; (*PLCOpen state information.*)
 		Referenced : BOOL; (*The axis has been properly referenced. This is set and reset by the application.*)
 		EndlessPositionInitialized : BOOL; (*The endless position data has been initialized for the axis.*)
@@ -162,17 +165,16 @@ TYPE
 	END_STRUCT;
 	AxisBasic_Int_FUB_typ : 	STRUCT 
 		Status : AxisStatus;
-		Power : MC_Power; (*SetHardwareInputs : {REDUND_UNREPLICABLE} MC_BR_SetHardwareInputs;*)
+		Power : MC_Power;
 		Reference : AxisReference;
 		Home : MC_Home;
 		MoveAbsolute : MC_MoveAbsolute;
 		MoveAdditive : MC_MoveAdditive;
 		MoveVelocity : MC_MoveVelocity;
 		Jog : MC_BR_JogVelocity;
-		MoveCyclicPosition : MC_BR_MoveCyclicPosition;
 		Halt : MC_Halt;
 		Stop : MC_Stop;
 		ReadAxisError : MC_ReadAxisError;
-		Reset : MC_Reset; (*InitModPos : MC_BR_InitModPos;*)
+		Reset : MC_Reset;
 	END_STRUCT;
 END_TYPE

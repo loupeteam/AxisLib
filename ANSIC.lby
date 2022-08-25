@@ -14,5 +14,6 @@
   </Files>
   <Dependencies>
     <Dependency ObjectName="McAxis" />
+    <Dependency ObjectName="McAcpAx" />
   </Dependencies>
 </Library>

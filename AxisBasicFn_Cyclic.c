@@ -144,7 +144,7 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 	
 	// Reference									
 	t->Internal.FUB.Reference.Axis = (UDINT)t->pAxisObject;
-	t->Internal.FUB.Reference.EndlessPositionDataAddress = t->pEndlessPosition;
+	t->Internal.FUB.Reference.RestorePositionVariableAddress = t->pRestorePosition;
 //	t->Internal.FUB.Reference.DefaultPosition = t->IN.CFG.DefaultPosition;
 	t->Internal.FUB.Reference.WaitToInitialize = t->IN.CMD.WaitToInitializeReference;
 	t->Internal.FUB.Reference.Reference = t->IN.CMD.Reference;

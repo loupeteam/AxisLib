@@ -63,6 +63,7 @@ void AxisReference(struct AxisReference* t)
 	
 	if (t == 0) return;
 	
+	
 	// Check Axis
 	if (t->Axis == 0) {
 		
@@ -79,32 +80,33 @@ void AxisReference(struct AxisReference* t)
 	
 	}
 	
-	// Get drive status information
-//	t->internal.readDriveStatus.Axis = t->Axis;
-//	t->internal.readDriveStatus.Enable = !t->internal.readDriveStatus.Error;
-//	t->internal.readDriveStatus.AdrDriveStatus = (UDINT)&(t->internal.driveStatus);				
-//	MC_BR_ReadDriveStatus(&t->internal.readDriveStatus);
 	
-	t->internal.readStatus.Axis = t->Axis;
-	t->internal.readStatus.Enable = !t->internal.readStatus.Error;
-	MC_ReadStatus(&t->internal.readStatus);
-		
+	// Get axis status
+	// Is it okay for AxisReference to depend on AxisStatus?
+	t->internal.Status.Axis = t->Axis;
+	t->internal.Status.Enable = !t->internal.Status.Error;
+	AxisStatus(t->internal.Status);
+	
 	
 	// Reset internal commands
 	if (!t->Reference) {
-		t->internal.Reference = 0;
+		t->internal.reference = 0;
 	}
 	
 	if (!t->ClearReference) {
-		t->internal.ClearReference = 0;
+		t->internal.clearReference = 0;
 	}
 	
+	
 	// If drive is reset, reinitialize
-//	if (t->internal.driveStatus.NetworkInit && !t->internal.oldNetworkInit && t->internal.driveStatus.ResetDone) {
+	// TODO: Make sure this works. It probably won't. Can we just check this with PLCopen state STARTUP?
+	if (t->internal.Status.AxisInfo.CommunicationReady && !t->internal.oldCommunicationReady && (t->internal.Status.AxisInfo.AdditionalInfo.StartupCount > t->internal.oldStartupCount)) {
 		t->internal.state = AXISLIB_REFST_START;
-//	}
+	}
 
-//	t->internal.oldNetworkInit = t->internal.driveStatus.NetworkInit;
+	// If these don't change simultaneously this won't work
+	t->internal.oldCommunicationReady = t->internal.Status.AxisInfo.CommunicationReady;
+	t->internal.oldStartupCount = t->internal.Status.AxisInfo.AdditionalInfo.StartupCount;
 		
 	
 	// Main state machine
@@ -125,27 +127,24 @@ void AxisReference(struct AxisReference* t)
 			t->DataValid = 0;
 
 			// Reset FUBs
-//			t->internal.checkEndlessPos.Execute = 0;
-//			t->internal.initEndlessPos.Execute = 0;
-			t->internal.home.Execute = 0;
+			t->internal.CheckRestorePos.Execute = 0;
+			t->internal.InitHome.Execute = 0;
+			t->internal.Home.Execute = 0;
 			
-//			if (	t->internal.driveStatus.NetworkInit 
-//				&& t->internal.readDriveStatus.Valid
-//				&& !t->WaitToInitialize 
-//				&& (t->internal.readStatus.Disabled || t->internal.readStatus.StandStill)
-//				&& t->internal.readStatus.Valid
-//			) {
-//			
-//				t->Busy = 1;
-//			
-//				memcpy(&t->internal.initHomeParam, &((ACP10AXIS_typ*)t->Axis)->move.homing.parameter, sizeof(t->internal.initHomeParam));
-//			
-//				if (t->EndlessPositionDataAddress != 0) {
-//					t->internal.state = AXISLIB_REFST_START_CHECK;
-//				} else {
+			if (t->internal.Status.AxisInfo.CommunicationReady 
+				&& t->internal.Status.Valid
+				&& !t->WaitToInitialize 
+				&& ((t->internal.Status.AxisInfo.AdditionalInfo.PLCopenState == mcAXIS_DISABLED) || (t->internal.Status.AxisInfo.AdditionalInfo.PLCopenState == mcAXIS_STANDSTILL))
+			) {
+			
+				t->Busy = 1;
+			
+				if (t->RestorePositionVariableAddress != 0) {
+					t->internal.state = AXISLIB_REFST_START_CHECK;
+				} else {
 					t->internal.state = AXISLIB_REFST_START_HOME;
-//				}
-//			}
+				}
+			}
 		
 			break;
 		
@@ -156,118 +155,113 @@ void AxisReference(struct AxisReference* t)
 			// If data is valid, initialize, then home restore pos
 			// If bad data, do not initialize, then direct home to DefaultPosition
 	
-//			t->internal.checkEndlessPos.Axis = t->Axis;
-//			t->internal.checkEndlessPos.DataAddress = t->EndlessPositionDataAddress;
-//			t->internal.checkEndlessPos.Execute = 1;
+			t->internal.CheckRestorePos.Axis = t->Axis;
+			t->internal.CheckRestorePos.DataAddress = t->RestorePositionVariableAddress;
+			t->internal.CheckRestorePos.Execute = 1;
 		
-//			if (t->internal.checkEndlessPos.Done) {
-//		
-//				t->internal.checkEndlessPos.Execute = 0;
-//		
-//				t->EndlessPositionInitialized = t->internal.checkEndlessPos.EndlessPositionInitialized;
-//				t->DataValid = t->internal.checkEndlessPos.DataValid;
-//
-//				if (t->DataValid) {
-//					t->internal.state = AXISLIB_REFST_START_INIT;
-//				} else {
-//					t->internal.state = AXISLIB_REFST_START_HOME;
-//				}
-//			
-//			} else if (t->internal.checkEndlessPos.Error) {
-//		
-//				t->internal.checkEndlessPos.Execute = 0;
-//			
-//				t->Error = 1;
-//				t->ErrorID = t->internal.checkEndlessPos.ErrorID;
-//			
-//				t->EndlessPositionInitialized = 0;
-//				t->DataValid = 0;
-//
+			if (t->internal.CheckRestorePos.Done) {
+		
+				t->internal.CheckRestorePos.Execute = 0;
+		
+				t->EndlessPositionInitialized = t->internal.CheckRestorePos.DataInUse;
+				t->DataValid = t->internal.CheckRestorePos.DataValid;
+
+				if (t->DataValid) {
+					t->internal.state = AXISLIB_REFST_START_INIT;
+				} else {
+					t->internal.state = AXISLIB_REFST_START_HOME;
+				}
+			
+			} else if (t->internal.CheckRestorePos.Error) {
+		
+				t->internal.CheckRestorePos.Execute = 0;
+			
+				t->Error = 1;
+				t->ErrorID = t->internal.CheckRestorePos.ErrorID;
+			
+				t->EndlessPositionInitialized = 0;
+				t->DataValid = 0;
+
 				t->internal.state = AXISLIB_REFST_START_HOME;
-//		
-//			}
+		
+			}
 
 			break;
 			
 		
 		case AXISLIB_REFST_START_INIT:
 	
-//			t->internal.initEndlessPos.Axis = t->Axis;
-//			t->internal.initEndlessPos.DataAddress = t->EndlessPositionDataAddress;
-//			t->internal.initEndlessPos.Execute = 1;
-//
-//			if (t->internal.initEndlessPos.Done) {
-//	
-//				t->internal.initEndlessPos.Execute=	0;
-//			
-//				t->EndlessPositionInitialized = 1;
-//				t->internal.state = AXISLIB_REFST_START_HOME;
-//		
-//			} else if (t->internal.initEndlessPos.Error) {
-//	
-//				t->internal.initEndlessPos.Execute = 0;
-//
-//				t->Error = 1;
-//				t->ErrorID = t->internal.initEndlessPos.ErrorID;
-//
-//				t->EndlessPositionInitialized = 0;
-//				
+			t->internal.InitHome.Axis = t->Axis;
+			t->internal.InitHome.HomingParameters.RestorePositionVariableAddress = t->RestorePositionVariableAddress;
+			t->internal.InitHome.HomingParameters.HomingMode = t->HomingMode;
+			t->internal.InitHome.Execute = 1;
+
+			if (t->internal.InitHome.Done) {
+	
+				t->internal.InitHome.Execute=	0;
+			
+				t->EndlessPositionInitialized = 1;
 				t->internal.state = AXISLIB_REFST_START_HOME;
-//	
-//			}
+		
+			} else if (t->internal.InitHome.Error) {
+	
+				t->internal.InitHome.Execute = 0;
+
+				t->Error = 1;
+				t->ErrorID = t->internal.InitHome.ErrorID;
+
+				t->EndlessPositionInitialized = 0;
+				
+				t->internal.state = AXISLIB_REFST_START_HOME;
+	
+			}
 	
 			break;
 		
 		
 		case AXISLIB_REFST_START_HOME:
 
-			t->internal.home.Axis = t->Axis;
-			t->internal.home.Execute = 1;
-			t->internal.home.Position = t->DefaultPosition;
+			t->internal.Home.Axis = t->Axis;
+			t->internal.Home.Execute = 1;
+			t->internal.Home.Position = t->DefaultPosition;
 			
 			if (t->DataValid && t->EndlessPositionInitialized) {
-				t->internal.home.HomingMode = mcHOMING_RESTORE_POSITION;
+				t->internal.Home.HomingMode = mcHOMING_INIT;
 			} else {
-				t->internal.home.HomingMode = mcHOMING_DIRECT;
+				t->internal.Home.HomingMode = mcHOMING_DIRECT;
 			}
 			
-//			if (t->internal.home.Done && t->internal.driveStatus.HomingOk) {
-//		
-//				t->internal.home.Execute = 0;
-//			
-//				memcpy(&((ACP10AXIS_typ*)t->Axis)->move.homing.parameter, &t->internal.initHomeParam, sizeof(t->internal.initHomeParam));
-//			
-//				t->Busy = 0;
-//			
-//				if (t->internal.home.HomingMode == mcHOME_RESTORE_POS) {
-//					t->Referenced = 1;
-//				}
-//				
-//				t->internal.state = AXISLIB_REFST_IDLE;
-//				
-//			} else if (t->internal.home.CommandAborted) {
-//				
-//				t->internal.home.Execute = 0;
-//			
-//				memcpy(&((ACP10AXIS_typ*)t->Axis)->move.homing.parameter, &t->internal.initHomeParam, sizeof(t->internal.initHomeParam));
-//			
-//				t->Busy = 0;
-//				
-//				t->internal.state = AXISLIB_REFST_IDLE;
-//				
-//			} else if (t->internal.home.Error) {
-//		
-//				t->internal.home.Execute = 0;
-//			
-//				memcpy(&((ACP10AXIS_typ*)t->Axis)->move.homing.parameter, &t->internal.initHomeParam, sizeof(t->internal.initHomeParam));
-//			
-//				t->Busy = 0;
-//				t->Error = 1;
-//				t->ErrorID = t->internal.home.ErrorID;
-//			
+			if (t->internal.Home.Done && t->internal.Status.AxisInfo.IsHomed) {
+		
+				t->internal.Home.Execute = 0;
+			
+				t->Busy = 0;
+			
+				if (t->internal.Home.HomingMode == mcHOMING_INIT && t->internal.InitHome.HomingParameters.HomingMode == mcHOMING_RESTORE_POSITION) {
+					t->Referenced = 1;
+				}
+				
 				t->internal.state = AXISLIB_REFST_IDLE;
-//		
-//			}
+				
+			} else if (t->internal.Home.CommandAborted) {
+				
+				t->internal.Home.Execute = 0;
+			
+				t->Busy = 0;
+				
+				t->internal.state = AXISLIB_REFST_IDLE;
+				
+			} else if (t->internal.Home.Error) {
+		
+				t->internal.Home.Execute = 0;
+			
+				t->Busy = 0;
+				t->Error = 1;
+				t->ErrorID = t->internal.Home.ErrorID;
+			
+				t->internal.state = AXISLIB_REFST_IDLE;
+		
+			}
 		
 			break;
 		
@@ -286,16 +280,14 @@ void AxisReference(struct AxisReference* t)
 			}
 							
 			// Reset FUBs 
-//			t->internal.checkEndlessPos.Execute = 0;
-//			t->internal.initEndlessPos.Execute = 0;
-			t->internal.home.Execute = 0;
+			t->internal.CheckRestorePos.Execute = 0;
+			t->internal.InitHome.Execute = 0;
+			t->internal.Home.Execute = 0;
 		
 			// Check for commands
-			if (t->Reference && !t->internal.Reference) {
+			if (t->Reference && !t->internal.reference) {
 				
-				t->internal.Reference = 1;
-			
-//				memcpy(&t->internal.initHomeParam, &((ACP10AXIS_typ*)t->Axis)->move.homing.parameter, sizeof(t->internal.initHomeParam));
+				t->internal.reference = 1;
 				
 				t->Done = 0;
 				t->Busy = 1;
@@ -304,18 +296,18 @@ void AxisReference(struct AxisReference* t)
 				t->ErrorID = 0;
 				t->Referenced = 0;
 				
-				if (t->EndlessPositionDataAddress != 0) {
+				if (t->RestorePositionVariableAddress != 0) {
 					t->internal.state = AXISLIB_REFST_REF_INIT;
 				} else {
 					t->internal.state = AXISLIB_REFST_REF_HOME;
 				}
 		
-			} else if ((t->ClearReference && !t->internal.ClearReference) || t->internal.needToClearReference) {
+			} else if ((t->ClearReference && !t->internal.clearReference) || t->internal.needToClearReference) {
 				
-				t->internal.ClearReference = 1;
+				t->internal.clearReference = 1;
 				t->internal.needToClearReference = 0;
 
-				if (t->EndlessPositionDataAddress != 0) {
+				if (t->RestorePositionVariableAddress != 0) {
 					
 					t->Done = 0;
 					t->Busy = 1;
@@ -344,79 +336,77 @@ void AxisReference(struct AxisReference* t)
 		
 		case AXISLIB_REFST_REF_INIT:
 	
-//			t->internal.initEndlessPos.Axis = t->Axis;
-//			t->internal.initEndlessPos.DataAddress = t->EndlessPositionDataAddress;
-//			t->internal.initEndlessPos.Execute = 1;
-//
-//			if (t->internal.initEndlessPos.Done) {
-//	
-//				t->internal.initEndlessPos.Execute = 0;
-//			
-//				t->EndlessPositionInitialized = 1;
-//				
-//				t->internal.state = AXISLIB_REFST_REF_HOME;
-//		
-//			} else if (t->internal.initEndlessPos.Error) {
-//	
-//				t->internal.initEndlessPos.Execute = 0;
-//
-//				t->Error = 1;
-//				t->ErrorID = t->internal.initEndlessPos.ErrorID;
-//				t->EndlessPositionInitialized = 0;
-//				
+			t->internal.InitHome.Axis = t->Axis;
+			t->internal.InitHome.HomingParameters.RestorePositionVariableAddress = t->RestorePositionVariableAddress;
+			t->internal.InitHome.HomingParameters.HomingMode = t->HomingMode;
+			t->internal.InitHome.HomingParameters.Position = t->Position;
+			// TODO: Make sure all relevant homing parameters are set for whatever homing mode we may be using
+			t->internal.InitHome.Execute = 1;
+
+			if (t->internal.InitHome.Done) {
+	
+				t->internal.InitHome.Execute = 0;
+			
+				if (t->HomingMode == mcHOMING_RESTORE_POSITION) {
+					t->EndlessPositionInitialized = 1;
+				}
+				
 				t->internal.state = AXISLIB_REFST_REF_HOME;
-//	
-//			}
+		
+			} else if (t->internal.InitHome.Error) {
+	
+				t->internal.InitHome.Execute = 0;
+
+				t->Error = 1;
+				t->ErrorID = t->internal.InitHome.ErrorID;
+				t->EndlessPositionInitialized = 0;
+				
+				t->internal.state = AXISLIB_REFST_IDLE;
+	
+			}
 	
 			break;
 		
 		
 		case AXISLIB_REFST_REF_HOME:
 
-			t->internal.home.Axis = t->Axis;
-			t->internal.home.Execute = 1;
-			t->internal.home.Position = t->Position;
-			t->internal.home.HomingMode = t->HomingMode;
+			t->internal.Home.Axis = t->Axis;
+			t->internal.Home.Execute = 1;
+			t->internal.Home.HomingMode = mcHOMING_INIT;
 			
-//			if (t->internal.home.Done && t->internal.driveStatus.HomingOk) {
-//		
-//				t->internal.home.Execute = 0;
-//			
-//				memcpy(&((ACP10AXIS_typ*)t->Axis)->move.homing.parameter, &t->internal.initHomeParam, sizeof(t->internal.initHomeParam));
-//			
-//				t->Done = 1;
-//				t->Busy = 0;
-//				t->Referenced = 1;
-//				t->DataValid = t->EndlessPositionInitialized;
-//								
-//				t->internal.state = AXISLIB_REFST_IDLE;
-//				
-//			} else if (t->internal.home.CommandAborted) {
-//				
-//				t->internal.home.Execute = 0;
-//			
-//				memcpy(&((ACP10AXIS_typ*)t->Axis)->move.homing.parameter, &t->internal.initHomeParam, sizeof(t->internal.initHomeParam));
-//				
-//				t->CommandAborted = 1;
-//				t->Busy = 0;
-//				t->Referenced = 0;
-//				
-//				t->internal.state = AXISLIB_REFST_IDLE;
-//				
-//			} else if (t->internal.home.Error) {
-//		
-//				t->internal.home.Execute = 0;
-//			
-//				memcpy(&((ACP10AXIS_typ*)t->Axis)->move.homing.parameter, &t->internal.initHomeParam, sizeof(t->internal.initHomeParam));
-//			
-//				t->Error = 1;
-//				t->ErrorID = t->internal.home.ErrorID;
-//				t->Busy = 0;
-//				t->Referenced = 0;
-//			
+			if (t->internal.Home.Done && t->internal.Status.AxisInfo.IsHomed) {
+		
+				t->internal.Home.Execute = 0;
+			
+				t->Done = 1;
+				t->Busy = 0;
+				t->Referenced = 1;
+				t->DataValid = t->EndlessPositionInitialized;
+								
 				t->internal.state = AXISLIB_REFST_IDLE;
-//		
-//			}
+				
+			} else if (t->internal.Home.CommandAborted) {
+				
+				t->internal.Home.Execute = 0;
+				
+				t->CommandAborted = 1;
+				t->Busy = 0;
+				t->Referenced = 0;
+				
+				t->internal.state = AXISLIB_REFST_IDLE;
+				
+			} else if (t->internal.Home.Error) {
+		
+				t->internal.Home.Execute = 0;
+			
+				t->Error = 1;
+				t->ErrorID = t->internal.Home.ErrorID;
+				t->Busy = 0;
+				t->Referenced = 0;
+			
+				t->internal.state = AXISLIB_REFST_IDLE;
+		
+			}
 		
 			break;
 		
@@ -424,40 +414,40 @@ void AxisReference(struct AxisReference* t)
 		case AXISLIB_REFST_CLEAR_INIT:
 		
 			// Init to internal and clear external to REALLY clear the reference
-//			t->internal.initEndlessPos.Axis = t->Axis;
-//			t->internal.initEndlessPos.DataAddress = (UDINT)&(t->internal.endlessPosition);
-//			t->internal.initEndlessPos.Execute = 1;
-//
-//			if (t->internal.initEndlessPos.Done) {
-//	
-//				t->internal.initEndlessPos.Execute = 0;
-//			
-//				if (t->EndlessPositionDataAddress != 0) {
-//					memset((void*)t->EndlessPositionDataAddress, 0, sizeof(MC_ENDLESS_POSITION));
-//				}
-//				
-//				t->Done = 1;
-//				t->Busy = 0;
-//				t->Referenced = 0;
-//				t->EndlessPositionInitialized = 0;
-//				t->DataValid = 0;
-//				
-//				t->internal.state = AXISLIB_REFST_IDLE;
-//		
-//			} else if (t->internal.initEndlessPos.Error) {
-//	
-//				t->internal.initEndlessPos.Execute = 0;
-//
-//				t->Error = 1;
-//				t->ErrorID = t->internal.initEndlessPos.ErrorID;
-//				t->Busy = 0;
-//				t->Referenced = 0;
-//				t->EndlessPositionInitialized = 0;
-//				t->DataValid = 0;
-//				
+			t->internal.InitHome.Axis = t->Axis;
+			t->internal.InitHome.HomingParameters.RestorePositionVariableAddress = (UDINT)&(t->internal.restorePos);
+			t->internal.InitHome.Execute = 1;
+
+			if (t->internal.InitHome.Done) {
+	
+				t->internal.InitHome.Execute = 0;
+			
+				if (t->RestorePositionVariableAddress != 0) {
+					memset((void*)t->RestorePositionVariableAddress, 0, sizeof(McAcpAxRestorePosType));
+				}
+				
+				t->Done = 1;
+				t->Busy = 0;
+				t->Referenced = 0;
+				t->EndlessPositionInitialized = 0;
+				t->DataValid = 0;
+				
 				t->internal.state = AXISLIB_REFST_IDLE;
-//	
-//			}
+		
+			} else if (t->internal.InitHome.Error) {
+	
+				t->internal.InitHome.Execute = 0;
+
+				t->Error = 1;
+				t->ErrorID = t->internal.InitHome.ErrorID;
+				t->Busy = 0;
+				t->Referenced = 0;
+				t->EndlessPositionInitialized = 0;
+				t->DataValid = 0;
+				
+				t->internal.state = AXISLIB_REFST_IDLE;
+	
+			}
 		
 			break;
 		
@@ -465,23 +455,25 @@ void AxisReference(struct AxisReference* t)
 	} // switch (state)
 	
 	// Call FUBs
-//	MC_BR_InitEndlessPosition(&t->internal.initEndlessPos);
-//	MC_BR_CheckEndlessPosition(&t->internal.checkEndlessPos);
-	MC_Home(&t->internal.home);
+	// TODO: check if we need to reset some FUB inputs at some point
+	// I think all the important items are written on-use, but I'm not sure
+	MC_BR_CheckRestorePositionData(&t->internal.CheckRestorePos);
+	MC_BR_InitHome_AcpAx(&t->internal.InitHome);
+	MC_Home(&t->internal.Home);
 	
 	// If you lose HomingOk, you are either homing, or you had an error that killed it
 	// If you are homing, then you need to reset Referenced, but you don't need to clear the endless position
 	// If you have an error, then you need to do the same as a ClearReference above.
 	// 20180426: DO NOT CLEAR REFERENCE ON ERROR. It can cause you to lose a good reference with SafeMC, in particular.
 	
-//	if (!t->internal.driveStatus.HomingOk) {
+	if (!t->internal.Status.AxisInfo.IsHomed) {
 		
 //		if (!t->internal.readStatus.Homing && t->Referenced) {
 //			t->internal.needToClearReference = 1;
 //		}
 		
-//		t->Referenced = 0;
+		t->Referenced = 0;
 		
-//	}
+	}
 
 }

@@ -31,12 +31,12 @@ END_FUNCTION_BLOCK
 FUNCTION_BLOCK AxisReference (*Handle axis referencing, including allowing jogging without a reference and maintaining reference status*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
 	VAR_INPUT
 		Axis : UDINT;
-		EndlessPositionDataAddress : UDINT;
-		DefaultPosition : REAL;
+		RestorePositionVariableAddress : UDINT;
+		DefaultPosition : LREAL;
 		WaitToInitialize : BOOL;
 		Reference : BOOL;
-		Position : REAL;
-		HomingMode : USINT;
+		Position : LREAL;
+		HomingMode : McHomingModeEnum;
 		ClearReference : BOOL;
 	END_VAR
 	VAR_OUTPUT
