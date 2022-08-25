@@ -155,7 +155,7 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 	AxisReference(&t->Internal.FUB.Reference);
 	
 	t->OUT.Referenced = t->Internal.FUB.Reference.Referenced;
-	t->OUT.EndlessPositionInitialized = t->Internal.FUB.Reference.EndlessPositionInitialized;
+	t->OUT.RestorePositionInitialized = t->Internal.FUB.Reference.RestorePositionInitialized;
 	t->OUT.DataValid = t->Internal.FUB.Reference.DataValid;
 
 

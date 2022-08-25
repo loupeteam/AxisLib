@@ -127,7 +127,7 @@ TYPE
 		ActualVelocity : REAL; (*Actual velocity of the axis [Units/s].*)
 		PLCOpenState : AxisLib_PLCOpenState_typ; (*PLCOpen state information.*)
 		Referenced : BOOL; (*The axis has been properly referenced. This is set and reset by the application.*)
-		EndlessPositionInitialized : BOOL; (*The endless position data has been initialized for the axis.*)
+		RestorePositionInitialized : BOOL; (*The endless position data has been initialized for the axis.*)
 		DataValid : BOOL; (*The endless position data is valid.*)
 		Done : BOOL; (*Axis is done with the current operation.*)
 		Busy : BOOL; (*Axis is currently performing an operation.*)
