@@ -84,7 +84,7 @@ TYPE
 		Halt : BOOL; (*Halt the axis. This command can be interrupted.*)
 		Stop : BOOL; (*Stop the axis. This command CANNOT be interrupted.*)
 		ClearReference : BOOL;
-		Reset : BOOL;
+		ErrorReset : BOOL;
 		WaitToInitializeReference : BOOL;
 	END_STRUCT;
 	AxisBasic_IN_PAR_typ : 	STRUCT  (*Input parameters.*)

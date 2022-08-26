@@ -268,14 +268,14 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 	
 	// Reset
 	t->Internal.FUB.Reset.Axis = t->pAxisObject;
-	t->Internal.FUB.Reset.Execute = t->IN.CMD.Reset;
+	t->Internal.FUB.Reset.Execute = t->IN.CMD.ErrorReset;
 
 	MC_Reset(&t->Internal.FUB.Reset);
 	
 
 	// Reset Reset
-	t->IN.CMD.Reset = 0;
-	t->TEST.CMD.Reset = 0;
+	t->IN.CMD.ErrorReset = 0;
+	t->TEST.CMD.ErrorReset = 0;
 
 
 	// Map TEST.STAT items												
