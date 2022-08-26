@@ -59,7 +59,7 @@ END_TYPE
 
 TYPE
 	AxisBasic_typ : 	STRUCT  (*Axis manager data type.*)
-		pAxisObject : REFERENCE TO McAxisType; (*Pointer to the axis object (global variable from nc mapping file).*)
+		pAxisObject : REFERENCE TO McAxisType; (*Pointer to the axis object (global variable from mapp configuration).*)
 		pRestorePosition : UDINT; (*Address of a permanent variable to use the InitEndlessPosition and mcHOMING_RESTORE_POSITION homing method. If this value is non-zero, the position will be restored on startup.*)
 		ErrorTextModuleName : STRING[12] := 'acp10etxen'; (*Name of the acp10 error text module to be used for the drive.*)
 		IN : AxisBasic_IN_typ; (*Axis manager inputs (read/write).*)

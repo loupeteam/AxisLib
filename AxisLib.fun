@@ -11,7 +11,7 @@
 
 FUNCTION_BLOCK AxisStatus (*Gather status information about an axis*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
 	VAR_INPUT
-		Axis : UDINT;
+		Axis : REFERENCE TO McAxisType;
 		Enable : BOOL;
 	END_VAR
 	VAR_OUTPUT
@@ -30,7 +30,7 @@ END_FUNCTION_BLOCK
 
 FUNCTION_BLOCK AxisReference (*Handle axis referencing, including allowing jogging without a reference and maintaining reference status*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
 	VAR_INPUT
-		Axis : UDINT;
+		Axis : REFERENCE TO McAxisType;
 		RestorePositionVariableAddress : UDINT;
 		DefaultPosition : LREAL;
 		WaitToInitialize : BOOL;

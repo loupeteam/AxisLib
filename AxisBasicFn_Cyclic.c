@@ -115,7 +115,7 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 
 	
 	// Axis Status
-	t->Internal.FUB.Status.Axis = (UDINT)t->pAxisObject;
+	t->Internal.FUB.Status.Axis = t->pAxisObject;
 	t->Internal.FUB.Status.Enable = !t->Internal.FUB.Status.Error;
 	AxisStatus(&t->Internal.FUB.Status);
 	memcpy(&t->OUT.AxisInfo, &t->Internal.FUB.Status.AxisInfo, sizeof(t->Internal.FUB.Status.AxisInfo));
@@ -131,7 +131,7 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 	
 	
 	// Reference									
-	t->Internal.FUB.Reference.Axis = (UDINT)t->pAxisObject;
+	t->Internal.FUB.Reference.Axis = t->pAxisObject;
 	t->Internal.FUB.Reference.RestorePositionVariableAddress = t->pRestorePosition;
 	t->Internal.FUB.Reference.DefaultPosition = t->IN.CFG.DefaultPosition;
 	t->Internal.FUB.Reference.WaitToInitialize = t->IN.CMD.WaitToInitializeReference;
