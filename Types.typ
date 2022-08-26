@@ -79,7 +79,7 @@ TYPE
 		MoveVelocity : BOOL; (*Execute a velocity move.*)
 		JogForward : BOOL; (*Jog the axis forward.*)
 		JogReverse : BOOL; (*Jog the axis reverse.*)
-		InhibitMotion : BOOL;
+		InhibitMotion : BOOL; (*Not Implemented*)
 		Halt : BOOL; (*Halt the axis. This command can be interrupted.*)
 		Stop : BOOL; (*Stop the axis. This command CANNOT be interrupted.*)
 		ClearReference : BOOL;
@@ -107,7 +107,7 @@ TYPE
 	END_STRUCT;
 	AxisBasic_OUT_typ : 	STRUCT  (*Axis manager outputs (read only).*)
 		Active : BOOL;
-		MotionInhibited : BOOL;
+		MotionInhibited : BOOL; (*Not Implemented*)
 		ActualPosition : LREAL; (*Actual position of the axis [Units].*)
 		ActualVelocity : REAL; (*Actual velocity of the axis [Units/s].*)
 		AxisInfo : AxisLib_AxisInfo_typ;
