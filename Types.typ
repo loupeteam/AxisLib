@@ -101,7 +101,7 @@ TYPE
 		Name : STRING[AXLIB_STRLEN_NAME];
 		Active : BOOL;
 		HomingPosition : LREAL := 0.0; (*Homing position.*)
-		HomingMode : McHomingModeEnum := mcHOMING_DEFAULT; (*Homing mode.*)
+		HomingMode : McHomingModeEnum := mcHOMING_DIRECT; (*Homing mode.*)
 		DefaultPosition : LREAL;
 		StopDeceleration : REAL := 10000.0; (*Deceleration for stopping.*)
 	END_STRUCT;
