@@ -87,15 +87,15 @@ TYPE
 		WaitToInitializeReference : BOOL;
 	END_STRUCT;
 	AxisBasic_IN_PAR_typ : 	STRUCT  (*Input parameters.*)
-		Position : LREAL := 1000.0; (*Target position for absolute moves.*)
-		Distance : REAL := 1000.0; (*Distance for additive moves.*)
-		Velocity : REAL := 1000.0; (*Velocity for basic moves (not including jog moves).*)
-		Acceleration : REAL := 10000.0; (*Acceleration for basic moves (not including jog moves).*)
-		Deceleration : REAL := 10000.0; (*Deceleration for basic moves (not including jog moves and stopping).*)
+		Position : LREAL := 0; (*Target position for absolute moves.*)
+		Distance : REAL := 0; (*Distance for additive moves.*)
+		Velocity : REAL := 0; (*Velocity for basic moves (not including jog moves).*)
+		Acceleration : REAL := 0; (*Acceleration for basic moves (not including jog moves).*)
+		Deceleration : REAL := 0; (*Deceleration for basic moves (not including jog moves and stopping).*)
 		Direction : McDirectionEnum := mcDIR_POSITIVE; (*Direction for basic moves (not including jog moves).*)
-		JogVelocity : REAL := 100.0; (*Velocity for jog moves.*)
-		JogAcceleration : REAL := 10000.0; (*Acceleration for jog moves.*)
-		JogDeceleration : REAL := 10000.0; (*Deceleration for jog moves.*)
+		JogVelocity : REAL := 0; (*Velocity for jog moves.*)
+		JogAcceleration : REAL := 0; (*Acceleration for jog moves.*)
+		JogDeceleration : REAL := 0; (*Deceleration for jog moves.*)
 	END_STRUCT;
 	AxisBasic_IN_CFG_typ : 	STRUCT  (*Configuration inputs.  These are meant to be written only once.*)
 		Name : STRING[AXLIB_STRLEN_NAME];
