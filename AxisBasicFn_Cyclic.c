@@ -119,6 +119,8 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 	t->Internal.FUB.Status.Enable = !t->Internal.FUB.Status.Error;
 	AxisStatus(&t->Internal.FUB.Status);
 	memcpy(&t->OUT.AxisInfo, &t->Internal.FUB.Status.AxisInfo, sizeof(t->Internal.FUB.Status.AxisInfo));
+	t->OUT.ActualPosition = t->Internal.FUB.Status.ActualPosition;
+	t->OUT.ActualVelocity = t->Internal.FUB.Status.ActualVelocity;
 	
 	
 	// Power
