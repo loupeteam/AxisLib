@@ -111,7 +111,6 @@ TYPE
 		ActualPosition : LREAL; (*Actual position of the axis [Units].*)
 		ActualVelocity : REAL; (*Actual velocity of the axis [Units/s].*)
 		AxisInfo : AxisLib_AxisInfo_typ;
-		PLCOpenState : McAxisPLCopenStateEnum; (*PLCOpen state information.*)
 		Referenced : BOOL; (*The axis has been properly referenced. This is set and reset by the application.*)
 		RestorePositionInitialized : BOOL; (*The endless position data has been initialized for the axis.*)
 		DataValid : BOOL; (*The endless position data is valid.*)
