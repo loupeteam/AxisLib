@@ -124,7 +124,7 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 	// Power
 	t->Internal.FUB.Power.Axis = t->pAxisObject;
 	t->Internal.FUB.Power.Enable = t->IN.CMD.Power; // 'dumb Power' input
-	t->Internal.FUB.Power.Enable = t->IN.CMD.Power && t->OUT.AxisInfo.ReadyForPowerOn && t->OUT.AxisInfo.CommunicationReady; // TODO: 'smart shouldPower' input - Don't use Errorstop based on PLCOpen state diagram
+	t->Internal.FUB.Power.Enable = t->IN.CMD.Power && t->Internal.FUB.Status.AxisInfo.ReadyForPowerOn && t->Internal.FUB.Status.AxisInfo.CommunicationReady; // TODO: 'smart shouldPower' input - Don't use Errorstop based on PLCOpen state diagram
 	if(t->Internal.FUB.Power.Enable || t->Internal.FUB.Power.Busy || t->Internal.FUB.Power.Error){
 		MC_Power(&t->Internal.FUB.Power);
 	}
@@ -263,7 +263,7 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 		t->OUT.Error = 0;
 	}
 	
-	t->OUT.Warning = t->OUT.AxisInfo.AxisWarning;
+	t->OUT.Warning = t->Internal.FUB.Status.AxisInfo.AxisWarning;
 
 	
 	// Reset
