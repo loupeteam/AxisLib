@@ -11,12 +11,14 @@
 
 TYPE
 	AxisStatus_Int_typ : 	STRUCT 
+		ReadAxisLimits : MC_BR_ProcessParam;
 		ReadActualPosition : MC_ReadActualPosition;
 		ReadActualVelocity : MC_ReadActualVelocity;
 		ReadAxisInfo : MC_ReadAxisInfo;
 	END_STRUCT;
 	AxisLib_AxisInfo_typ : 	STRUCT 
 		AdditionalInfo : McAddInfoType;
+		AxisLimits : McCfgAxMoveLimType;
 		AxisWarning : BOOL;
 		CommunicationReady : BOOL;
 		IsHomed : BOOL;
@@ -96,6 +98,7 @@ TYPE
 		JogVelocity : REAL := 0; (*Velocity for jog moves.*)
 		JogAcceleration : REAL := 0; (*Acceleration for jog moves.*)
 		JogDeceleration : REAL := 0; (*Deceleration for jog moves.*)
+		JogJerk : REAL := 0; (*Jerk for jog moves*)
 	END_STRUCT;
 	AxisBasic_IN_CFG_typ : 	STRUCT  (*Configuration inputs.  These are meant to be written only once.*)
 		Name : STRING[AXLIB_STRLEN_NAME];
@@ -152,7 +155,7 @@ TYPE
 		MoveAbsolute : MC_MoveAbsolute;
 		MoveAdditive : MC_MoveAdditive;
 		MoveVelocity : MC_MoveVelocity;
-		Jog : MC_BR_JogVelocity;
+		Jog : MC_BR_JogLimitPosition;
 		Halt : MC_Halt;
 		Stop : MC_Stop;
 		ReadAxisError : MC_ReadAxisError;

@@ -183,16 +183,19 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 	MC_MoveVelocity(&t->Internal.FUB.MoveVelocity);
 
 
-	// Jog 
+	// Jog with limited position	
 	t->Internal.FUB.Jog.Axis = t->pAxisObject;
 	t->Internal.FUB.Jog.Enable = t->IN.CMD.JogForward || t->IN.CMD.JogReverse || t->Internal.FUB.Jog.Jogging;
 	t->Internal.FUB.Jog.Velocity = t->IN.PAR.JogVelocity;
 	t->Internal.FUB.Jog.Acceleration = t->IN.PAR.JogAcceleration;
 	t->Internal.FUB.Jog.Deceleration = t->IN.PAR.JogDeceleration;
+	t->Internal.FUB.Jog.Jerk = t->IN.PAR.JogJerk;
 	t->Internal.FUB.Jog.JogPositive = t->IN.CMD.JogForward;
 	t->Internal.FUB.Jog.JogNegative = t->IN.CMD.JogReverse;
+	t->Internal.FUB.Jog.FirstPosition = t->Internal.FUB.Status.AxisInfo.AxisLimits.MovementLimits.Internal.Position.LowerLimit;
+	t->Internal.FUB.Jog.LastPosition = t->Internal.FUB.Status.AxisInfo.AxisLimits.MovementLimits.Internal.Position.UpperLimit;
 
-	MC_BR_JogVelocity(&t->Internal.FUB.Jog);
+	MC_BR_JogLimitPosition(&t->Internal.FUB.Jog);
 
 
 	// Halt												

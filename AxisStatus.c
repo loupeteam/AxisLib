@@ -70,7 +70,7 @@ void AxisStatus(struct AxisStatus* t)
 	
 	
 	// Axis Info
-	t->internal.ReadAxisInfo.Axis = (McAxisType*)t->Axis;
+	t->internal.ReadAxisInfo.Axis = t->Axis;
 	t->internal.ReadAxisInfo.Enable = t->Enable && !t->internal.ReadAxisInfo.Error;
 	
 	MC_ReadAxisInfo(&t->internal.ReadAxisInfo);
@@ -85,7 +85,7 @@ void AxisStatus(struct AxisStatus* t)
 
 	
 	// Position
-	t->internal.ReadActualPosition.Axis = (McAxisType*)t->Axis;
+	t->internal.ReadActualPosition.Axis = t->Axis;
 	t->internal.ReadActualPosition.Enable = t->Enable && !t->internal.ReadActualPosition.Error && t->AxisInfo.CommunicationReady;
 
 	MC_ReadActualPosition(&t->internal.ReadActualPosition);
@@ -97,7 +97,7 @@ void AxisStatus(struct AxisStatus* t)
 	
 	
 	// Velocity
-	t->internal.ReadActualVelocity.Axis = (McAxisType*)t->Axis;
+	t->internal.ReadActualVelocity.Axis = t->Axis;
 	t->internal.ReadActualVelocity.Enable = t->Enable && !t->internal.ReadActualVelocity.Error && t->AxisInfo.CommunicationReady;
 
 	MC_ReadActualVelocity(&t->internal.ReadActualVelocity);
@@ -105,18 +105,35 @@ void AxisStatus(struct AxisStatus* t)
 	t->ActualVelocity = t->internal.ReadActualVelocity.Velocity;
 
 	
+	// limits
+	// get limits from the configuration (not the drive) on startup
+	// if the configuration is ever changed at runtime this will not know
+	t->internal.ReadAxisLimits.Execute = 1;
+	memset(&t->internal.ReadAxisLimits.AdvancedParameters.Name, 0, sizeof(t->internal.ReadAxisLimits.AdvancedParameters.Name));
+	t->internal.ReadAxisLimits.Component = t->Axis;
+	t->internal.ReadAxisLimits.DataAddress = &t->AxisInfo.AxisLimits;
+	t->internal.ReadAxisLimits.DataType = mcCFG_AX_MOVE_LIM;
+	t->internal.ReadAxisLimits.ExecutionMode = mcEM_IMMEDIATELY;
+	t->internal.ReadAxisLimits.Mode = mcPPM_READ;
+	
+	MC_BR_ProcessParam(&t->internal.ReadAxisLimits);
+
+	
 	// FUB status
 	t->Valid = t->internal.ReadAxisInfo.Valid
 		&& t->internal.ReadActualPosition.Valid
-		&& t->internal.ReadActualVelocity.Valid;
+		&& t->internal.ReadActualVelocity.Valid
+		&& t->internal.ReadAxisLimits.Done;
 	
 	t->Busy = t->internal.ReadAxisInfo.Busy
 		|| t->internal.ReadActualPosition.Busy
-		|| t->internal.ReadActualVelocity.Busy;
+		|| t->internal.ReadActualVelocity.Busy
+		|| t->internal.ReadAxisLimits.Busy;
 	
 	t->Error = t->internal.ReadAxisInfo.Error
 		|| t->internal.ReadActualPosition.Error
-		|| t->internal.ReadActualVelocity.Error;
+		|| t->internal.ReadActualVelocity.Error
+		|| t->internal.ReadAxisLimits.Error;
 	
 	if (t->internal.ReadAxisInfo.Error) {
 		t->ErrorID = t->internal.ReadAxisInfo.ErrorID;
@@ -126,6 +143,9 @@ void AxisStatus(struct AxisStatus* t)
 	
 	} else if (t->internal.ReadActualVelocity.Error) {
 		t->ErrorID = t->internal.ReadActualVelocity.ErrorID;
+		
+	} else if (t->internal.ReadAxisLimits.Error) {
+		t->ErrorID = t->internal.ReadAxisLimits.ErrorID;
 	
 	} else {
 		t->ErrorID = 0;
