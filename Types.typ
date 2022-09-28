@@ -79,6 +79,7 @@ TYPE
 		MoveAbsolute : BOOL; (*Execute an absolute move.*)
 		MoveAdditive : BOOL; (*Execute an additive move.*)
 		MoveVelocity : BOOL; (*Execute a velocity move.*)
+		MoveWaypoint : BOOL;
 		JogForward : BOOL; (*Jog the axis forward.*)
 		JogReverse : BOOL; (*Jog the axis reverse.*)
 		InhibitMotion : BOOL; (*Not Implemented*)
@@ -87,6 +88,10 @@ TYPE
 		ClearReference : BOOL;
 		ErrorReset : BOOL;
 		WaitToInitializeReference : BOOL;
+		SaveParameters : BOOL;
+		LoadParameters : BOOL;
+		SaveWaypoints : BOOL;
+		LoadWaypoints : BOOL;
 	END_STRUCT;
 	AxisBasic_IN_PAR_typ : 	STRUCT  (*Input parameters.*)
 		Position : LREAL := 0; (*Target position for absolute moves.*)
@@ -99,6 +104,7 @@ TYPE
 		JogAcceleration : REAL := 0; (*Acceleration for jog moves.*)
 		JogDeceleration : REAL := 0; (*Deceleration for jog moves.*)
 		JogJerk : REAL := 0; (*Jerk for jog moves*)
+		WaypointIndex : USINT;
 	END_STRUCT;
 	AxisBasic_IN_CFG_typ : 	STRUCT  (*Configuration inputs.  These are meant to be written only once.*)
 		Name : STRING[AXLIB_STRLEN_NAME];
@@ -109,6 +115,7 @@ TYPE
 		StopDeceleration : REAL := 10000.0; (*Deceleration for stopping.*)
 	END_STRUCT;
 	AxisBasic_OUT_typ : 	STRUCT  (*Axis manager outputs (read only).*)
+		Name : STRING[AXLIB_STRLEN_NAME];
 		Active : BOOL;
 		MotionInhibited : BOOL; (*Not Implemented*)
 		ActualPosition : LREAL; (*Actual position of the axis [Units].*)
@@ -153,6 +160,7 @@ TYPE
 		Reference : AxisReference;
 		Home : MC_Home;
 		MoveAbsolute : MC_MoveAbsolute;
+		MoveWaypoint : MC_MoveAbsolute;
 		MoveAdditive : MC_MoveAdditive;
 		MoveVelocity : MC_MoveVelocity;
 		Jog : MC_BR_JogLimitPosition;
@@ -160,5 +168,27 @@ TYPE
 		Stop : MC_Stop;
 		ReadAxisError : MC_ReadAxisError;
 		Reset : MC_Reset;
+	END_STRUCT;
+END_TYPE
+TYPE
+	AxisBasic_Api_typ : 	STRUCT 
+		pAxisObject : REFERENCE TO McAxisType; (*Pointer to the axis object (global variable from mapp configuration).*)
+		pRestorePosition : UDINT; (*Address of a permanent variable to use the InitEndlessPosition and mcHOMING_RESTORE_POSITION homing method. If this value is non-zero, the position will be restored on startup.*)
+		IN : AxisBasic_ApiIn_typ;
+		OUT : AxisBasic_OUT_typ;
+	END_STRUCT;
+	AxisBasic_ApiIn_typ : 	STRUCT 
+		CMD : AxisBasic_IN_CMD_typ; (*Input commands.*)
+		PAR : AxisBasic_IN_PAR_typ; (*Input parameters.*)
+		Waypoint : ARRAY[0..WAYPOINT_MAI]OF AxisBasic_WayPoint_typ;
+	END_STRUCT;
+	AxisBasic_WayPoint_typ : 	STRUCT 
+		Name : STRING[AXLIB_STRLEN_NAME];
+		Position : LREAL;
+		Velocity : REAL;
+		Acceleration : REAL;
+		Deceleration : REAL;
+		Jerk : REAL;
+		Direction : McDirectionEnum := mcDIR_POSITIVE; (*Direction for basic moves (not including jog moves).*)
 	END_STRUCT;
 END_TYPE

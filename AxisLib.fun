@@ -59,3 +59,11 @@ FUNCTION AxisBasicFn_Cyclic : BOOL (*Manage an axis for basic movements and stat
 		t : AxisBasic_typ; (*Axis control object*)
 	END_VAR
 END_FUNCTION
+
+FUNCTION AxisBasicCyclic : BOOL (*Manage an axis for basic movements and status reporting*)
+	VAR_INPUT
+		interface : AxisBasic_Api_typ;
+		configuration : AxisBasic_IN_CFG_typ;
+		internal : AxisBasic_Internal_typ;
+	END_VAR
+END_FUNCTION

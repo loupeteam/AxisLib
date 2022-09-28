@@ -11,6 +11,7 @@
     <File>AxisStatus.c</File>
     <File Description="Handle axis referencing, including allowing jogging without a reference and maintaining reference status">AxisReference.c</File>
     <File Description="Manage an axis for basic movements and status reporting">AxisBasicFn_Cyclic.c</File>
+    <File Description="Manage an axis for basic movements and status reporting">AxisBasicFn_CyclicV2.c</File>
   </Files>
   <Dependencies>
     <Dependency ObjectName="McAxis" />
