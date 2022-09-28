@@ -1,3 +1,5 @@
+4.0.1 - Add split input Api
+
 4.0.0 - Port to Mapp Motion
 
 3.6.4 - Fix reset detection in AxisReference()
