@@ -38,6 +38,7 @@ FUNCTION_BLOCK AxisReference (*Handle axis referencing, including allowing joggi
 		Position : LREAL;
 		HomingMode : McHomingModeEnum;
 		ClearReference : BOOL;
+		Library : STRING[32];
 	END_VAR
 	VAR_OUTPUT
 		Done : BOOL;

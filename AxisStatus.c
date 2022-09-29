@@ -118,6 +118,11 @@ void AxisStatus(struct AxisStatus* t)
 	
 	MC_BR_ProcessParam(&t->internal.ReadAxisLimits);
 
+
+	t->internal.ReadLibraryInfo.Axis = t->Axis;
+	t->internal.ReadLibraryInfo.Execute = 1;	
+	MC_BR_GetAxisLibraryInfo( &t->internal.ReadLibraryInfo );
+	strcpy( &t->AxisInfo.libraryInfo, t->internal.ReadLibraryInfo.Info.Name );
 	
 	// FUB status
 	t->Valid = t->internal.ReadAxisInfo.Valid

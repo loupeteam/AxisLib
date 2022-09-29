@@ -81,6 +81,15 @@ void AxisReference(struct AxisReference* t)
 	}
 	
 	
+	if( strcmp( t->Library, "McPureVAx" ) == 0){
+		t->internal.initHomeSupported = 0;
+		t->RestorePositionVariableAddress = 0;
+		t->HomingMode = mcHOMING_DIRECT;
+	}
+	else{
+		t->internal.initHomeSupported = 1;
+	}
+	
 	// Get axis status
 	// Is it okay for AxisReference to depend on AxisStatus?
 	t->internal.Status.Axis = t->Axis;
@@ -139,7 +148,9 @@ void AxisReference(struct AxisReference* t)
 			
 				t->Busy = 1;
 			
-				if (t->RestorePositionVariableAddress != 0) {
+				if( strcmp( t->Library, "McPureVAx" ) == 0){
+					t->internal.state = AXISLIB_REFST_REF_HOME;
+				} else if (t->RestorePositionVariableAddress != 0) {
 					t->internal.state = AXISLIB_REFST_START_CHECK;
 				} else {
 					t->internal.state = AXISLIB_REFST_START_HOME;
@@ -193,7 +204,7 @@ void AxisReference(struct AxisReference* t)
 	
 			t->internal.InitHome.Axis = (McAxisType*)t->Axis;
 			t->internal.InitHome.HomingParameters.RestorePositionVariableAddress = t->RestorePositionVariableAddress;
-			t->internal.InitHome.HomingParameters.HomingMode = t->HomingMode;
+			t->internal.InitHome.HomingParameters.HomingMode = mcHOMING_RESTORE_POSITION;
 			t->internal.InitHome.Execute = 1;
 
 			if (t->internal.InitHome.Done) {
@@ -272,11 +283,11 @@ void AxisReference(struct AxisReference* t)
 			t->Busy = 0;
 			
 			if (!t->Reference && !t->ClearReference) {
-				// This will wipe out errors on startup. A little weird, but probably not critical.
-				t->Done = 0;
-				t->CommandAborted = 0;
-				t->Error = 0;
-				t->ErrorID = 0;
+			// This will wipe out errors on startup. A little weird, but probably not critical.
+			t->Done = 0;
+			t->CommandAborted = 0;
+			t->Error = 0;
+			t->ErrorID = 0;
 			}
 							
 			// Reset FUBs 
@@ -296,11 +307,7 @@ void AxisReference(struct AxisReference* t)
 				t->ErrorID = 0;
 				t->Referenced = 0;
 				
-				if (t->RestorePositionVariableAddress != 0) {
-					t->internal.state = AXISLIB_REFST_REF_INIT;
-				} else {
-					t->internal.state = AXISLIB_REFST_REF_HOME;
-				}
+				t->internal.state = AXISLIB_REFST_REF_INIT;
 		
 			} else if ((t->ClearReference && !t->internal.clearReference) || t->internal.needToClearReference) {
 				
@@ -335,36 +342,41 @@ void AxisReference(struct AxisReference* t)
 		
 		
 		case AXISLIB_REFST_REF_INIT:
-	
-			t->internal.InitHome.Axis = (McAxisType*)t->Axis;
-			t->internal.InitHome.HomingParameters.RestorePositionVariableAddress = t->RestorePositionVariableAddress;
-			t->internal.InitHome.HomingParameters.HomingMode = t->HomingMode;
-			t->internal.InitHome.HomingParameters.Position = t->Position;
-			// TODO: Make sure all relevant homing parameters are set for whatever homing mode we may be using
-			t->internal.InitHome.Execute = 1;
-
-			if (t->internal.InitHome.Done) {
-	
-				t->internal.InitHome.Execute = 0;
 			
-				if (t->HomingMode == mcHOMING_RESTORE_POSITION) {
-					t->RestorePositionInitialized = 1;
-				}
+			if( t->internal.initHomeSupported ){
 				
-				t->internal.state = AXISLIB_REFST_REF_HOME;
-		
-			} else if (t->internal.InitHome.Error) {
-	
-				t->internal.InitHome.Execute = 0;
+				t->internal.InitHome.Axis = (McAxisType*)t->Axis;
+				t->internal.InitHome.HomingParameters.RestorePositionVariableAddress = t->RestorePositionVariableAddress;
+				t->internal.InitHome.HomingParameters.HomingMode = t->HomingMode;
+				t->internal.InitHome.HomingParameters.Position = t->Position;
+				// TODO: Make sure all relevant homing parameters are set for whatever homing mode we may be using
+				t->internal.InitHome.Execute = 1;
 
-				t->Error = 1;
-				t->ErrorID = t->internal.InitHome.ErrorID;
-				t->RestorePositionInitialized = 0;
+				if (t->internal.InitHome.Done) {
+	
+					t->internal.InitHome.Execute = 0;
+			
+					if (t->HomingMode == mcHOMING_RESTORE_POSITION) {
+						t->RestorePositionInitialized = 1;
+					}
 				
-				t->internal.state = AXISLIB_REFST_IDLE;
+					t->internal.state = AXISLIB_REFST_REF_HOME;
+		
+				} else if (t->internal.InitHome.Error) {
 	
+					t->internal.InitHome.Execute = 0;
+
+					t->Error = 1;
+					t->ErrorID = t->internal.InitHome.ErrorID;
+					t->RestorePositionInitialized = 0;
+				
+					t->internal.state = AXISLIB_REFST_IDLE;
+	
+				}
 			}
-	
+			else{
+				t->internal.state = AXISLIB_REFST_REF_HOME;
+			}
 			break;
 		
 		
@@ -372,7 +384,14 @@ void AxisReference(struct AxisReference* t)
 
 			t->internal.Home.Axis = (McAxisType*)t->Axis;
 			t->internal.Home.Execute = 1;
-			t->internal.Home.HomingMode = mcHOMING_INIT;
+
+			if( t->internal.initHomeSupported ){
+				t->internal.Home.HomingMode = mcHOMING_INIT;
+			}
+			else{
+				t->internal.Home.HomingMode = 	t->HomingMode;
+				t->internal.Home.Position =		t->Position;
+			}
 			
 			if (t->internal.Home.Done && t->internal.Status.AxisInfo.IsHomed) {
 		
@@ -413,42 +432,48 @@ void AxisReference(struct AxisReference* t)
 		
 		case AXISLIB_REFST_CLEAR_INIT:
 		
-			// Init to internal and clear external to REALLY clear the reference
-			t->internal.InitHome.Axis = (McAxisType*)t->Axis;
-			t->internal.InitHome.HomingParameters.RestorePositionVariableAddress = (UDINT)&(t->internal.restorePos);
-			t->internal.InitHome.Execute = 1;
+			if( t->internal.initHomeSupported ){
 
-			if (t->internal.InitHome.Done) {
+				// Init to internal and clear external to REALLY clear the reference
+				t->internal.InitHome.Axis = (McAxisType*)t->Axis;
+				t->internal.InitHome.HomingParameters.RestorePositionVariableAddress = (UDINT)&(t->internal.restorePos);
+				t->internal.InitHome.HomingParameters.HomingMode = mcHOMING_RESTORE_POSITION;
+				t->internal.InitHome.Execute = 1;
+
+				if (t->internal.InitHome.Done) {
 	
-				t->internal.InitHome.Execute = 0;
+					t->internal.InitHome.Execute = 0;
 			
-				if (t->RestorePositionVariableAddress != 0) {
-					memset((void*)t->RestorePositionVariableAddress, 0, sizeof(McAcpAxRestorePosType));
-				}
+					if (t->RestorePositionVariableAddress != 0) {
+						memset((void*)t->RestorePositionVariableAddress, 0, sizeof(McAcpAxRestorePosType));
+					}
 				
-				t->Done = 1;
-				t->Busy = 0;
-				t->Referenced = 0;
-				t->RestorePositionInitialized = 0;
-				t->DataValid = 0;
+					t->Done = 1;
+					t->Busy = 0;
+					t->Referenced = 0;
+					t->RestorePositionInitialized = 0;
+					t->DataValid = 0;
 				
-				t->internal.state = AXISLIB_REFST_IDLE;
+					t->internal.state = AXISLIB_REFST_IDLE;
 		
-			} else if (t->internal.InitHome.Error) {
+				} else if (t->internal.InitHome.Error) {
 	
-				t->internal.InitHome.Execute = 0;
+					t->internal.InitHome.Execute = 0;
 
-				t->Error = 1;
-				t->ErrorID = t->internal.InitHome.ErrorID;
-				t->Busy = 0;
-				t->Referenced = 0;
-				t->RestorePositionInitialized = 0;
-				t->DataValid = 0;
+					t->Error = 1;
+					t->ErrorID = t->internal.InitHome.ErrorID;
+					t->Busy = 0;
+					t->Referenced = 0;
+					t->RestorePositionInitialized = 0;
+					t->DataValid = 0;
 				
-				t->internal.state = AXISLIB_REFST_IDLE;
+					t->internal.state = AXISLIB_REFST_IDLE;
 	
+				}
 			}
-		
+			else{
+				t->Referenced = 0;
+			}
 			break;
 		
 		
@@ -468,9 +493,9 @@ void AxisReference(struct AxisReference* t)
 	
 	if (!t->internal.Status.AxisInfo.IsHomed) {
 		
-//		if (!t->internal.readStatus.Homing && t->Referenced) {
-//			t->internal.needToClearReference = 1;
-//		}
+		//		if (!t->internal.readStatus.Homing && t->Referenced) {
+		//			t->internal.needToClearReference = 1;
+		//		}
 		
 		t->Referenced = 0;
 		

@@ -15,8 +15,10 @@ TYPE
 		ReadActualPosition : MC_ReadActualPosition;
 		ReadActualVelocity : MC_ReadActualVelocity;
 		ReadAxisInfo : MC_ReadAxisInfo;
+		ReadLibraryInfo : MC_BR_GetAxisLibraryInfo;
 	END_STRUCT;
 	AxisLib_AxisInfo_typ : 	STRUCT 
+		libraryInfo : STRING[32];
 		AdditionalInfo : McAddInfoType;
 		AxisLimits : McCfgAxMoveLimType;
 		AxisWarning : BOOL;
@@ -43,6 +45,7 @@ TYPE
 		InitHome : MC_BR_InitHome_AcpAx;
 		Home : MC_Home;
 		Status : AxisStatus;
+		initHomeSupported : BOOL;
 	END_STRUCT;
 	AXISLIB_REFST_enum : 
 		(
@@ -169,8 +172,6 @@ TYPE
 		ReadAxisError : MC_ReadAxisError;
 		Reset : MC_Reset;
 	END_STRUCT;
-END_TYPE
-TYPE
 	AxisBasic_Api_typ : 	STRUCT 
 		pAxisObject : REFERENCE TO McAxisType; (*Pointer to the axis object (global variable from mapp configuration).*)
 		pRestorePosition : UDINT; (*Address of a permanent variable to use the InitEndlessPosition and mcHOMING_RESTORE_POSITION homing method. If this value is non-zero, the position will be restored on startup.*)
