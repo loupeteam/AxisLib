@@ -1,3 +1,5 @@
+4.1.0 - Improve Api Layout
+
 4.0.1 - Add split input Api
 
 4.0.0 - Port to Mapp Motion
