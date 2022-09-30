@@ -15,9 +15,15 @@ FUNCTION_BLOCK AxisStatus (*Gather status information about an axis*) (*$GROUP=U
 		Enable : BOOL;
 	END_VAR
 	VAR_OUTPUT
-		ActualPosition : LREAL;
-		ActualVelocity : REAL;
-		AxisInfo : AxisLib_AxisInfo_typ;
+		Position : LREAL;
+		Velocity : REAL;
+		Info : AxisLib_AxisInfo_typ;
+		AxisWarning : BOOL;
+		CommunicationReady : BOOL;
+		IsHomed : BOOL;
+		PowerOn : BOOL;
+		ReadyForPowerOn : BOOL;
+		Simulation : BOOL;
 		Valid : BOOL;
 		Busy : BOOL;
 		Error : BOOL;

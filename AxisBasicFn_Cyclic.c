@@ -118,15 +118,15 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 	t->Internal.FUB.Status.Axis = t->pAxisObject;
 	t->Internal.FUB.Status.Enable = !t->Internal.FUB.Status.Error;
 	AxisStatus(&t->Internal.FUB.Status);
-	memcpy(&t->OUT.AxisInfo, &t->Internal.FUB.Status.AxisInfo, sizeof(t->Internal.FUB.Status.AxisInfo));
-	t->OUT.ActualPosition = t->Internal.FUB.Status.ActualPosition;
-	t->OUT.ActualVelocity = t->Internal.FUB.Status.ActualVelocity;
+	memcpy(&t->OUT.Info, &t->Internal.FUB.Status.Info, sizeof(t->Internal.FUB.Status.Info));
+	t->OUT.Position = t->Internal.FUB.Status.Position;
+	t->OUT.Velocity = t->Internal.FUB.Status.Velocity;
 	
 	
 	// Power
 	t->Internal.FUB.Power.Axis = t->pAxisObject;
 	t->Internal.FUB.Power.Enable = t->IN.CMD.Power; // 'dumb Power' input
-	t->Internal.FUB.Power.Enable = t->IN.CMD.Power && t->Internal.FUB.Status.AxisInfo.ReadyForPowerOn && t->Internal.FUB.Status.AxisInfo.CommunicationReady; // TODO: 'smart shouldPower' input - Don't use Errorstop based on PLCOpen state diagram
+	t->Internal.FUB.Power.Enable = t->IN.CMD.Power && t->Internal.FUB.Status.ReadyForPowerOn && t->Internal.FUB.Status.CommunicationReady; // TODO: 'smart shouldPower' input - Don't use Errorstop based on PLCOpen state diagram
 	if(t->Internal.FUB.Power.Enable || t->Internal.FUB.Power.Busy || t->Internal.FUB.Power.Error){
 		MC_Power(&t->Internal.FUB.Power);
 	}
@@ -144,9 +144,9 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 	
 	AxisReference(&t->Internal.FUB.Reference);
 	
-	t->OUT.Referenced = t->Internal.FUB.Reference.Referenced;
-	t->OUT.RestorePositionInitialized = t->Internal.FUB.Reference.RestorePositionInitialized;
-	t->OUT.DataValid = t->Internal.FUB.Reference.DataValid;
+	t->OUT.State.Referenced = t->Internal.FUB.Reference.Referenced;
+	t->OUT.State.RestorePositionInitialized = t->Internal.FUB.Reference.RestorePositionInitialized;
+	t->OUT.State.HomeDataValid = t->Internal.FUB.Reference.DataValid;
 
 
 	// Move Absolute 
@@ -192,8 +192,8 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 	t->Internal.FUB.Jog.Jerk = t->IN.PAR.JogJerk;
 	t->Internal.FUB.Jog.JogPositive = t->IN.CMD.JogForward;
 	t->Internal.FUB.Jog.JogNegative = t->IN.CMD.JogReverse;
-	t->Internal.FUB.Jog.FirstPosition = t->Internal.FUB.Status.AxisInfo.AxisLimits.MovementLimits.Internal.Position.LowerLimit;
-	t->Internal.FUB.Jog.LastPosition = t->Internal.FUB.Status.AxisInfo.AxisLimits.MovementLimits.Internal.Position.UpperLimit;
+	t->Internal.FUB.Jog.FirstPosition = t->Internal.FUB.Status.Info.AxisLimits.MovementLimits.Internal.Position.LowerLimit;
+	t->Internal.FUB.Jog.LastPosition = t->Internal.FUB.Status.Info.AxisLimits.MovementLimits.Internal.Position.UpperLimit;
 
 	MC_BR_JogLimitPosition(&t->Internal.FUB.Jog);
 
@@ -268,7 +268,7 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 		t->OUT.Error = 0;
 	}
 	
-	t->OUT.Warning = t->Internal.FUB.Status.AxisInfo.AxisWarning;
+	t->OUT.Warning = t->Internal.FUB.Status.AxisWarning;
 
 	
 	// Reset
@@ -277,6 +277,14 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 
 	MC_Reset(&t->Internal.FUB.Reset);
 	
+	t->OUT.PLCOpenDiscrete.ContinuousMotion = t->OUT.PLCOpen == mcAXIS_CONTINUOUS_MOTION;
+	t->OUT.PLCOpenDiscrete.Disabled = t->OUT.PLCOpen == mcAXIS_DISABLED;
+	t->OUT.PLCOpenDiscrete.DiscreteMotion = t->OUT.PLCOpen == mcAXIS_DISCRETE_MOTION;
+	t->OUT.PLCOpenDiscrete.Errorstop = t->OUT.PLCOpen == mcAXIS_ERRORSTOP;
+	t->OUT.PLCOpenDiscrete.Homing = t->OUT.PLCOpen == mcAXIS_HOMING;
+	t->OUT.PLCOpenDiscrete.StandStill = t->OUT.PLCOpen == mcAXIS_STANDSTILL;
+	t->OUT.PLCOpenDiscrete.Stopping = t->OUT.PLCOpen == mcAXIS_STOPPING;
+	t->OUT.PLCOpenDiscrete.SynchronizedMotion = t->OUT.PLCOpen == mcAXIS_SYNCHRONIZED_MOTION;
 
 	// Reset Reset
 	t->IN.CMD.ErrorReset = 0;
@@ -290,11 +298,11 @@ plcbit AxisBasicFn_Cyclic(struct AxisBasic_typ* t)
 	t->TEST.STAT.Error = t->OUT.Error;
 	t->TEST.STAT.ErrorCount = t->OUT.ErrorCount;
 	t->TEST.STAT.ErrorID = t->OUT.ErrorID;
-	t->TEST.STAT.ActualPosition = t->OUT.ActualPosition;
-	t->TEST.STAT.ActualVelocity = t->OUT.ActualVelocity;
-	t->TEST.STAT.CommunicationReady = t->OUT.AxisInfo.CommunicationReady;
-	t->TEST.STAT.PowerOn = t->OUT.AxisInfo.PowerOn;
-	t->TEST.STAT.IsHomed = t->OUT.AxisInfo.IsHomed;
+	t->TEST.STAT.ActualPosition = t->OUT.Position;
+	t->TEST.STAT.ActualVelocity = t->OUT.Velocity;
+	t->TEST.STAT.CommunicationReady = t->OUT.State.CommunicationReady;
+	t->TEST.STAT.PowerOn = t->OUT.State.PowerOn;
+	t->TEST.STAT.IsHomed = t->OUT.State.IsHomed;
 
 	return 0;
 	

@@ -21,12 +21,28 @@ TYPE
 		libraryInfo : STRING[32];
 		AdditionalInfo : McAddInfoType;
 		AxisLimits : McCfgAxMoveLimType;
-		AxisWarning : BOOL;
+	END_STRUCT;
+	AxisLib_AxisState_typ : 	STRUCT  (*PLCOpen state information.*)
+		Simulation : BOOL;
 		CommunicationReady : BOOL;
 		IsHomed : BOOL;
-		PowerOn : BOOL;
+		Referenced : BOOL; (*The axis has been properly referenced. This is set and reset by the application.*)
 		ReadyForPowerOn : BOOL;
-		Simulation : BOOL;
+		PowerOn : BOOL;
+		HomeDataValid : BOOL; (*The endless position data is valid.*)
+		RestorePositionInitialized : BOOL; (*The endless position data has been initialized for the axis.*)
+		MotionInhibited : BOOL; (*Not Implemented*)
+		AxisWarning : BOOL;
+	END_STRUCT;
+	AxisLib_PLCOpenState_typ : 	STRUCT  (*PLCOpen state information.*)
+		Errorstop : BOOL; (*If set, axis is in state Errorstop.*)
+		Disabled : BOOL; (*If set, axis is in state Disabled.*)
+		StandStill : BOOL; (*If set, axis is in state StandStill.*)
+		Stopping : BOOL; (*If set, axis is in state Stopping.*)
+		Homing : BOOL; (*If set, axis is in state Homing.*)
+		DiscreteMotion : BOOL; (*If set, axis is in state DiscreteMotion.*)
+		SynchronizedMotion : BOOL; (*If set, axis is in state SynchronizedMotion.*)
+		ContinuousMotion : BOOL; (*If set, axis is in state ContinousMotion.*)
 	END_STRUCT;
 END_TYPE
 
@@ -120,19 +136,18 @@ TYPE
 	AxisBasic_OUT_typ : 	STRUCT  (*Axis manager outputs (read only).*)
 		Name : STRING[AXLIB_STRLEN_NAME];
 		Active : BOOL;
-		MotionInhibited : BOOL; (*Not Implemented*)
-		ActualPosition : LREAL; (*Actual position of the axis [Units].*)
-		ActualVelocity : REAL; (*Actual velocity of the axis [Units/s].*)
-		AxisInfo : AxisLib_AxisInfo_typ;
-		Referenced : BOOL; (*The axis has been properly referenced. This is set and reset by the application.*)
-		RestorePositionInitialized : BOOL; (*The endless position data has been initialized for the axis.*)
-		DataValid : BOOL; (*The endless position data is valid.*)
-		Done : BOOL; (*Axis is done with the current operation.*)
 		Busy : BOOL; (*Axis is currently performing an operation.*)
-		Warning : BOOL; (*Axis warning is present.*)
+		Done : BOOL; (*Axis is done with the current operation.*)
 		Error : BOOL; (*Axis error is present.*)
-		ErrorCount : UINT; (*Number of errors present on the axis.*)
 		ErrorID : DINT; (*Error ID value for the axis.*)
+		ErrorCount : UINT; (*Number of errors present on the axis.*)
+		Warning : BOOL; (*Axis warning is present.*)
+		Position : LREAL; (*Actual position of the axis [Units].*)
+		Velocity : REAL; (*Actual velocity of the axis [Units/s].*)
+		State : AxisLib_AxisState_typ;
+		PLCOpen : McAxisPLCopenStateEnum; (*Extended PLCopen state*)
+		PLCOpenDiscrete : AxisLib_PLCOpenState_typ;
+		Info : AxisLib_AxisInfo_typ;
 	END_STRUCT;
 	AxisBasic_TEST_typ : 	STRUCT 
 		Enable : BOOL; (*Enable Test mode (Use Values from test CMD's and Pars)*)

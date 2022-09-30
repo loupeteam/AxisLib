@@ -56,15 +56,15 @@ plcbit AxisBasicCyclic(struct AxisBasic_Api_typ* Api, struct AxisBasic_IN_CFG_ty
 	internal->FUB.Status.Axis = Api->pAxisObject;
 	internal->FUB.Status.Enable = !internal->FUB.Status.Error;
 	AxisStatus(&internal->FUB.Status);
-	memcpy(&Api->OUT.AxisInfo, &internal->FUB.Status.AxisInfo, sizeof(internal->FUB.Status.AxisInfo));
-	Api->OUT.ActualPosition = internal->FUB.Status.ActualPosition;
-	Api->OUT.ActualVelocity = internal->FUB.Status.ActualVelocity;
+	memcpy(&Api->OUT.Info, &internal->FUB.Status.Info, sizeof(internal->FUB.Status.Info));
+	Api->OUT.Position = internal->FUB.Status.Position;
+	Api->OUT.Velocity = internal->FUB.Status.Velocity;
 	
 	
 	// Power
 	internal->FUB.Power.Axis = Api->pAxisObject;
 	internal->FUB.Power.Enable = Api->IN.CMD.Power; // 'dumb Power' input
-	internal->FUB.Power.Enable = Api->IN.CMD.Power && internal->FUB.Status.AxisInfo.ReadyForPowerOn && internal->FUB.Status.AxisInfo.CommunicationReady; // TODO: 'smart shouldPower' input - Don't use Errorstop based on PLCOpen state diagram
+	internal->FUB.Power.Enable = Api->IN.CMD.Power && internal->FUB.Status.ReadyForPowerOn && internal->FUB.Status.CommunicationReady; // TODO: 'smart shouldPower' input - Don't use Errorstop based on PLCOpen state diagram
 	if(internal->FUB.Power.Enable || internal->FUB.Power.Busy || internal->FUB.Power.Error){
 		MC_Power(&internal->FUB.Power);
 	}
@@ -79,12 +79,12 @@ plcbit AxisBasicCyclic(struct AxisBasic_Api_typ* Api, struct AxisBasic_IN_CFG_ty
 	internal->FUB.Reference.Position = configuration->HomingPosition;
 	internal->FUB.Reference.HomingMode = configuration->HomingMode;
 	internal->FUB.Reference.ClearReference = Api->IN.CMD.ClearReference;
-	strcpy( &internal->FUB.Reference.Library, &internal->FUB.Status.AxisInfo.libraryInfo );
+	strcpy( &internal->FUB.Reference.Library, &internal->FUB.Status.Info.libraryInfo );
 	AxisReference(&internal->FUB.Reference);
 	
-	Api->OUT.Referenced = internal->FUB.Reference.Referenced;
-	Api->OUT.RestorePositionInitialized = internal->FUB.Reference.RestorePositionInitialized;
-	Api->OUT.DataValid = internal->FUB.Reference.DataValid;
+	Api->OUT.State.Referenced = internal->FUB.Reference.Referenced;
+	Api->OUT.State.RestorePositionInitialized = internal->FUB.Reference.RestorePositionInitialized;
+	Api->OUT.State.HomeDataValid = internal->FUB.Reference.DataValid;
 
 
 	// Move Absolute 
@@ -140,8 +140,8 @@ plcbit AxisBasicCyclic(struct AxisBasic_Api_typ* Api, struct AxisBasic_IN_CFG_ty
 	internal->FUB.Jog.Jerk = Api->IN.PAR.JogJerk;
 	internal->FUB.Jog.JogPositive = Api->IN.CMD.JogForward;
 	internal->FUB.Jog.JogNegative = Api->IN.CMD.JogReverse;
-	internal->FUB.Jog.FirstPosition = internal->FUB.Status.AxisInfo.AxisLimits.MovementLimits.Internal.Position.LowerLimit;
-	internal->FUB.Jog.LastPosition = internal->FUB.Status.AxisInfo.AxisLimits.MovementLimits.Internal.Position.UpperLimit;
+	internal->FUB.Jog.FirstPosition = internal->FUB.Status.Info.AxisLimits.MovementLimits.Internal.Position.LowerLimit;
+	internal->FUB.Jog.LastPosition = internal->FUB.Status.Info.AxisLimits.MovementLimits.Internal.Position.UpperLimit;
 
 	MC_BR_JogLimitPosition(&internal->FUB.Jog);
 
@@ -188,6 +188,31 @@ plcbit AxisBasicCyclic(struct AxisBasic_Api_typ* Api, struct AxisBasic_IN_CFG_ty
 		||	internal->FUB.Reset.Done;
 					
 
+
+//	Api->OUT.State.MotionInhibited = internal->FUB.Status.AxisWarning;
+
+	Api->OUT.State.AxisWarning = internal->FUB.Status.AxisWarning;
+	Api->OUT.State.CommunicationReady = internal->FUB.Status.CommunicationReady;
+	Api->OUT.State.IsHomed = internal->FUB.Status.IsHomed;
+	Api->OUT.State.AxisWarning = internal->FUB.Status.AxisWarning;
+	Api->OUT.State.PowerOn = internal->FUB.Status.PowerOn;
+	Api->OUT.State.ReadyForPowerOn = internal->FUB.Status.ReadyForPowerOn;
+	Api->OUT.State.Simulation = internal->FUB.Status.Simulation;
+
+	Api->OUT.State.RestorePositionInitialized = internal->FUB.Reference.RestorePositionInitialized;
+	Api->OUT.State.Referenced = internal->FUB.Reference.Referenced;
+	Api->OUT.State.HomeDataValid = internal->FUB.Reference.DataValid;
+	
+	Api->OUT.PLCOpen = internal->FUB.Status.Info.AdditionalInfo.PLCopenState;
+	Api->OUT.PLCOpenDiscrete.ContinuousMotion = Api->OUT.PLCOpen == mcAXIS_CONTINUOUS_MOTION;
+	Api->OUT.PLCOpenDiscrete.Disabled = Api->OUT.PLCOpen == mcAXIS_DISABLED;
+	Api->OUT.PLCOpenDiscrete.DiscreteMotion = Api->OUT.PLCOpen == mcAXIS_DISCRETE_MOTION;
+	Api->OUT.PLCOpenDiscrete.Errorstop = Api->OUT.PLCOpen == mcAXIS_ERRORSTOP;
+	Api->OUT.PLCOpenDiscrete.Homing = Api->OUT.PLCOpen == mcAXIS_HOMING;
+	Api->OUT.PLCOpenDiscrete.StandStill = Api->OUT.PLCOpen == mcAXIS_STANDSTILL;
+	Api->OUT.PLCOpenDiscrete.Stopping = Api->OUT.PLCOpen == mcAXIS_STOPPING;
+	Api->OUT.PLCOpenDiscrete.SynchronizedMotion = Api->OUT.PLCOpen == mcAXIS_SYNCHRONIZED_MOTION;
+	
 	// Get axis error information
 	internal->FUB.ReadAxisError.Axis = Api->pAxisObject;
 	internal->FUB.ReadAxisError.Enable = !(internal->FUB.ReadAxisError.Error);
@@ -221,7 +246,7 @@ plcbit AxisBasicCyclic(struct AxisBasic_Api_typ* Api, struct AxisBasic_IN_CFG_ty
 		Api->OUT.Error = 0;
 	}
 	
-	Api->OUT.Warning = internal->FUB.Status.AxisInfo.AxisWarning;
+	Api->OUT.Warning = internal->FUB.Status.AxisWarning;
 
 	
 	// Reset

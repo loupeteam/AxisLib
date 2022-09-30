@@ -55,9 +55,9 @@ void AxisStatus(struct AxisStatus* t)
 	
 	if (t->Axis == 0) {
 		
-		t->ActualPosition = 0;
-		t->ActualVelocity = 0;
-		memset(&t->AxisInfo, 0, sizeof(t->AxisInfo));
+		t->Position = 0;
+		t->Velocity = 0;
+		memset(&t->Info, 0, sizeof(t->Info));
 		
 		t->Valid = 0;
 		t->Busy = 0;
@@ -75,22 +75,22 @@ void AxisStatus(struct AxisStatus* t)
 	
 	MC_ReadAxisInfo(&t->internal.ReadAxisInfo);
 
-	memcpy(&t->AxisInfo, &t->internal.ReadAxisInfo.AdditionalInfo, sizeof(t->internal.ReadAxisInfo.AdditionalInfo));
-	t->AxisInfo.AxisWarning = t->internal.ReadAxisInfo.AxisWarning;
-	t->AxisInfo.CommunicationReady = t->internal.ReadAxisInfo.CommunicationReady;
-	t->AxisInfo.IsHomed = t->internal.ReadAxisInfo.IsHomed;
-	t->AxisInfo.PowerOn = t->internal.ReadAxisInfo.PowerOn;
-	t->AxisInfo.ReadyForPowerOn = t->internal.ReadAxisInfo.ReadyForPowerOn;
-	t->AxisInfo.Simulation = t->internal.ReadAxisInfo.Simulation;
+	memcpy(&t->Info.AdditionalInfo, &t->internal.ReadAxisInfo.AdditionalInfo, sizeof(t->internal.ReadAxisInfo.AdditionalInfo));
+	t->AxisWarning = t->internal.ReadAxisInfo.AxisWarning;
+	t->CommunicationReady = t->internal.ReadAxisInfo.CommunicationReady;
+	t->IsHomed = t->internal.ReadAxisInfo.IsHomed;
+	t->PowerOn = t->internal.ReadAxisInfo.PowerOn;
+	t->ReadyForPowerOn = t->internal.ReadAxisInfo.ReadyForPowerOn;
+	t->Simulation = t->internal.ReadAxisInfo.Simulation;
 
 	
 	// Position
 	t->internal.ReadActualPosition.Axis = t->Axis;
-	t->internal.ReadActualPosition.Enable = t->Enable && !t->internal.ReadActualPosition.Error && t->AxisInfo.CommunicationReady;
+	t->internal.ReadActualPosition.Enable = t->Enable && !t->internal.ReadActualPosition.Error && t->CommunicationReady;
 
 	MC_ReadActualPosition(&t->internal.ReadActualPosition);
 
-	t->ActualPosition = t->internal.ReadActualPosition.Position;
+	t->Position = t->internal.ReadActualPosition.Position;
 	
 	
 	//	TODO: add MC_BR_ReadCyclicPosition FUB for more specificity in where the position is read from
@@ -98,11 +98,11 @@ void AxisStatus(struct AxisStatus* t)
 	
 	// Velocity
 	t->internal.ReadActualVelocity.Axis = t->Axis;
-	t->internal.ReadActualVelocity.Enable = t->Enable && !t->internal.ReadActualVelocity.Error && t->AxisInfo.CommunicationReady;
+	t->internal.ReadActualVelocity.Enable = t->Enable && !t->internal.ReadActualVelocity.Error && t->CommunicationReady;
 
 	MC_ReadActualVelocity(&t->internal.ReadActualVelocity);
 
-	t->ActualVelocity = t->internal.ReadActualVelocity.Velocity;
+	t->Velocity = t->internal.ReadActualVelocity.Velocity;
 
 	
 	// limits
@@ -111,7 +111,7 @@ void AxisStatus(struct AxisStatus* t)
 	t->internal.ReadAxisLimits.Execute = 1;
 	memset(&t->internal.ReadAxisLimits.AdvancedParameters.Name, 0, sizeof(t->internal.ReadAxisLimits.AdvancedParameters.Name));
 	t->internal.ReadAxisLimits.Component = t->Axis;
-	t->internal.ReadAxisLimits.DataAddress = &t->AxisInfo.AxisLimits;
+	t->internal.ReadAxisLimits.DataAddress = &t->Info.AxisLimits;
 	t->internal.ReadAxisLimits.DataType = mcCFG_AX_MOVE_LIM;
 	t->internal.ReadAxisLimits.ExecutionMode = mcEM_IMMEDIATELY;
 	t->internal.ReadAxisLimits.Mode = mcPPM_READ;
@@ -122,7 +122,7 @@ void AxisStatus(struct AxisStatus* t)
 	t->internal.ReadLibraryInfo.Axis = t->Axis;
 	t->internal.ReadLibraryInfo.Execute = 1;	
 	MC_BR_GetAxisLibraryInfo( &t->internal.ReadLibraryInfo );
-	strcpy( &t->AxisInfo.libraryInfo, t->internal.ReadLibraryInfo.Info.Name );
+	strcpy( &t->Info.libraryInfo, t->internal.ReadLibraryInfo.Info.Name );
 	
 	// FUB status
 	t->Valid = t->internal.ReadAxisInfo.Valid

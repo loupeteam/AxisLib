@@ -109,13 +109,13 @@ void AxisReference(struct AxisReference* t)
 	
 	// If drive is reset, reinitialize
 	// TODO: Make sure this works. It probably won't. Can we just check this with PLCopen state STARTUP?
-	if (t->internal.Status.AxisInfo.CommunicationReady && !t->internal.oldCommunicationReady && (t->internal.Status.AxisInfo.AdditionalInfo.StartupCount > t->internal.oldStartupCount)) {
+	if (t->internal.Status.CommunicationReady && !t->internal.oldCommunicationReady && (t->internal.Status.Info.AdditionalInfo.StartupCount > t->internal.oldStartupCount)) {
 		t->internal.state = AXISLIB_REFST_START;
 	}
 
 	// If these don't change simultaneously this won't work
-	t->internal.oldCommunicationReady = t->internal.Status.AxisInfo.CommunicationReady;
-	t->internal.oldStartupCount = t->internal.Status.AxisInfo.AdditionalInfo.StartupCount;
+	t->internal.oldCommunicationReady = t->internal.Status.CommunicationReady;
+	t->internal.oldStartupCount = t->internal.Status.Info.AdditionalInfo.StartupCount;
 		
 	
 	// Main state machine
@@ -140,10 +140,10 @@ void AxisReference(struct AxisReference* t)
 			t->internal.InitHome.Execute = 0;
 			t->internal.Home.Execute = 0;
 			
-			if (t->internal.Status.AxisInfo.CommunicationReady 
+			if (t->internal.Status.CommunicationReady 
 				&& t->internal.Status.Valid
 				&& !t->WaitToInitialize 
-				&& ((t->internal.Status.AxisInfo.AdditionalInfo.PLCopenState == mcAXIS_DISABLED) || (t->internal.Status.AxisInfo.AdditionalInfo.PLCopenState == mcAXIS_STANDSTILL))
+				&& ((t->internal.Status.Info.AdditionalInfo.PLCopenState == mcAXIS_DISABLED) || (t->internal.Status.Info.AdditionalInfo.PLCopenState == mcAXIS_STANDSTILL))
 			) {
 			
 				t->Busy = 1;
@@ -242,7 +242,7 @@ void AxisReference(struct AxisReference* t)
 				t->internal.Home.HomingMode = mcHOMING_DIRECT;
 			}
 			
-			if (t->internal.Home.Done && t->internal.Status.AxisInfo.IsHomed) {
+			if (t->internal.Home.Done && t->internal.Status.IsHomed) {
 		
 				t->internal.Home.Execute = 0;
 			
@@ -393,7 +393,7 @@ void AxisReference(struct AxisReference* t)
 				t->internal.Home.Position =		t->Position;
 			}
 			
-			if (t->internal.Home.Done && t->internal.Status.AxisInfo.IsHomed) {
+			if (t->internal.Home.Done && t->internal.Status.IsHomed) {
 		
 				t->internal.Home.Execute = 0;
 			
@@ -491,7 +491,7 @@ void AxisReference(struct AxisReference* t)
 	// If you have an error, then you need to do the same as a ClearReference above.
 	// 20180426: DO NOT CLEAR REFERENCE ON ERROR. It can cause you to lose a good reference with SafeMC, in particular.
 	
-	if (!t->internal.Status.AxisInfo.IsHomed) {
+	if (!t->internal.Status.IsHomed) {
 		
 		//		if (!t->internal.readStatus.Homing && t->Referenced) {
 		//			t->internal.needToClearReference = 1;
