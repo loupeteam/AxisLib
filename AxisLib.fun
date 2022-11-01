@@ -42,7 +42,7 @@ FUNCTION_BLOCK AxisReference (*Handle axis referencing, including allowing joggi
 		WaitToInitialize : BOOL;
 		Reference : BOOL;
 		Position : LREAL;
-		HomingMode : McHomingModeEnum;
+		pHomingData : UDINT;
 		ClearReference : BOOL;
 		Library : STRING[32];
 	END_VAR
@@ -60,12 +60,6 @@ FUNCTION_BLOCK AxisReference (*Handle axis referencing, including allowing joggi
 		internal : AxisReference_Int_typ;
 	END_VAR
 END_FUNCTION_BLOCK
-
-FUNCTION AxisBasicFn_Cyclic : BOOL (*Manage an axis for basic movements and status reporting*)
-	VAR_IN_OUT
-		t : AxisBasic_typ; (*Axis control object*)
-	END_VAR
-END_FUNCTION
 
 FUNCTION AxisBasicCyclic : BOOL (*Manage an axis for basic movements and status reporting*)
 	VAR_INPUT

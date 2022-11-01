@@ -129,7 +129,6 @@ TYPE
 		Name : STRING[AXLIB_STRLEN_NAME];
 		Active : BOOL;
 		HomingPosition : LREAL := 0.0; (*Homing position.*)
-		HomingMode : McHomingModeEnum := mcHOMING_DIRECT; (*Homing mode.*)
 		DefaultPosition : LREAL;
 		StopDeceleration : REAL := 10000.0; (*Deceleration for stopping.*)
 	END_STRUCT;
@@ -197,6 +196,7 @@ TYPE
 		CMD : AxisBasic_IN_CMD_typ; (*Input commands.*)
 		PAR : AxisBasic_IN_PAR_typ; (*Input parameters.*)
 		Waypoint : ARRAY[0..WAYPOINT_MAI]OF AxisBasic_WayPoint_typ;
+		HomingData : McAcpAxHomingParType;
 	END_STRUCT;
 	AxisBasic_WayPoint_typ : 	STRUCT 
 		Name : STRING[AXLIB_STRLEN_NAME];

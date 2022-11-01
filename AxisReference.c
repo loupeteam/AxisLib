@@ -64,8 +64,8 @@ void AxisReference(struct AxisReference* t)
 	if (t == 0) return;
 	
 	
-	// Check Axis
-	if (t->Axis == 0) {
+	// Check Axis and homing data
+	if ((t->Axis == 0) || (t->pHomingData == 0)) {
 		
 		t->Done = 0;
 		t->Busy = 0;
@@ -80,11 +80,13 @@ void AxisReference(struct AxisReference* t)
 	
 	}
 	
+	// Dereference homing data.
+	McAcpAxHomingParType* homingData = (McAcpAxHomingParType*)t->pHomingData;	
 	
 	if( strcmp( t->Library, "McPureVAx" ) == 0){
 		t->internal.initHomeSupported = 0;
 		t->RestorePositionVariableAddress = 0;
-		t->HomingMode = mcHOMING_DIRECT;
+		homingData->HomingMode = mcHOMING_DIRECT;
 	}
 	else{
 		t->internal.initHomeSupported = 1;
@@ -346,17 +348,18 @@ void AxisReference(struct AxisReference* t)
 			if( t->internal.initHomeSupported ){
 				
 				t->internal.InitHome.Axis = (McAxisType*)t->Axis;
-				t->internal.InitHome.HomingParameters.RestorePositionVariableAddress = t->RestorePositionVariableAddress;
-				t->internal.InitHome.HomingParameters.HomingMode = t->HomingMode;
+				// Copy over all homing parameters from axis' homingData file (these files can be shared between axes). 
+				brsmemcpy(&t->internal.InitHome.HomingParameters, homingData, sizeof(McAcpAxHomingParType));
+				// Overwrite homing position with data that is specific to this axis (i.e. not shared). 
 				t->internal.InitHome.HomingParameters.Position = t->Position;
-				// TODO: Make sure all relevant homing parameters are set for whatever homing mode we may be using
+				t->internal.InitHome.HomingParameters.RestorePositionVariableAddress = t->RestorePositionVariableAddress;
 				t->internal.InitHome.Execute = 1;
 
 				if (t->internal.InitHome.Done) {
 	
 					t->internal.InitHome.Execute = 0;
 			
-					if (t->HomingMode == mcHOMING_RESTORE_POSITION) {
+					if (homingData->HomingMode == mcHOMING_RESTORE_POSITION) {
 						t->RestorePositionInitialized = 1;
 					}
 				
@@ -389,7 +392,7 @@ void AxisReference(struct AxisReference* t)
 				t->internal.Home.HomingMode = mcHOMING_INIT;
 			}
 			else{
-				t->internal.Home.HomingMode = 	t->HomingMode;
+				t->internal.Home.HomingMode = 	homingData->HomingMode;
 				t->internal.Home.Position =		t->Position;
 			}
 			
