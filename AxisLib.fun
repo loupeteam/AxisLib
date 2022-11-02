@@ -53,7 +53,6 @@ FUNCTION_BLOCK AxisReference (*Handle axis referencing, including allowing joggi
 		Error : BOOL;
 		ErrorID : UINT;
 		Referenced : BOOL;
-		RestorePositionInitialized : BOOL;
 		DataValid : BOOL;
 	END_VAR
 	VAR

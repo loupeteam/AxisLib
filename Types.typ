@@ -30,7 +30,6 @@ TYPE
 		ReadyForPowerOn : BOOL;
 		PowerOn : BOOL;
 		HomeDataValid : BOOL; (*The endless position data is valid.*)
-		RestorePositionInitialized : BOOL; (*The endless position data has been initialized for the axis.*)
 		MotionInhibited : BOOL; (*Not Implemented*)
 		AxisWarning : BOOL;
 	END_STRUCT;

@@ -73,7 +73,6 @@ void AxisReference(struct AxisReference* t)
 		t->Error = 1;
 		t->ErrorID = 29200;
 		t->Referenced = 0;
-		t->RestorePositionInitialized = 0;
 		t->DataValid = 0;
 		
 		return;
@@ -134,7 +133,6 @@ void AxisReference(struct AxisReference* t)
 			t->Error = 0;
 			t->ErrorID = 0;			
 			t->Referenced = 0;
-			t->RestorePositionInitialized = 0;
 			t->DataValid = 0;
 
 			// Reset FUBs
@@ -173,7 +171,6 @@ void AxisReference(struct AxisReference* t)
 	
 				t->internal.InitHome.Execute=	0;
 			
-				t->RestorePositionInitialized = 1;
 				t->internal.state = AXISLIB_REFST_START_CHECK;
 		
 			} else if (t->internal.InitHome.Error) {
@@ -183,7 +180,6 @@ void AxisReference(struct AxisReference* t)
 				t->Error = 1;
 				t->ErrorID = t->internal.InitHome.ErrorID;
 
-				t->RestorePositionInitialized = 0;
 				
 				t->internal.state = AXISLIB_REFST_START_HOME;
 	
@@ -206,7 +202,6 @@ void AxisReference(struct AxisReference* t)
 		
 				t->internal.CheckRestorePos.Execute = 0;
 		
-				t->RestorePositionInitialized = t->internal.CheckRestorePos.DataInUse;
 				t->DataValid = t->internal.CheckRestorePos.DataValid;
 
 				t->internal.state = AXISLIB_REFST_START_HOME;
@@ -218,7 +213,6 @@ void AxisReference(struct AxisReference* t)
 				t->Error = 1;
 				t->ErrorID = t->internal.CheckRestorePos.ErrorID;
 			
-				t->RestorePositionInitialized = 0;
 				t->DataValid = 0;
 
 				t->internal.state = AXISLIB_REFST_START_HOME;
@@ -234,7 +228,7 @@ void AxisReference(struct AxisReference* t)
 			t->internal.Home.Execute = 1;
 			t->internal.Home.Position = t->DefaultPosition;
 			
-			if (t->DataValid && t->RestorePositionInitialized) {
+			if (t->DataValid) {
 				t->internal.Home.HomingMode = mcHOMING_INIT;
 			} else {
 				t->internal.Home.HomingMode = mcHOMING_DIRECT;
@@ -354,10 +348,6 @@ void AxisReference(struct AxisReference* t)
 				if (t->internal.InitHome.Done) {
 	
 					t->internal.InitHome.Execute = 0;
-			
-					if (homingData->HomingMode == mcHOMING_RESTORE_POSITION) {
-						t->RestorePositionInitialized = 1;
-					}
 				
 					t->internal.state = AXISLIB_REFST_REF_HOME;
 		
@@ -367,7 +357,6 @@ void AxisReference(struct AxisReference* t)
 
 					t->Error = 1;
 					t->ErrorID = t->internal.InitHome.ErrorID;
-					t->RestorePositionInitialized = 0;
 				
 					t->internal.state = AXISLIB_REFST_IDLE;
 	
@@ -399,7 +388,6 @@ void AxisReference(struct AxisReference* t)
 				t->Done = 1;
 				t->Busy = 0;
 				t->Referenced = 1;
-				t->DataValid = t->RestorePositionInitialized;
 								
 				t->internal.state = AXISLIB_REFST_IDLE;
 				
@@ -450,7 +438,6 @@ void AxisReference(struct AxisReference* t)
 					t->Done = 1;
 					t->Busy = 0;
 					t->Referenced = 0;
-					t->RestorePositionInitialized = 0;
 					t->DataValid = 0;
 				
 					t->internal.state = AXISLIB_REFST_IDLE;
@@ -463,7 +450,6 @@ void AxisReference(struct AxisReference* t)
 					t->ErrorID = t->internal.InitHome.ErrorID;
 					t->Busy = 0;
 					t->Referenced = 0;
-					t->RestorePositionInitialized = 0;
 					t->DataValid = 0;
 				
 					t->internal.state = AXISLIB_REFST_IDLE;

@@ -83,7 +83,6 @@ plcbit AxisBasicCyclic(struct AxisBasic_Api_typ* Api, struct AxisBasic_IN_CFG_ty
 	AxisReference(&internal->FUB.Reference);
 	
 	Api->OUT.State.Referenced = internal->FUB.Reference.Referenced;
-	Api->OUT.State.RestorePositionInitialized = internal->FUB.Reference.RestorePositionInitialized;
 	Api->OUT.State.HomeDataValid = internal->FUB.Reference.DataValid;
 
 
@@ -199,7 +198,6 @@ plcbit AxisBasicCyclic(struct AxisBasic_Api_typ* Api, struct AxisBasic_IN_CFG_ty
 	Api->OUT.State.ReadyForPowerOn = internal->FUB.Status.ReadyForPowerOn;
 	Api->OUT.State.Simulation = internal->FUB.Status.Simulation;
 
-	Api->OUT.State.RestorePositionInitialized = internal->FUB.Reference.RestorePositionInitialized;
 	Api->OUT.State.Referenced = internal->FUB.Reference.Referenced;
 	Api->OUT.State.HomeDataValid = internal->FUB.Reference.DataValid;
 	
