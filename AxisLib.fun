@@ -42,7 +42,9 @@ FUNCTION_BLOCK AxisReference (*Handle axis referencing, including allowing joggi
 		WaitToInitialize : BOOL;
 		Reference : BOOL;
 		Position : LREAL;
-		pHomingData : UDINT;
+		HomingMode : USINT;
+		pInitHomingData : UDINT;
+		szInitHomingData : UDINT;
 		ClearReference : BOOL;
 		Library : STRING[32];
 	END_VAR

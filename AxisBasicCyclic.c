@@ -77,7 +77,9 @@ plcbit AxisBasicCyclic(struct AxisBasic_Api_typ* Api, struct AxisBasic_IN_CFG_ty
 	internal->FUB.Reference.WaitToInitialize = Api->IN.CMD.WaitToInitializeReference;
 	internal->FUB.Reference.Reference = Api->IN.CMD.Reference;
 	internal->FUB.Reference.Position = configuration->HomingPosition;
-	internal->FUB.Reference.pHomingData = &Api->IN.HomingData;
+	internal->FUB.Reference.HomingMode = configuration->HomingMode;
+	internal->FUB.Reference.pInitHomingData = Api->IN.PAR.pInitHomingData;
+	internal->FUB.Reference.szInitHomingData = Api->IN.PAR.szInitHomingData;
 	internal->FUB.Reference.ClearReference = Api->IN.CMD.ClearReference;
 	strcpy( &internal->FUB.Reference.Library, &internal->FUB.Status.Info.libraryInfo );
 	AxisReference(&internal->FUB.Reference);

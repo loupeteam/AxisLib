@@ -65,7 +65,7 @@ void AxisReference(struct AxisReference* t)
 	
 	
 	// Check Axis and homing data
-	if ((t->Axis == 0) || (t->pHomingData == 0)) {
+	if (t->Axis == 0) {
 		
 		t->Done = 0;
 		t->Busy = 0;
@@ -77,15 +77,11 @@ void AxisReference(struct AxisReference* t)
 		
 		return;
 	
-	}
-	
-	// Dereference homing data.
-	McAcpAxHomingParType* homingData = (McAcpAxHomingParType*)t->pHomingData;	
+	}	
 	
 	if( strcmp( t->Library, "McPureVAx" ) == 0){
 		t->internal.initHomeSupported = 0;
 		t->RestorePositionVariableAddress = 0;
-		homingData->HomingMode = mcHOMING_DIRECT;
 	}
 	else{
 		t->internal.initHomeSupported = 1;
@@ -179,7 +175,6 @@ void AxisReference(struct AxisReference* t)
 
 				t->Error = 1;
 				t->ErrorID = t->internal.InitHome.ErrorID;
-
 				
 				t->internal.state = AXISLIB_REFST_START_HOME;
 	
@@ -226,11 +221,11 @@ void AxisReference(struct AxisReference* t)
 
 			t->internal.Home.Axis = (McAxisType*)t->Axis;
 			t->internal.Home.Execute = 1;
-			t->internal.Home.Position = t->DefaultPosition;
 			
 			if (t->DataValid) {
 				t->internal.Home.HomingMode = mcHOMING_INIT;
 			} else {
+				t->internal.Home.Position = t->DefaultPosition;
 				t->internal.Home.HomingMode = mcHOMING_DIRECT;
 			}
 			
@@ -335,11 +330,11 @@ void AxisReference(struct AxisReference* t)
 		
 		case AXISLIB_REFST_REF_INIT:
 			
-			if( t->internal.initHomeSupported ){
+			if (( t->internal.initHomeSupported ) && ( t->HomingMode == mcHOMING_INIT )) {
 				
 				t->internal.InitHome.Axis = (McAxisType*)t->Axis;
 				// Copy over all homing parameters from axis' homingData file (these files can be shared between axes). 
-				brsmemcpy(&t->internal.InitHome.HomingParameters, homingData, sizeof(McAcpAxHomingParType));
+				brsmemcpy(&t->internal.InitHome.HomingParameters, t->pInitHomingData, t->szInitHomingData);
 				// Overwrite homing position with data that is specific to this axis (i.e. not shared). 
 				t->internal.InitHome.HomingParameters.Position = t->Position;
 				t->internal.InitHome.HomingParameters.RestorePositionVariableAddress = t->RestorePositionVariableAddress;
@@ -373,13 +368,8 @@ void AxisReference(struct AxisReference* t)
 			t->internal.Home.Axis = (McAxisType*)t->Axis;
 			t->internal.Home.Execute = 1;
 
-			if( t->internal.initHomeSupported ){
-				t->internal.Home.HomingMode = mcHOMING_INIT;
-			}
-			else{
-				t->internal.Home.HomingMode = 	homingData->HomingMode;
-				t->internal.Home.Position =		t->Position;
-			}
+			t->internal.Home.HomingMode = t->HomingMode;
+			t->internal.Home.Position =	t->Position;
 			
 			if (t->internal.Home.Done && t->internal.Status.IsHomed) {
 		
