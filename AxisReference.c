@@ -299,29 +299,14 @@ void AxisReference(struct AxisReference* t)
 			} else if ((t->ClearReference && !t->internal.clearReference) || t->internal.needToClearReference) {
 				
 				t->internal.clearReference = 1;
-				t->internal.needToClearReference = 0;
+				t->internal.needToClearReference = 0;				
 
-				if (t->RestorePositionVariableAddress != 0) {
-					
-					t->Done = 0;
-					t->Busy = 1;
-					t->CommandAborted = 0;
-					t->Error = 0;
-					t->ErrorID = 0;
-					t->Referenced = 0;
-				
-					t->internal.state = AXISLIB_REFST_CLEAR_INIT;
-				
-				} else {
-				
-					t->Done = 1;
-					t->Busy = 0;
-					t->CommandAborted = 0;
-					t->Error = 0;
-					t->ErrorID = 0;
-					t->Referenced = 0;
-					
-				}
+				t->Done = 1;
+				t->Busy = 0;
+				t->CommandAborted = 0;
+				t->Error = 0;
+				t->ErrorID = 0;
+				t->Referenced = 0;
 				
 			}
 		
@@ -405,53 +390,7 @@ void AxisReference(struct AxisReference* t)
 			}
 		
 			break;
-		
-		
-		case AXISLIB_REFST_CLEAR_INIT:
-		
-			if( t->internal.initHomeSupported ){
-
-				// Init to internal and clear external to REALLY clear the reference
-				t->internal.InitHome.Axis = (McAxisType*)t->Axis;
-				t->internal.InitHome.HomingParameters.RestorePositionVariableAddress = (UDINT)&(t->internal.restorePos);
-				t->internal.InitHome.HomingParameters.HomingMode = mcHOMING_RESTORE_POSITION;
-				t->internal.InitHome.Execute = 1;
-
-				if (t->internal.InitHome.Done) {
-	
-					t->internal.InitHome.Execute = 0;
 			
-					if (t->RestorePositionVariableAddress != 0) {
-						memset((void*)t->RestorePositionVariableAddress, 0, sizeof(McAcpAxRestorePosType));
-					}
-				
-					t->Done = 1;
-					t->Busy = 0;
-					t->Referenced = 0;
-					t->DataValid = 0;
-				
-					t->internal.state = AXISLIB_REFST_IDLE;
-		
-				} else if (t->internal.InitHome.Error) {
-	
-					t->internal.InitHome.Execute = 0;
-
-					t->Error = 1;
-					t->ErrorID = t->internal.InitHome.ErrorID;
-					t->Busy = 0;
-					t->Referenced = 0;
-					t->DataValid = 0;
-				
-					t->internal.state = AXISLIB_REFST_IDLE;
-	
-				}
-			}
-			else{
-				t->Referenced = 0;
-			}
-			break;
-		
-		
 	} // switch (state)
 	
 	// Call FUBs
