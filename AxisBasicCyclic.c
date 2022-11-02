@@ -110,10 +110,10 @@ plcbit AxisBasicCyclic(struct AxisBasic_Api_typ* Api, struct AxisBasic_IN_CFG_ty
 
 	MC_MoveAbsolute(&internal->FUB.MoveWaypoint);
 
-	// Move Additive 
+	// Move Additive Forward
 	internal->FUB.MoveAdditive.Axis = Api->pAxisObject;
-	internal->FUB.MoveAdditive.Execute = Api->IN.CMD.MoveAdditive;
-	internal->FUB.MoveAdditive.Distance = Api->IN.PAR.Distance;
+	internal->FUB.MoveAdditive.Execute = (Api->IN.CMD.MoveAdditiveForward || Api->IN.CMD.MoveAdditiveReverse);
+	internal->FUB.MoveAdditive.Distance = (Api->IN.CMD.MoveAdditiveForward ? Api->IN.PAR.Distance : (-1) * Api->IN.PAR.Distance);
 	internal->FUB.MoveAdditive.Velocity = Api->IN.PAR.Velocity;
 	internal->FUB.MoveAdditive.Acceleration = Api->IN.PAR.Acceleration;
 	internal->FUB.MoveAdditive.Deceleration = Api->IN.PAR.Deceleration;

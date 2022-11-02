@@ -95,7 +95,8 @@ TYPE
 		Power : BOOL; (*Enable power on the axis.*)
 		Reference : BOOL; (*Reference the axis.*)
 		MoveAbsolute : BOOL; (*Execute an absolute move.*)
-		MoveAdditive : BOOL; (*Execute an additive move.*)
+		MoveAdditiveForward : BOOL; (*Execute an additive move in forward direction.*)
+		MoveAdditiveReverse : BOOL; (*Execute an additive move in reverse direction.*)
 		MoveVelocity : BOOL; (*Execute a velocity move.*)
 		MoveWaypoint : BOOL;
 		JogForward : BOOL; (*Jog the axis forward.*)
