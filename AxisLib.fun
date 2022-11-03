@@ -11,16 +11,19 @@
 
 FUNCTION_BLOCK AxisStatus (*Gather status information about an axis*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
 	VAR_INPUT
-		Axis : UDINT;
+		Axis : REFERENCE TO McAxisType;
 		Enable : BOOL;
-		ReadCyclicPositionParID : UINT; (*ParID that is read cyclically, 0... set position*)
 	END_VAR
 	VAR_OUTPUT
-		ActualPosition : REAL;
-		ActualCyclicPosition : MC_CYCLIC_POSITION;
-		ActualVelocity : REAL;
-		DriveStatus : MC_DRIVESTATUS_TYP;
-		PLCOpenState : AxisLib_PLCOpenState_typ;
+		Position : LREAL;
+		Velocity : REAL;
+		Info : AxisLib_AxisInfo_typ;
+		AxisWarning : BOOL;
+		CommunicationReady : BOOL;
+		IsHomed : BOOL;
+		PowerOn : BOOL;
+		ReadyForPowerOn : BOOL;
+		Simulation : BOOL;
 		Valid : BOOL;
 		Busy : BOOL;
 		Error : BOOL;
@@ -33,14 +36,17 @@ END_FUNCTION_BLOCK
 
 FUNCTION_BLOCK AxisReference (*Handle axis referencing, including allowing jogging without a reference and maintaining reference status*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
 	VAR_INPUT
-		Axis : UDINT;
-		EndlessPositionDataAddress : UDINT;
-		DefaultPosition : REAL;
+		Axis : REFERENCE TO McAxisType;
+		RestorePositionVariableAddress : UDINT;
+		DefaultPosition : LREAL;
 		WaitToInitialize : BOOL;
 		Reference : BOOL;
-		Position : REAL;
+		Position : LREAL;
 		HomingMode : USINT;
+		pInitHomingData : UDINT;
+		szInitHomingData : UDINT;
 		ClearReference : BOOL;
+		Library : STRING[32];
 	END_VAR
 	VAR_OUTPUT
 		Done : BOOL;
@@ -49,7 +55,6 @@ FUNCTION_BLOCK AxisReference (*Handle axis referencing, including allowing joggi
 		Error : BOOL;
 		ErrorID : UINT;
 		Referenced : BOOL;
-		EndlessPositionInitialized : BOOL;
 		DataValid : BOOL;
 	END_VAR
 	VAR
@@ -57,58 +62,10 @@ FUNCTION_BLOCK AxisReference (*Handle axis referencing, including allowing joggi
 	END_VAR
 END_FUNCTION_BLOCK
 
-FUNCTION AxisBasicFn_Cyclic : BOOL (*Manage an axis for basic movements and status reporting*)
-	VAR_IN_OUT
-		t : AxisBasic_typ; (*Axis control object*)
-	END_VAR
-END_FUNCTION
-
-FUNCTION AxisBasicFn_Fast : BOOL (*Manage setting and reading cyclic positions. Intended to run in a faster task class than most motion tasks.*) (*$GROUP=User*)
-	VAR_IN_OUT
-		t : AxisBasic_typ;
-	END_VAR
-END_FUNCTION
-
-FUNCTION axisInternalFastFn : BOOL (*Internal: Handle ReadCyclicPosition and MoveCyclicPosition FUBs*) (*$GROUP=User*)
-	VAR_IN_OUT
-		t : AxisBasic_typ;
-	END_VAR
-END_FUNCTION
-
-FUNCTION_BLOCK AxisRestorePosition (*DEPRECATED: Handle endless position (Init, Check, Restore) for an axis*)
+FUNCTION AxisBasicCyclic : BOOL (*Manage an axis for basic movements and status reporting*)
 	VAR_INPUT
-		Axis : UDINT;
-		Execute : BOOL;
-		DataAddress : UDINT;
+		interface : AxisBasic_Api_typ;
+		configuration : AxisBasic_IN_CFG_typ;
+		internal : AxisBasic_Internal_typ;
 	END_VAR
-	VAR_OUTPUT
-		Done : BOOL;
-		Busy : BOOL;
-		Error : BOOL;
-		ErrorID : UINT;
-		EndlessPositionInitialized : BOOL;
-		DataValid : BOOL;
-	END_VAR
-	VAR
-		Internal : AxisRestorePosition_Int_typ;
-	END_VAR
-END_FUNCTION_BLOCK
-
-FUNCTION_BLOCK AxisExpandLimit (*Temporarily set the limits of an axis 
--This function block is useful when an axis is controlled using MC_BR_MoveCyclicPos and the axis is outside it's axis limits*)
-	VAR_INPUT
-		Axis : UDINT; (*Pointer to axis object*)
-		Enable : BOOL; (*Enable expanded limits*)
-		Tolerance : REAL; (*Additional space to give the axis in axis units*)
-		AcknowledgeError : BOOL; (*Acknowledge error and retry setting the limits*)
-	END_VAR
-	VAR_OUTPUT
-		Active : BOOL; (*The expanded limits are active*)
-		Busy : BOOL; (*The limits are being set*)
-		Error : BOOL;
-		ErrorID : UINT;
-	END_VAR
-	VAR
-		Internal : AxisExpandLimit_Internal_typ;
-	END_VAR
-END_FUNCTION_BLOCK
+END_FUNCTION

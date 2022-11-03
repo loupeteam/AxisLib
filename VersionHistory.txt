@@ -1,3 +1,9 @@
+4.1.0 - Improve Api Layout
+
+4.0.1 - Add split input Api
+
+4.0.0 - Port to Mapp Motion
+
 3.6.4 - Fix reset detection in AxisReference()
 
 3.6.3 - Prevent Cyclic and Fast function from running while axis is not active
