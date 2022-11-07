@@ -1,5 +1,6 @@
 library "jenkinsLibrary@master"
 
 buildPublishPipeline(
-    slackChannel: "sandbox-github"
+    slackChannel: "sandbox-github",
+    asProjectVersion: "release/libraryBuildEngineMapp"
 )
