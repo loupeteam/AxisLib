@@ -166,7 +166,16 @@ plcbit AxisBasicCyclic(struct AxisBasic_Api_typ* Api, struct AxisBasic_IN_CFG_ty
 	internal->FUB.Stop.Deceleration = configuration->StopDeceleration;
 
 	MC_Stop(&internal->FUB.Stop);
+	
+	
+	// Enable/disable SW limits. 
+	internal->FUB.WriteParameter.Axis = Api->pAxisObject;
+	internal->FUB.WriteParameter.Execute = (Api->IN.CMD.EnableSwEndLimits || Api->IN.CMD.DisableSwEndLimits);
+	internal->FUB.WriteParameter.ParameterNumber = mcPAR_SW_END_IGNORE;
+	internal->FUB.WriteParameter.Value = (Api->IN.CMD.DisableSwEndLimits ? 1 : 0);
 
+	MC_WriteParameter(&internal->FUB.WriteParameter);
+	
 
 	// Busy 
 	Api->OUT.Busy = internal->FUB.Reference.Busy
@@ -176,7 +185,8 @@ plcbit AxisBasicCyclic(struct AxisBasic_Api_typ* Api, struct AxisBasic_IN_CFG_ty
 		||	internal->FUB.Jog.Busy
 		||	internal->FUB.Halt.Busy
 		||	internal->FUB.Stop.Busy
-		||	internal->FUB.Reset.Busy;
+		||	internal->FUB.Reset.Busy
+		||  internal->FUB.WriteParameter.Busy;
 					
 
 	// Done 
@@ -186,12 +196,12 @@ plcbit AxisBasicCyclic(struct AxisBasic_Api_typ* Api, struct AxisBasic_IN_CFG_ty
 		||	internal->FUB.MoveVelocity.InVelocity
 		||	internal->FUB.Halt.Done
 		||	internal->FUB.Stop.Done
-		||	internal->FUB.Reset.Done;
+		||	internal->FUB.Reset.Done
+		||  internal->FUB.WriteParameter.Done;
 					
 
 
-//	Api->OUT.State.MotionInhibited = internal->FUB.Status.AxisWarning;
-
+	//	Api->OUT.State.MotionInhibited = internal->FUB.Status.AxisWarning;
 	Api->OUT.State.AxisWarning = internal->FUB.Status.AxisWarning;
 	Api->OUT.State.CommunicationReady = internal->FUB.Status.CommunicationReady;
 	Api->OUT.State.IsHomed = internal->FUB.Status.IsHomed;
