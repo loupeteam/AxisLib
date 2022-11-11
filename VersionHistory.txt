@@ -1,3 +1,5 @@
+4.1.0 - Add support for enabling/disabling SW limits
+
 4.0.0 - Port to Mapp Motion
 		Add split input Api
 		Improve Api layout
