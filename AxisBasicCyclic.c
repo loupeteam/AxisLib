@@ -246,11 +246,14 @@ plcbit AxisBasicCyclic(struct AxisBasic_Api_typ* Api, struct AxisBasic_IN_CFG_ty
 	if (internal->FUB.ReadAxisError.Error) {
 		Api->OUT.ErrorID = internal->FUB.ReadAxisError.ErrorID;
 		Api->OUT.ErrorCount = 1;
+	} else if (internal->FUB.Reference.Error) {
+		Api->OUT.ErrorID = internal->FUB.Reference.ErrorID;
+		internal->FubError = 1;
 	}
 
 
 	// Set Error and Warning
-	if (Api->OUT.ErrorCount != 0) {
+	if ((Api->OUT.ErrorCount != 0) || (internal->FubError)) {
 		Api->OUT.Error = 1;
 	} else {
 		Api->OUT.Error = 0;
@@ -265,6 +268,9 @@ plcbit AxisBasicCyclic(struct AxisBasic_Api_typ* Api, struct AxisBasic_IN_CFG_ty
 
 	MC_Reset(&internal->FUB.Reset);
 	
+	if (Api->IN.CMD.ErrorReset) {
+		internal->FubError = 0;
+	}	
 
 	// Reset Reset
 	Api->IN.CMD.ErrorReset = 0;
