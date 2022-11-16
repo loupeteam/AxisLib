@@ -144,9 +144,7 @@ void AxisReference(struct AxisReference* t)
 			
 				t->Busy = 1;
 			
-				if( strcmp( t->Library, "McPureVAx" ) == 0){
-					t->internal.state = AXISLIB_REFST_REF_HOME;
-				} else if (t->RestorePositionVariableAddress != 0) {
+				if (t->RestorePositionVariableAddress != 0) {
 					t->internal.state = AXISLIB_REFST_START_INIT;
 				} else {
 					t->internal.state = AXISLIB_REFST_START_HOME;
@@ -221,13 +219,14 @@ void AxisReference(struct AxisReference* t)
 
 			t->internal.Home.Axis = (McAxisType*)t->Axis;
 			t->internal.Home.Execute = 1;
-			
-			if (t->DataValid) {
+						
+			// If permanent data for restore pos is valid, AND it's not a virtual axis, do the init home. 
+			if ((t->DataValid) && (strcmp(t->Library, "McPureVAx"))) {
 				t->internal.Home.HomingMode = mcHOMING_INIT;
 			} else {
 				t->internal.Home.Position = t->DefaultPosition;
 				t->internal.Home.HomingMode = mcHOMING_DIRECT;
-			}
+			}			
 			
 			if (t->internal.Home.Done && t->internal.Status.IsHomed) {
 		
