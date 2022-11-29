@@ -110,6 +110,8 @@ TYPE
 		LoadParameters : BOOL;
 		SaveWaypoints : BOOL;
 		LoadWaypoints : BOOL;
+		EnableSwEndLimits : BOOL;
+		DisableSwEndLimits : BOOL;
 	END_STRUCT;
 	AxisBasic_IN_PAR_typ : 	STRUCT  (*Input parameters.*)
 		Position : LREAL := 0; (*Target position for absolute moves.*)
@@ -172,6 +174,7 @@ TYPE
 	AxisBasic_Internal_typ : 	STRUCT  (*Internal axis manager variables (not intended to be read or written).*)
 		FUB : AxisBasic_Int_FUB_typ;
 		ResetOK : BOOL; (*It is OK to call MC_Reset. Necessary because of timing between Errorstop state and error reporting.*)
+		FubError : BOOL;
 	END_STRUCT;
 	AxisBasic_Int_FUB_typ : 	STRUCT 
 		Status : AxisStatus;
@@ -187,6 +190,7 @@ TYPE
 		Stop : MC_Stop;
 		ReadAxisError : MC_ReadAxisError;
 		Reset : MC_Reset;
+		WriteParameter : MC_WriteParameter;
 	END_STRUCT;
 	AxisBasic_Api_typ : 	STRUCT 
 		pAxisObject : REFERENCE TO McAxisType; (*Pointer to the axis object (global variable from mapp configuration).*)
