@@ -1,3 +1,5 @@
+4.1.1 - Add explicit ranges to the MappMotion dependencies
+
 4.1.0 - Add support for enabling/disabling SW limits
 
 4.0.0 - Port to Mapp Motion
