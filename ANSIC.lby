@@ -13,7 +13,7 @@
     <File Description="Manage an axis for basic movements and status reporting">AxisBasicCyclic.c</File>
   </Files>
   <Dependencies>
-    <Dependency ObjectName="McAxis" />
-    <Dependency ObjectName="McAcpAx" />
+    <Dependency ObjectName="McAxis" FromVersion="5.15.1" ToVersion="5.19.3" />
+    <Dependency ObjectName="McAcpAx" FromVersion="5.15.1" ToVersion="5.19.3" />
   </Dependencies>
 </Library>
