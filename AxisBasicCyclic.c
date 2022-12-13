@@ -176,6 +176,21 @@ plcbit AxisBasicCyclic(struct AxisBasic_Api_typ* Api, struct AxisBasic_IN_CFG_ty
 
 	MC_WriteParameter(&internal->FUB.WriteParameter);
 	
+	
+	// Cyclic reads. 
+	internal->CyclicReadPar.ParID = 112; // PCTRL_LAG_ERROR;
+	internal->CyclicReadPar.DataType = mcACPAX_PARTYPE_REAL;
+	internal->CyclicReadPar.VariableAddress = &Api->OUT.Lag;
+	internal->CyclicReadPar.RefreshMode = mcACPAX_CYCLIC_EVERY_RECORD;
+	
+	internal->FUB.CyclicRead.Axis = Api->pAxisObject;
+	internal->FUB.CyclicRead.Enable = !configuration->DisableLagRead;
+	internal->FUB.CyclicRead.DataAddress = &internal->CyclicReadPar;
+	internal->FUB.CyclicRead.Mode = mcACPAX_CYCLIC_PARID_READ;
+	internal->FUB.CyclicRead.NumberOfParIDs = 1;
+	
+	MC_BR_CyclicProcessParID_AcpAx(&internal->FUB.CyclicRead);
+	
 
 	// Busy 
 	Api->OUT.Busy = internal->FUB.Reference.Busy

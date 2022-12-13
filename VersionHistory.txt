@@ -1,3 +1,5 @@
+4.2.0 - Add support for cylically reading the lag error (enabled by default)
+
 4.1.1 - Add explicit ranges to the MappMotion dependencies
 
 4.1.0 - Add support for enabling/disabling SW limits
