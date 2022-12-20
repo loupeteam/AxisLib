@@ -135,6 +135,7 @@ TYPE
 		HomingMode : McHomingModeEnum;
 		DefaultPosition : LREAL;
 		StopDeceleration : REAL := 10000.0; (*Deceleration for stopping.*)
+		DisableLagRead : BOOL;
 	END_STRUCT;
 	AxisBasic_OUT_typ : 	STRUCT  (*Axis manager outputs (read only).*)
 		Name : STRING[AXLIB_STRLEN_NAME];
@@ -147,6 +148,7 @@ TYPE
 		Warning : BOOL; (*Axis warning is present.*)
 		Position : LREAL; (*Actual position of the axis [Units].*)
 		Velocity : REAL; (*Actual velocity of the axis [Units/s].*)
+		Lag : REAL;
 		State : AxisLib_AxisState_typ;
 		PLCOpen : McAxisPLCopenStateEnum; (*Extended PLCopen state*)
 		PLCOpenDiscrete : AxisLib_PLCOpenState_typ;
@@ -175,6 +177,7 @@ TYPE
 		FUB : AxisBasic_Int_FUB_typ;
 		ResetOK : BOOL; (*It is OK to call MC_Reset. Necessary because of timing between Errorstop state and error reporting.*)
 		FubError : BOOL;
+		CyclicReadPar : McAcpAxCycParIDType;
 	END_STRUCT;
 	AxisBasic_Int_FUB_typ : 	STRUCT 
 		Status : AxisStatus;
@@ -191,6 +194,7 @@ TYPE
 		ReadAxisError : MC_ReadAxisError;
 		Reset : MC_Reset;
 		WriteParameter : MC_WriteParameter;
+		CyclicRead : MC_BR_CyclicProcessParID_AcpAx;
 	END_STRUCT;
 	AxisBasic_Api_typ : 	STRUCT 
 		pAxisObject : REFERENCE TO McAxisType; (*Pointer to the axis object (global variable from mapp configuration).*)
