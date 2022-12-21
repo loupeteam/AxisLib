@@ -147,39 +147,12 @@ void AxisReference(struct AxisReference* t)
 				if( strcmp( t->Library, "McPureVAx" ) == 0){
 					t->internal.state = AXISLIB_REFST_REF_HOME;
 				} else if (t->RestorePositionVariableAddress != 0) {
-					t->internal.state = AXISLIB_REFST_START_INIT;
+					t->internal.state = AXISLIB_REFST_START_CHECK;
 				} else {
 					t->internal.state = AXISLIB_REFST_START_HOME;
 				}
 			}
 		
-			break;
-		
-		
-		case AXISLIB_REFST_START_INIT:
-	
-			t->internal.InitHome.Axis = (McAxisType*)t->Axis;
-			t->internal.InitHome.HomingParameters.RestorePositionVariableAddress = t->RestorePositionVariableAddress;
-			t->internal.InitHome.HomingParameters.HomingMode = mcHOMING_RESTORE_POSITION;
-			t->internal.InitHome.Execute = 1;
-
-			if (t->internal.InitHome.Done) {
-	
-				t->internal.InitHome.Execute=	0;
-			
-				t->internal.state = AXISLIB_REFST_START_CHECK;
-		
-			} else if (t->internal.InitHome.Error) {
-	
-				t->internal.InitHome.Execute = 0;
-
-				t->Error = 1;
-				t->ErrorID = t->internal.InitHome.ErrorID;
-				
-				t->internal.state = AXISLIB_REFST_START_HOME;
-	
-			}
-	
 			break;
 		
 		
@@ -223,7 +196,7 @@ void AxisReference(struct AxisReference* t)
 			t->internal.Home.Execute = 1;
 			
 			if (t->DataValid) {
-				t->internal.Home.HomingMode = mcHOMING_INIT;
+				t->internal.Home.HomingMode = mcHOMING_DEFAULT;
 			} else {
 				t->internal.Home.Position = t->DefaultPosition;
 				t->internal.Home.HomingMode = mcHOMING_DIRECT;
@@ -235,7 +208,7 @@ void AxisReference(struct AxisReference* t)
 			
 				t->Busy = 0;
 			
-				if (t->internal.Home.HomingMode == mcHOMING_INIT && t->internal.InitHome.HomingParameters.HomingMode == mcHOMING_RESTORE_POSITION) {
+				if (t->internal.Home.HomingMode == mcHOMING_DEFAULT) {
 					t->Referenced = 1;
 				}
 				
