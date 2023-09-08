@@ -86,7 +86,7 @@ void AxisStatus(struct AxisStatus* t)
 	
 	// Position
 	t->internal.ReadActualPosition.Axis = t->Axis;
-	t->internal.ReadActualPosition.Enable = t->Enable && !t->internal.ReadActualPosition.Error && t->CommunicationReady;
+	t->internal.ReadActualPosition.Enable = t->Enable && !t->internal.ReadActualPosition.Error && t->CommunicationReady && !t->DisablePositionRead;
 
 	MC_ReadActualPosition(&t->internal.ReadActualPosition);
 
