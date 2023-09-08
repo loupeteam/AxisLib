@@ -55,6 +55,7 @@ plcbit AxisBasicCyclic(struct AxisBasic_Api_typ* Api, struct AxisBasic_IN_CFG_ty
 	// Axis Status
 	internal->FUB.Status.Axis = Api->pAxisObject;
 	internal->FUB.Status.Enable = !internal->FUB.Status.Error;
+	internal->FUB.Status.DisablePositionRead = configuration->DisablePositionRead;
 	AxisStatus(&internal->FUB.Status);
 	memcpy(&Api->OUT.Info, &internal->FUB.Status.Info, sizeof(internal->FUB.Status.Info));
 	Api->OUT.Position = internal->FUB.Status.Position;

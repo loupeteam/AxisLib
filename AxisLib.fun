@@ -13,6 +13,7 @@ FUNCTION_BLOCK AxisStatus (*Gather status information about an axis*) (*$GROUP=U
 	VAR_INPUT
 		Axis : REFERENCE TO McAxisType;
 		Enable : BOOL;
+		DisablePositionRead : BOOL;
 	END_VAR
 	VAR_OUTPUT
 		Position : LREAL;

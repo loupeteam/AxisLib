@@ -136,6 +136,7 @@ TYPE
 		DefaultPosition : LREAL;
 		StopDeceleration : REAL := 10000.0; (*Deceleration for stopping.*)
 		DisableLagRead : BOOL;
+		DisablePositionRead : BOOL;
 	END_STRUCT;
 	AxisBasic_OUT_typ : 	STRUCT  (*Axis manager outputs (read only).*)
 		Name : STRING[AXLIB_STRLEN_NAME];
