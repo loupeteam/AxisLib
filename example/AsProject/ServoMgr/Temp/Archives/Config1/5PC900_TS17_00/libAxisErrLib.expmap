@@ -1,0 +1,6 @@
+{
+  global:
+    AxisAddErrorsToCollector;
+  local:
+    *;
+ };

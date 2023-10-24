@@ -1,0 +1,10 @@
+{
+  global:
+    FIOManageFn_Cyclic;
+    FIOWrapFn_Cyclic;
+    fiowSetError;
+    fiomSetError;
+    fioOpenFile_Init;
+  local:
+    *;
+ };

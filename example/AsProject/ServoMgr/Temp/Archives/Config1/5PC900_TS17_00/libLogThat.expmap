@@ -1,0 +1,13 @@
+{
+  global:
+    logDelete;
+    createLogInit;
+    logEventID;
+    logSuccess;
+    logWarning;
+    logError;
+    logInfo;
+    logStateChange;
+  local:
+    *;
+ };

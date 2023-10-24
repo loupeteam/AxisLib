@@ -1,0 +1,9 @@
+$(AS_CPU_PATH)/axislib/axisexpandlimit.c.o:
+c:/projects/loupe/axislib/src/ar/axislib/axisexpandlimit.c
+$(AS_GNU_INST_PATH)/4.9/i386-elf/include/bur/plctypes.h
+$(AS_GNU_INST_PATH)/4.9/i386-elf/include/bur/plc.h
+$(AS_TEMP_PATH)/includes/axislib.h
+$(AS_TEMP_PATH)/includes/acp10_mc.h
+$(AS_TEMP_PATH)/includes/acp10man.h
+$(AS_TEMP_PATH)/includes/ncglobal.h
+$(AS_TEMP_PATH)/includes/acp10par.h

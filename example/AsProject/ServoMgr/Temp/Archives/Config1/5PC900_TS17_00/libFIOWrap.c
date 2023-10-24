@@ -1,0 +1,10 @@
+void FIOManageFn_Cyclic(void) {};
+void _FIOManageFn_Cyclic(void) {};
+void FIOWrapFn_Cyclic(void) {};
+void _FIOWrapFn_Cyclic(void) {};
+void fiowSetError(void) {};
+void _fiowSetError(void) {};
+void fiomSetError(void) {};
+void _fiomSetError(void) {};
+void fioOpenFile_Init(void) {};
+void _fioOpenFile_Init(void) {};

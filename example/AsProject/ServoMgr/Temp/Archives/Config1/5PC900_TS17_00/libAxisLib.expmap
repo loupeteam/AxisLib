@@ -1,0 +1,12 @@
+{
+  global:
+    AxisStatus;
+    AxisReference;
+    AxisBasicFn_Cyclic;
+    AxisBasicFn_Fast;
+    axisInternalFastFn;
+    AxisRestorePosition;
+    AxisExpandLimit;
+  local:
+    *;
+ };

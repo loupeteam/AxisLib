@@ -1,0 +1,38 @@
+(********************************************************************
+ * COPYRIGHT --  
+ ********************************************************************
+ * Package: ServoControl
+ * File: ServoControl.var
+ * Author: David
+ * Created: March 07, 2011
+ ********************************************************************
+ * Variables of package ServoControl
+ ********************************************************************)
+VAR CONSTANT
+	NUM_MOTOR : USINT := END_OF_MOTOR;
+	MAI_MOTOR : USINT := NUM_MOTOR-1;
+END_VAR
+(*
+Hardware Level Axes
+*)
+VAR
+	homeAll : BOOL;
+	homeCheck : R_TRIG;
+	gMotorNcm : ARRAY[0..MAI_MOTOR] OF ACP10AXIS_typ;
+END_VAR
+(*
+Application Level Axes
+*)
+VAR
+	gMotorBasic : ARRAY[0..MAI_MOTOR] OF AxisBasic_typ;
+END_VAR
+(*
+Endless Position Data
+*)
+VAR RETAIN
+	gEndlessPosition : ARRAY[0..MAI_MOTOR] OF MC_ENDLESS_POSITION;
+END_VAR
+(*
+General Variables
+*)
+

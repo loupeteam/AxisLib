@@ -1,0 +1,12 @@
+$(AS_PROJECT_PATH)/Logical/Libraries/Loupe/piper/Piper.fun
+$(AS_PROJECT_PATH)/Logical/Libraries/Loupe/piper/Piper.typ
+$(AS_PROJECT_PATH)/Logical/Libraries/Loupe/piper/Piper.var
+$(AS_PROJECT_PATH)/Logical/Libraries/Loupe/LogThat/Constants.var
+$(AS_PROJECT_PATH)/Logical/Libraries/asstring/asstring.fun
+C:/Projects/Loupe/AxisLib/src/Ar/Servo/ServoControl.typ
+$(AS_PROJECT_PATH)/Logical/Libraries/Acp10_MC/acp10_mc.var
+$(AS_PROJECT_PATH)/Logical/Libraries/Loupe/errorlib/ErrorLib.var
+$(AS_PROJECT_PATH)/Logical/Libraries/Loupe/hmitools/HMITools.var
+$(AS_PROJECT_PATH)/Logical/Libraries/Loupe/logthat/Constants.var
+$(AS_PROJECT_PATH)/Logical/MachineControl/MachineControl.var
+$(AS_PROJECT_PATH)/Logical/MachineControl/cPiperModuleTemplate/PiperModule.var

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BuildReasons>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\servomgr\servomgrcyclic.st.o">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\errorprog\errorproginit.st.o">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\firstinitp\init.st.o">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\errorprog\errorprogcyclic.st.o">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\errorprog\_bur_pvdef.st.o">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\firstinitp\cyclic.st.o">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\servomgr\servomgrinit.st.o">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\errorprog\a.out">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\firstinitp\_bur_pvdef.st.o">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\firstinitp\a.out">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\servomgr\_bur_pvdef.st.o">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\servomgr\a.out">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\machinepro\machineprogcyclic.st.o">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\machinepro\_bur_pvdef.st.o">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\machinepro\a.out">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\errorprog\errorprog.ox">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\pipermodul\cyclic.st.o">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\pipermodul\_bur_pvdef.st.o">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\pipermodul\a.out">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\servomgr\servomgr.ox">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\machinepro\machinepro.ox">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\firstinitp\firstinitp.ox">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\firstinitp.br">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\pipermodul\pipermodul.ox">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\servomgr.br">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\cpipermodu.br">
+    <BuildReason>ExternalCommand line differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\machinehmi.br">
+    <BuildReason>ExternalCommand line differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\machinepro.br">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\pipermodul.br">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\errorprog.br">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\iomap.br">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\physical\config1\5pc900_ts17_00\cpu.sw" differs.
+</BuildReason>
+  </Rule>
+  <Rule ID="#cpu_tp.mak">
+    <BuildReason>Rule is forced.</BuildReason>
+  </Rule>
+  <Rule ID="$(AS_PROJECT_PATH)\binaries\config1\5pc900_ts17_00\transfer.lst">
+    <BuildReason>Prerequiste "$(AS_PROJECT_PATH)\temp\objects\config1\5pc900_ts17_00\firstinitp.br" differs.
+</BuildReason>
+  </Rule>
+</BuildReasons>

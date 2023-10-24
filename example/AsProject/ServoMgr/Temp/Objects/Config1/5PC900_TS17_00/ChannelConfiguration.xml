@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<?AutomationRuntimeIOSystem Version = 2.5.0.7?>
+<ChannelConfiguration xmlns="http://www.br-automation.com/AR/IO">
+  <Module ID="$root" Hardware="5PC910.SX01-00" HardwareModuleName="5PC900_TS17_00" ModuleID="8">
+    <Channel ID="ModuleID_CPU" Description="Module ID of CPU board" Ext="/HW" Address="0" Direction="IN" Type="UINT" Sig_St_Uint="1" ChannelType="GenericFuncCall" Function="mtcxGetDeviceIdPP500" FuncParam1="0xB" />
+    <Channel ID="TemperatureCPU" Description="Temperature of CPU in 1/10 degree Celsius" Ext="/HW" Address="1" Direction="IN" Type="UINT" Sig_Temp_CpuTemp="1" ChannelType="GenericFuncCall" Function="mtcxGetTempPP500" FuncParam1="0xB" FuncParam2="0x0" CyclicUpdate="1" />
+    <Channel ID="TemperatureBoard" Description="Temperature of board in 1/10 degree Celsius" Ext="/HW" Address="2" Direction="IN" Type="UINT" Sig_Temp_CpuTemp="1" ChannelType="GenericFuncCall" Function="mtcxGetTempPP500" FuncParam1="0xB" FuncParam2="0x1" CyclicUpdate="1" />
+    <Channel ID="SystemTime" Description="System time at the start of the current task cycle [µs]" Ext="/HW" Address="3" Direction="IN" Type="DINT" Sig_St_Dint="1" ChannelType="SystemTime" />
+  </Module>
+  <Module ID="$root" Hardware="5PC910.SX01-00" HardwareModuleName="5PC910.SX01-00" ModuleID="10">
+    <Channel ID="SerialNumber" Description="Serial number of system unit" Ext="/HW" Address="0" Direction="IN" Type="UDINT" Sig_St_Udint="1" ChannelType="GenericFuncCall" Function="mtcxGetSerialNoPP500" FuncParam1="0" />
+    <Channel ID="ModuleID" Description="Module ID of system unit" Ext="/HW" Address="1" Direction="IN" Type="UINT" Sig_St_Uint="1" ChannelType="GenericFuncCall" Function="mtcxGetDeviceIdPP500" FuncParam1="0" />
+    <Channel ID="PowerOnCycles" Description="PowerOnCycles of system unit" Ext="/HW" Address="2" Direction="IN" Type="UDINT" Sig_St_Udint="1" ChannelType="GenericFuncCall" Function="mtcxGetStatisticsCounter1" FuncParam1="0x0" FuncParam2="0x0" />
+    <Channel ID="OperatingHours" Description="Operating hours of system unit [h]" Ext="/HW" Address="3" Direction="IN" Type="UDINT" Sig_St_Udint="1" ChannelType="GenericFuncCall" Function="mtcxGetStatisticsCounter0" FuncParam1="0x0" FuncParam2="0x0" CyclicUpdate="1" />
+    <Channel ID="BatteryStatus" Description="Battery status PC (0 = battery low or missing, 1 = battery ok)" Ext="/HW" Address="4" Direction="IN" Type="USINT" Sig_St_Usint="1" ChannelType="Battery" BatteryDetectionMethod="1" Ordinal="2" CyclicUpdate="1" />
+    <Channel ID="MtcxVersionMajor" Description="MTCX version" Ext="/HW" Address="5" Direction="IN" Type="USINT" Sig_St_Usint="1" ChannelType="GenericFuncCall" Function="mtcxGetPx32Version2" FuncParam1="1" />
+    <Channel ID="MtcxVersionMinor" Description="MTCX version" Ext="/HW" Address="6" Direction="IN" Type="USINT" Sig_St_Usint="1" ChannelType="GenericFuncCall" Function="mtcxGetPx32Version2" FuncParam1="0" />
+    <Channel ID="TemperaturePS" Description="Temperature of power supply unit in 1/10 degree Celsius" Ext="/HW" Address="7" Direction="IN" Type="UINT" Sig_Temp_PSTemp="1" ChannelType="GenericFuncCall" Function="mtcxGetTempPP500" FuncParam1="0x0" FuncParam2="0x0" CyclicUpdate="1" />
+    <Channel ID="TemperatureHDD" Description="Temperature of hard disk drive in 1/10 degree Celsius" Ext="/HW" Address="8" Direction="IN" Type="UINT" Sig_Temp_HDDTemp="1" ChannelType="GenericFuncCall" Function="mtcxGetTempPP500" FuncParam1="0x0" FuncParam2="0x1" CyclicUpdate="1" />
+    <Channel ID="TemperatureRAM" Description="Temperature of RAM module unit in 1/10 degree Celsius" Ext="/HW" Address="9" Direction="IN" Type="UINT" Sig_Temp_RAMTemp="1" ChannelType="GenericFuncCall" Function="mtcxGetTempPP500" FuncParam1="0x0" FuncParam2="0x2" CyclicUpdate="1" />
+    <Channel ID="StorageWear" Description="Wear level of storage medium in percent" FromVersion="A4.90" Ext="/HW" Address="10" Direction="IN" Type="UINT" Sig_Ana_0percent_100percent_genuine="1" ChannelType="GenericFuncCall" Function="storageDpWear" CyclicUpdate="1" />
+  </Module>
+  <Module ID="SS2" Hardware="5AC901.IPLK-00" HardwareModuleName="5AC901.IPLK-00" ModuleID="4">
+    <Channel ID="ModuleOk" Description="Module status (1 = module present)" Ext="/OK" Address="0" Direction="IN" Type="BOOL" Sig_St_Bool="1" />
+    <Channel ID="SerialNumber" Description="Serial number of IF board" Ext="/HW" Address="1" Direction="IN" Type="UDINT" Sig_St_Udint="1" ChannelType="GenericFuncCall" Function="mtcxGetSerialNoPP500" FuncParam1="5" />
+    <Channel ID="ModuleID" Description="Module ID of IF board" Ext="/HW" Address="2" Direction="IN" Type="UINT" Sig_St_Uint="1" ChannelType="GenericFuncCall" Function="mtcxGetDeviceIdPP500" FuncParam1="5" />
+    <Channel ID="PowerOnCycles" Description="PowerOnCycles of IF board" Ext="/HW" Address="3" Direction="IN" Type="UDINT" Sig_St_Udint="1" ChannelType="GenericFuncCall" Function="mtcxGetStatisticsCounter1" FuncParam1="5" FuncParam2="0" />
+    <Channel ID="OperatingHours" Description="Operating hours of IF board [h]" Ext="/HW" Address="4" Direction="IN" Type="UDINT" Sig_St_Udint="1" ChannelType="GenericFuncCall" Function="mtcxGetStatisticsCounter0" FuncParam1="5" FuncParam2="0" CyclicUpdate="1" />
+    <Channel ID="IF1.LinkOk" Description="Link state interface 1" Ext="/INFO" Address="0x8000001A" BitOffset="0" Direction="IN" Type="BOOL" Sig_St_Bool="1" />
+    <Channel ID="IF1.OutputDMAMargin" Description="Margin to output cycle deadline in microseconds" Ext="/INFO" Address="0x8000000C" Direction="IN" Type="DINT" Sig_St_Dint="1" />
+    <Channel ID="IF1.NodeNumber" Description="Node number currently in use (255 = invalid)" FromVersion="B2.87" Ext="/INFO" Direction="IN" Type="USINT" Sig_St_Usint="1" />
+    <Channel ID="IF1.CycleOk" Description="Indication for proper cyclic operation (1 = operational)" FromVersion="B2.87" Ext="/INFO" Direction="IN" Type="BOOL" Sig_St_Bool="1" />
+    <Channel ID="IF1.SyncOk" Description="Indication for a synchronized POWERLINK-system (1 = synchronized)" FromVersion="B2.87" Ext="/INFO" Direction="IN" Type="BOOL" Sig_St_Bool="1" />
+    <Channel ID="IF1.TimeSeconds" Description="Absolute time extracted from current SoC-Frame (NetTime in POWERLINK V2) - Seconds" FromVersion="M2.90" Ext="/INFO" Direction="IN" Type="UDINT" Sig_St_Udint="1" />
+    <Channel ID="IF1.TimeNanoseconds" Description="Absolute time extracted from current SoC-Frame (NetTime in POWERLINK V2) - Nanoseconds" FromVersion="M2.90" Ext="/INFO" Direction="IN" Type="UDINT" Sig_St_Udint="1" />
+    <Channel ID="IF1.NettimeSoC" Description="Network time extracted from current SoC-Frame [µs] (RelativeTime in POWERLINK V2)" FromVersion="B2.87" Ext="/INFO" Direction="IN" Type="DINT" Sig_St_Dint="1" />
+    <Channel ID="IF1.NettimeOffset" Description="Network time offset to local system time [µs]" FromVersion="B2.87" Ext="/INFO" Direction="IN" Type="DINT" Sig_St_Dint="1" />
+    <Channel ID="IF1.CycleCount" Description="Overall number of bus cycles" FromVersion="I2.85" Ext="/INFO" Direction="IN" Type="UDINT" Sig_St_Udint="1" />
+    <Channel ID="IF1.FailedCycleCount" Description="Number of failed bus cycles" FromVersion="I2.85" Ext="/INFO" Direction="IN" Type="UDINT" Sig_St_Udint="1" />
+    <Channel ID="IF1.CycleTimeViolationCount" Description="Number of cycle time violations" FromVersion="I2.85" Ext="/INFO" Direction="IN" Type="UDINT" Sig_St_Udint="1" />
+    <Channel ID="IF1.CycleIdleTime" Description="Unoccupied time during one POWERLINK cycle [µs]" FromVersion="B2.87" Ext="/INFO" Direction="IN" Type="UDINT" Sig_St_Udint="1" />
+    <Channel ID="IF1.CycleCongestionCount" Description="allways 0, available for legacy projects" FromVersion="B2.87" Ext="/INFO" Direction="IN" Type="UDINT" Sig_St_Udint="1" />
+    <Channel ID="IF1.MinimalLatencyInputMargin" Description="Margin to minimal latency input switch deadline in microseconds" FromVersion="A4.91" Ext="/INFO" Address="0x8000000D" Direction="IN" Type="DINT" Sig_St_Dint="1" />
+    <Channel ID="IF1.FailedMinimalLatencyInputCount" Description="Counts when inputs of stations with optimization for minimal latency were too late" FromVersion="A4.91" Ext="/INFO" Address="0x8000000E" Direction="IN" Type="UDINT" Sig_St_Udint="1" />
+  </Module>
+</ChannelConfiguration>

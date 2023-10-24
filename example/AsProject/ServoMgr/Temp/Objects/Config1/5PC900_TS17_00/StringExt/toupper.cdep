@@ -1,0 +1,9 @@
+$(AS_CPU_PATH)/stringext/toupper.c.o:
+c:/projects/loupe/axislib/src/ar/stringext/toupper.c
+$(AS_GNU_INST_PATH)/4.9/i386-elf/include/bur/plctypes.h
+$(AS_GNU_INST_PATH)/4.9/i386-elf/include/bur/plc.h
+$(AS_TEMP_PATH)/includes/stringext.h
+$(AS_TEMP_PATH)/includes/astime.h
+$(AS_TEMP_PATH)/includes/runtime.h
+$(AS_TEMP_PATH)/includes/asbrstr.h
+$(AS_TEMP_PATH)/includes/asbrwstr.h

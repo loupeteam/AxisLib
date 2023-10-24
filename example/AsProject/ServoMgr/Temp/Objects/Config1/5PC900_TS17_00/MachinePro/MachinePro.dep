@@ -1,0 +1,8 @@
+$(AS_PROJECT_PATH)/Logical/Libraries/Loupe/piper/Piper.fun
+$(AS_PROJECT_PATH)/Logical/Libraries/standard/standard.fun
+$(AS_PROJECT_PATH)/Logical/MachineControl/MachineProg/MachineProg.var
+$(AS_PROJECT_PATH)/Logical/MachineControl/MachineControl.var
+$(AS_PROJECT_PATH)/Logical/Libraries/Loupe/piper/Piper.typ
+$(AS_PROJECT_PATH)/Logical/Libraries/Loupe/piper/Piper.var
+$(AS_PROJECT_PATH)/Logical/Libraries/Loupe/LogThat/Constants.var
+$(AS_PROJECT_PATH)/Logical/MachineControl/MachineControl.typ

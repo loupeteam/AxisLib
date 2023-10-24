@@ -1,0 +1,11 @@
+C:/Projects/Loupe/AxisLib/src/Ar/FIOWrap/FIOWrap.fun
+C:/Projects/Loupe/AxisLib/src/Ar/FIOWrap/FIOWrap.typ
+C:/Projects/Loupe/AxisLib/src/Ar/FIOWrap/FIOWrap.var
+$(AS_PROJECT_PATH)/Logical/Libraries/FileIO/FileIO.fun
+$(AS_PROJECT_PATH)/Logical/Libraries/astime/astime.fun
+$(AS_PROJECT_PATH)/Logical/Libraries/astime/astime.typ
+$(AS_PROJECT_PATH)/Logical/Libraries/FileIO/FileIO.typ
+$(AS_PROJECT_PATH)/Logical/Libraries/standard/standard.fun
+C:/Projects/Loupe/AxisLib/src/Ar/StringExt/StringExt.fun
+$(AS_PROJECT_PATH)/Logical/Libraries/AsBrStr/AsBrStr.fun
+$(AS_PROJECT_PATH)/Logical/Libraries/FileIO/FileIO.var

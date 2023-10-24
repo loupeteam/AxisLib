@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Library Version="0.02.4" SubType="Binary" xmlns="http://br-automation.co.at/AS/Library">
+  <Files>
+    <File>RingBufLib.html</File>
+    <File>RingBufLib.md</File>
+    <File>VersionHistory.txt</File>
+    <File Description="Exported data types">RingBufLib.typ</File>
+    <File Description="Exported functions and function blocks">RingBufLib.fun</File>
+  </Files>
+  <Dependencies>
+    <Dependency ObjectName="AsBrStr" />
+  </Dependencies>
+</Library>

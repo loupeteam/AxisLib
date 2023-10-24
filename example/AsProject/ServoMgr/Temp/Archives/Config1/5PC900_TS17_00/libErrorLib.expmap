@@ -1,0 +1,19 @@
+{
+  global:
+    errcolAddSourceByAddress;
+    errcolAddSourceByName;
+    errcolAddError;
+    errcolAcknowledge;
+    ErrorCollectorFn_Init;
+    ErrorCollectorFn_Cyclic;
+    ErrorCollectorFn_HMI_Cyclic;
+    errcolInternalSetError;
+    errcolIntGenerateDisplayString;
+    errcolInternalAddError;
+    errcolInternalLogError;
+    errcolInternalLogAcknowledge;
+    errcolInternalRemoveError;
+    errcolInternalRefreshHMIDisplay;
+  local:
+    *;
+ };

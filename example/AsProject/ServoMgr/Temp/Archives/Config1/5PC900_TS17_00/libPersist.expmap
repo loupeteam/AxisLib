@@ -1,0 +1,10 @@
+{
+  global:
+    PersistFn_Init;
+    PersistFn_Cyclic;
+    persistInternalMapMemory;
+    persistInternalBackup;
+    persistInternalRestore;
+  local:
+    *;
+ };

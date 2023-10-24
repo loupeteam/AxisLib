@@ -1,0 +1,25 @@
+{
+  global:
+    CSVFn_Init;
+    CSVOpenFile_Init;
+    CSVFn_Cyclic;
+    csvInitBuffer;
+    csvClearBuffer;
+    csvAddToBuffer;
+    csvSetError;
+    csvExpandVar;
+    csvProcessData;
+    csvAddLogInfo;
+    csvParseLine;
+    csvGetVarInfo;
+    csvOpenVar;
+    csvSaveVar;
+    csvWriteHeader;
+    csvRemovePrefix;
+    csvAddPrefix;
+    CSVFn_HMI_Cyclic;
+    csvhmiGenerateFileListString;
+    csvDTOA;
+  local:
+    *;
+ };
