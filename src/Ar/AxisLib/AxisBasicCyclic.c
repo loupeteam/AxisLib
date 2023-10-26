@@ -1,8 +1,11 @@
-//--------------------------------------------------------------------------------
-// Copyright: Loupe
-// Author:    Josh Polansky
-// Created:   September 28, 2022
-//--------------------------------------------------------------------------------
+/*
+ * File: AxisBasicCyclic.c
+ * Copyright (c) 2023 Loupe
+ * https://loupe.team
+ * 
+ * This file is part of AxisLib, licensed under the MIT License.
+ * 
+ */
 
 #include <bur/plctypes.h>
 #ifdef __cplusplus

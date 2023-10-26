@@ -1,11 +1,11 @@
-(********************************************************************
- * COPYRIGHT -- B&R Industrial Automation
- ********************************************************************
- * Library: AxisLib
+(*
  * File: AxisLib.fun
- * Author: blackburnd
- * Created: March 30, 2010
- ********************************************************************
+ * Copyright (c) 2023 Loupe
+ * https://loupe.team
+ * 
+ * This file is part of AxisLib, licensed under the MIT License.
+ * 
+  ********************************************************************
  * Functions and function blocks of library AxisLib
  ********************************************************************)
 
