@@ -1,7 +1,7 @@
 {
   "name": "@loupeteam/servomgracp10pkg",
   "version": "0.1.0",
-  "description": "Supports servo manager for ACP10",
+  "description": "Package that will add the ACP10 Servo Manager program to your AS project",
   "author": "Loupe",
   "license": "Loupe Software License Agreement",
   "repository": {
@@ -9,11 +9,10 @@
     "url": "git+https://github.com/loupeteam/AxisLib.git"
   },
   "dependencies": {
-    "@loupeteam/axislib": "^3.6.4",
-    "@loupeteam/piperpkg": "*",
-    "@loupeteam/firstinitprogpkg": "*",
-    "@loupeteam/errorprogpkg": "*",
-    "@loupeteam/axiserrlib": "*"
+    "@loupeteam/axiserrlib": "^0.0.5",
+    "@loupeteam/errorprogpkg": "^0.1.0",
+    "@loupeteam/firstinitprogpkg": "^0.1.1",
+    "@loupeteam/piperpkg": "^0.1.8"
   },
   "lpm": {
     "type": "package",
