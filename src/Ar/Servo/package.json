@@ -12,7 +12,8 @@
     "@loupeteam/axiserrlib": "^0.0.5",
     "@loupeteam/errorprogpkg": "^0.1.0",
     "@loupeteam/firstinitprogpkg": "^0.1.1",
-    "@loupeteam/piperpkg": "^0.1.8"
+    "@loupeteam/piperpkg": "^0.1.8",
+    "@loupeteam/axislib": "3.6.4"
   },
   "lpm": {
     "type": "package",
