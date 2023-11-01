@@ -3,26 +3,24 @@
 <Transfer xmlns="http://br-automation.co.at/AS/Transfer">
   <OperatingSystem Version="E4.92"/>
   <Hardware Target="SG4"/>
-  <Operation Delete="ErrorProg.br"/>
-  <Operation Delete="PiperModul.br"/>
-  <Operation Delete="MachinePro.br"/>
   <Operation Delete="MachineHMI.br"/>
-  <Operation Delete="cPiperModu.br"/>
+  <Operation Delete="ErrorProg.br"/>
+  <Operation Delete="MachinePro.br"/>
   <Operation Delete="ServoMgr.br"/>
   <Operation Delete="FirstInitP.br"/>
-  <Operation Delete="AxisErrLib.br"/>
+  <Operation Delete="axiserrlib.br"/>
   <Operation Delete="piper.br"/>
+  <Operation Delete="asieccon.br"/>
   <Operation Delete="csvfilelib.br"/>
   <Operation Delete="persist.br"/>
   <Operation Delete="vartools.br"/>
-  <Operation Delete="asieccon.br"/>
-  <Operation Delete="fiowrap.br"/>
   <Operation Delete="errorlib.br"/>
   <Operation Delete="hmitools.br"/>
-  <Operation Delete="AsArLog.br"/>
-  <Operation Delete="ringbuflib.br"/>
   <Operation Delete="logthat.br"/>
   <Operation Delete="ArEventLog.br"/>
+  <Operation Delete="AsArLog.br"/>
+  <Operation Delete="ringbuflib.br"/>
+  <Operation Delete="fiowrap.br"/>
   <Operation Delete="stringext.br"/>
   <Operation Delete="Acp10_MC.br"/>
   <Operation Delete="sys_lib.br"/>
@@ -51,23 +49,23 @@
   <Operation Restart="warm"/>
   <Operation Download="operator.br" Memory="UserROM"/>
   <Operation Download="AsBrStr.br" Memory="UserROM"/>
+  <Operation Download="standard.br" Memory="UserROM"/>
   <Operation Download="AsBrWStr.br" Memory="UserROM"/>
   <Operation Download="stringext.br" Memory="UserROM"/>
-  <Operation Download="ArEventLog.br" Memory="UserROM"/>
-  <Operation Download="logthat.br" Memory="UserROM"/>
-  <Operation Download="asstring.br" Memory="UserROM"/>
+  <Operation Download="fiowrap.br" Memory="UserROM"/>
   <Operation Download="ringbuflib.br" Memory="UserROM"/>
   <Operation Download="AsArLog.br" Memory="UserROM"/>
-  <Operation Download="standard.br" Memory="UserROM"/>
+  <Operation Download="ArEventLog.br" Memory="UserROM"/>
+  <Operation Download="logthat.br" Memory="UserROM"/>
   <Operation Download="hmitools.br" Memory="UserROM"/>
   <Operation Download="errorlib.br" Memory="UserROM"/>
-  <Operation Download="fiowrap.br" Memory="UserROM"/>
-  <Operation Download="asieccon.br" Memory="UserROM"/>
   <Operation Download="vartools.br" Memory="UserROM"/>
   <Operation Download="persist.br" Memory="UserROM"/>
   <Operation Download="csvfilelib.br" Memory="UserROM"/>
+  <Operation Download="asstring.br" Memory="UserROM"/>
+  <Operation Download="asieccon.br" Memory="UserROM"/>
   <Operation Download="piper.br" Memory="UserROM"/>
-  <Operation Download="AxisErrLib.br" Memory="UserROM"/>
+  <Operation Download="axiserrlib.br" Memory="UserROM"/>
   <Operation Download="udbdef.br" Memory="UserROM"/>
   <Operation Download="FWRules.br" Memory="UserROM"/>
   <Operation Download="TCData.br" Memory="SystemROM"/>
@@ -77,9 +75,7 @@
   <Operation Download="ashwac.br" Memory="UserROM"/>
   <Operation Download="FirstInitP.br" Memory="UserROM"/>
   <Operation Download="ServoMgr.br" Memory="UserROM"/>
-  <Operation Download="cPiperModu.br" Memory="UserROM"/>
-  <Operation Download="MachineHMI.br" Memory="UserROM"/>
   <Operation Download="MachinePro.br" Memory="UserROM"/>
-  <Operation Download="PiperModul.br" Memory="UserROM"/>
   <Operation Download="ErrorProg.br" Memory="UserROM"/>
+  <Operation Download="MachineHMI.br" Memory="UserROM"/>
 </Transfer>

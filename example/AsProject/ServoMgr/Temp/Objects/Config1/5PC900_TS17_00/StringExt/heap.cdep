@@ -1,2 +1,0 @@
-$(AS_CPU_PATH)/stringext/heap.cpp.o:
-c:/projects/loupe/axislib/src/ar/stringext/heap.cpp

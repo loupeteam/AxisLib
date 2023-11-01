@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1698158230_2_
-#define _BUR_1698158230_2_
+#ifndef _BUR_1698852889_5_
+#define _BUR_1698852889_5_
 
 #include <bur/plctypes.h>
 
@@ -17,10 +17,9 @@
 
 
 /* Variables */
-_GLOBAL plcbit gClearTrace;
-_GLOBAL_RETAIN unsigned char gPermConfiguration[2000];
-_GLOBAL_RETAIN unsigned char gPermAxisCfgs[1000];
-_GLOBAL_RETAIN unsigned char gPermAxisPars[5000];
+_GLOBAL_RETAIN unsigned char gPermConfiguration[100000];
+_GLOBAL_RETAIN unsigned char gPermAxisCfgs[2000];
+_GLOBAL_RETAIN unsigned char gPermAxisPars[1000];
 _GLOBAL_RETAIN unsigned char gPermHomeData[1000];
 _GLOBAL_RETAIN plcbit gDataValid[4];
 _GLOBAL struct CSVFileMgr_typ gPermBackup[4];
@@ -41,5 +40,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Infrastructure/Infrastructure.var\\\" scop
 __asm__(".previous");
 
 
-#endif /* _BUR_1698158230_2_ */
+#endif /* _BUR_1698852889_5_ */
 

@@ -5,7 +5,7 @@
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Package.pkg"
     LogicalPath=""
     Type="Package.ParentUnknown"
-    LastWriteTime="133426320068529318" />
+    LastWriteTime="133433264603211189" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Global.typ"
     LogicalPath="Global.typ"
@@ -394,7 +394,7 @@
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\Package.pkg"
     LogicalPath="Libraries.Loupe"
     Type="Package"
-    LastWriteTime="133426313963984466" />
+    LastWriteTime="133433264608986595" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\src\Ar\AxisLib\ANSIC.lby"
     LogicalPath="Libraries.Loupe.AxisLib"
@@ -479,670 +479,509 @@
     LastWriteTime="133426317394142305"
     Private="false" />
   <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\piper\Binary.lby"
-    LogicalPath="Libraries.Loupe.piper"
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\axiserrlib\Binary.lby"
+    LogicalPath="Libraries.Loupe.axiserrlib"
     Type="Library"
-    LastWriteTime="133426311891032756" />
+    LastWriteTime="133433238495127435" />
   <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\piper\VersionHistory.txt"
-    LogicalPath="Libraries.Loupe.piper.VersionHistory.txt"
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\axiserrlib\VersionHistory.txt"
+    LogicalPath="Libraries.Loupe.axiserrlib.VersionHistory.txt"
     Type="File"
-    LastWriteTime="133426311890874351"
+    LastWriteTime="133433238495127435"
     Private="false" />
   <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\piper\Piper.typ"
-    LogicalPath="Libraries.Loupe.piper.Piper.typ"
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\axiserrlib\Types.typ"
+    LogicalPath="Libraries.Loupe.axiserrlib.Types.typ"
     Type="File"
-    LastWriteTime="133426311890874351"
+    LastWriteTime="133433238495127435"
     Private="false" />
   <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\piper\Piper.var"
-    LogicalPath="Libraries.Loupe.piper.Piper.var"
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\axiserrlib\Constants.var"
+    LogicalPath="Libraries.Loupe.axiserrlib.Constants.var"
     Type="File"
-    LastWriteTime="133426311890874351"
+    LastWriteTime="133433238495127435"
     Private="false" />
   <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\piper\Piper.fun"
-    LogicalPath="Libraries.Loupe.piper.Piper.fun"
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\axiserrlib\AxisErrLib.fun"
+    LogicalPath="Libraries.Loupe.axiserrlib.AxisErrLib.fun"
     Type="File"
-    LastWriteTime="133426311891032756"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\stringext\Binary.lby"
-    LogicalPath="Libraries.Loupe.stringext"
-    Type="Library"
-    LastWriteTime="133426312128372749" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\stringext\RevisionHistory.txt"
-    LogicalPath="Libraries.Loupe.stringext.RevisionHistory.txt"
-    Type="File"
-    LastWriteTime="133426312128065881"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\stringext\LICENSE.txt"
-    LogicalPath="Libraries.Loupe.stringext.LICENSE.txt"
-    Type="File"
-    LastWriteTime="133426312128250083"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\stringext\StringExt.typ"
-    LogicalPath="Libraries.Loupe.stringext.StringExt.typ"
-    Type="File"
-    LastWriteTime="133426312128270946"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\stringext\StringExt.var"
-    LogicalPath="Libraries.Loupe.stringext.StringExt.var"
-    Type="File"
-    LastWriteTime="133426312128270946"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\stringext\StringExt.fun"
-    LogicalPath="Libraries.Loupe.stringext.StringExt.fun"
-    Type="File"
-    LastWriteTime="133426312128270946"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\logthat\Binary.lby"
-    LogicalPath="Libraries.Loupe.logthat"
-    Type="Library"
-    LastWriteTime="133426312426887332" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\logthat\Types.typ"
-    LogicalPath="Libraries.Loupe.logthat.Types.typ"
-    Type="File"
-    LastWriteTime="133426312426578846"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\logthat\Constants.var"
-    LogicalPath="Libraries.Loupe.logthat.Constants.var"
-    Type="File"
-    LastWriteTime="133426312426734318"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\logthat\LogThat.fun"
-    LogicalPath="Libraries.Loupe.logthat.LogThat.fun"
-    Type="File"
-    LastWriteTime="133426312426734318"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\logthat\LogInternalWrite.h"
-    LogicalPath="Libraries.Loupe.logthat.LogInternalWrite.h"
-    Type="File"
-    LastWriteTime="133426312426887332"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\logthat\README.md"
-    LogicalPath="Libraries.Loupe.logthat.README.md"
-    Type="File"
-    LastWriteTime="133426312426887332"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\logthat\LICENSE.md"
-    LogicalPath="Libraries.Loupe.logthat.LICENSE.md"
-    Type="File"
-    LastWriteTime="133426312426887332"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\AxisErrLib\Binary.lby"
-    LogicalPath="Libraries.Loupe.AxisErrLib"
-    Type="Library"
-    LastWriteTime="133426312581889884" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\AxisErrLib\VersionHistory.txt"
-    LogicalPath="Libraries.Loupe.AxisErrLib.VersionHistory.txt"
-    Type="File"
-    LastWriteTime="133426312581730979"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\AxisErrLib\Types.typ"
-    LogicalPath="Libraries.Loupe.AxisErrLib.Types.typ"
-    Type="File"
-    LastWriteTime="133426312581730979"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\AxisErrLib\Constants.var"
-    LogicalPath="Libraries.Loupe.AxisErrLib.Constants.var"
-    Type="File"
-    LastWriteTime="133426312581730979"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\AxisErrLib\AxisErrLib.fun"
-    LogicalPath="Libraries.Loupe.AxisErrLib.AxisErrLib.fun"
-    Type="File"
-    LastWriteTime="133426312581889884"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\Binary.lby"
-    LogicalPath="Libraries.Loupe.errorlib"
-    Type="Library"
-    LastWriteTime="133426312929856102" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\ErrorLib.html"
-    LogicalPath="Libraries.Loupe.errorlib.ErrorLib.html"
-    Type="File"
-    LastWriteTime="133426312929543675"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\ErrorLib.md"
-    LogicalPath="Libraries.Loupe.errorlib.ErrorLib.md"
-    Type="File"
-    LastWriteTime="133426312929543675"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\ErrorLibOverview.graffle"
-    LogicalPath="Libraries.Loupe.errorlib.ErrorLibOverview.graffle"
-    Type="File"
-    LastWriteTime="133426312929543675"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\ErrorLibOverview.png"
-    LogicalPath="Libraries.Loupe.errorlib.ErrorLibOverview.png"
-    Type="File"
-    LastWriteTime="133426312929543675"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\VersionHistory.txt"
-    LogicalPath="Libraries.Loupe.errorlib.VersionHistory.txt"
-    Type="File"
-    LastWriteTime="133426312929705044"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\ErrorLib.typ"
-    LogicalPath="Libraries.Loupe.errorlib.ErrorLib.typ"
-    Type="File"
-    LastWriteTime="133426312929705044"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\ErrorLib.var"
-    LogicalPath="Libraries.Loupe.errorlib.ErrorLib.var"
-    Type="File"
-    LastWriteTime="133426312929705044"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\ErrorLib.fun"
-    LogicalPath="Libraries.Loupe.errorlib.ErrorLib.fun"
-    Type="File"
-    LastWriteTime="133426312929705044"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\ErrorLib_enum.typ"
-    LogicalPath="Libraries.Loupe.errorlib.ErrorLib_enum.typ"
-    Type="File"
-    LastWriteTime="133426312929705044"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\ErrorCollector.typ"
-    LogicalPath="Libraries.Loupe.errorlib.ErrorCollector.typ"
-    Type="File"
-    LastWriteTime="133426312929856102"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\ErrorCollector_HMI.typ"
-    LogicalPath="Libraries.Loupe.errorlib.ErrorCollector_HMI.typ"
-    Type="File"
-    LastWriteTime="133426312929856102"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\Binary.lby"
-    LogicalPath="Libraries.Loupe.hmitools"
-    Type="Library"
-    LastWriteTime="133426313219704224" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\HMITools.html"
-    LogicalPath="Libraries.Loupe.hmitools.HMITools.html"
-    Type="File"
-    LastWriteTime="133426313219233687"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\HMITools.md"
-    LogicalPath="Libraries.Loupe.hmitools.HMITools.md"
-    Type="File"
-    LastWriteTime="133426313219233687"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\VersionHistory.txt"
-    LogicalPath="Libraries.Loupe.hmitools.VersionHistory.txt"
-    Type="File"
-    LastWriteTime="133426313219233687"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\Coffee_Machine.png"
-    LogicalPath="Libraries.Loupe.hmitools.Coffee_Machine.png"
-    Type="File"
-    LastWriteTime="133426313219389031"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\HMITools.typ"
-    LogicalPath="Libraries.Loupe.hmitools.HMITools.typ"
-    Type="File"
-    LastWriteTime="133426313219389031"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\HMITools.var"
-    LogicalPath="Libraries.Loupe.hmitools.HMITools.var"
-    Type="File"
-    LastWriteTime="133426313219389031"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\HMITools.fun"
-    LogicalPath="Libraries.Loupe.hmitools.HMITools.fun"
-    Type="File"
-    LastWriteTime="133426313219389031"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\HMI_Basic.typ"
-    LogicalPath="Libraries.Loupe.hmitools.HMI_Basic.typ"
-    Type="File"
-    LastWriteTime="133426313219389031"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\HMI_Basic.var"
-    LogicalPath="Libraries.Loupe.hmitools.HMI_Basic.var"
-    Type="File"
-    LastWriteTime="133426313219546338"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\HMI_File_Browse.typ"
-    LogicalPath="Libraries.Loupe.hmitools.HMI_File_Browse.typ"
-    Type="File"
-    LastWriteTime="133426313219546338"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\LogViewer.typ"
-    LogicalPath="Libraries.Loupe.hmitools.LogViewer.typ"
-    Type="File"
-    LastWriteTime="133426313219546338"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\EditorControl.typ"
-    LogicalPath="Libraries.Loupe.hmitools.EditorControl.typ"
-    Type="File"
-    LastWriteTime="133426313219546338"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\HMI_Trend.typ"
-    LogicalPath="Libraries.Loupe.hmitools.HMI_Trend.typ"
-    Type="File"
-    LastWriteTime="133426313219546338"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\RecipeMgr.typ"
-    LogicalPath="Libraries.Loupe.hmitools.RecipeMgr.typ"
-    Type="File"
-    LastWriteTime="133426313219546338"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\Updater.typ"
-    LogicalPath="Libraries.Loupe.hmitools.Updater.typ"
-    Type="File"
-    LastWriteTime="133426313219704224"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\ringbuflib\Binary.lby"
-    LogicalPath="Libraries.Loupe.ringbuflib"
-    Type="Library"
-    LastWriteTime="133426313340017120" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\ringbuflib\RingBufLib.html"
-    LogicalPath="Libraries.Loupe.ringbuflib.RingBufLib.html"
-    Type="File"
-    LastWriteTime="133426313339859100"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\ringbuflib\RingBufLib.md"
-    LogicalPath="Libraries.Loupe.ringbuflib.RingBufLib.md"
-    Type="File"
-    LastWriteTime="133426313339859100"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\ringbuflib\VersionHistory.txt"
-    LogicalPath="Libraries.Loupe.ringbuflib.VersionHistory.txt"
-    Type="File"
-    LastWriteTime="133426313339859100"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\ringbuflib\RingBufLib.typ"
-    LogicalPath="Libraries.Loupe.ringbuflib.RingBufLib.typ"
-    Type="File"
-    LastWriteTime="133426313340017120"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\ringbuflib\RingBufLib.fun"
-    LogicalPath="Libraries.Loupe.ringbuflib.RingBufLib.fun"
-    Type="File"
-    LastWriteTime="133426313340017120"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\csvfilelib\Binary.lby"
-    LogicalPath="Libraries.Loupe.csvfilelib"
-    Type="Library"
-    LastWriteTime="133426313499235332" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\csvfilelib\CSVFileLib.html"
-    LogicalPath="Libraries.Loupe.csvfilelib.CSVFileLib.html"
-    Type="File"
-    LastWriteTime="133426313499073900"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\csvfilelib\CSVFileLib.md"
-    LogicalPath="Libraries.Loupe.csvfilelib.CSVFileLib.md"
-    Type="File"
-    LastWriteTime="133426313499073900"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\csvfilelib\VersionHistory.txt"
-    LogicalPath="Libraries.Loupe.csvfilelib.VersionHistory.txt"
-    Type="File"
-    LastWriteTime="133426313499073900"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\csvfilelib\CSVFileLib.typ"
-    LogicalPath="Libraries.Loupe.csvfilelib.CSVFileLib.typ"
-    Type="File"
-    LastWriteTime="133426313499073900"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\csvfilelib\CSVFileLib.var"
-    LogicalPath="Libraries.Loupe.csvfilelib.CSVFileLib.var"
-    Type="File"
-    LastWriteTime="133426313499073900"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\csvfilelib\CSVFileLib.fun"
-    LogicalPath="Libraries.Loupe.csvfilelib.CSVFileLib.fun"
-    Type="File"
-    LastWriteTime="133426313499235332"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\csvfilelib\CSVFileLib_enum.typ"
-    LogicalPath="Libraries.Loupe.csvfilelib.CSVFileLib_enum.typ"
-    Type="File"
-    LastWriteTime="133426313499235332"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\csvfilelib\CSVFileMgr.typ"
-    LogicalPath="Libraries.Loupe.csvfilelib.CSVFileMgr.typ"
-    Type="File"
-    LastWriteTime="133426313499235332"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\csvfilelib\CSVFileMgr_HMI.typ"
-    LogicalPath="Libraries.Loupe.csvfilelib.CSVFileMgr_HMI.typ"
-    Type="File"
-    LastWriteTime="133426313499235332"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\csvfilelib\BuildOptions.txt"
-    LogicalPath="Libraries.Loupe.csvfilelib.BuildOptions.txt"
-    Type="File"
-    LastWriteTime="133426313499235332"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\fiowrap\Binary.lby"
-    LogicalPath="Libraries.Loupe.fiowrap"
-    Type="Library"
-    LastWriteTime="133426313673210332" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\fiowrap\FIOWrap.html"
-    LogicalPath="Libraries.Loupe.fiowrap.FIOWrap.html"
-    Type="File"
-    LastWriteTime="133426313673044718"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\fiowrap\FIOWrap.md"
-    LogicalPath="Libraries.Loupe.fiowrap.FIOWrap.md"
-    Type="File"
-    LastWriteTime="133426313673044718"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\fiowrap\VersionHistory.txt"
-    LogicalPath="Libraries.Loupe.fiowrap.VersionHistory.txt"
-    Type="File"
-    LastWriteTime="133426313673210332"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\fiowrap\FIOWrap.typ"
-    LogicalPath="Libraries.Loupe.fiowrap.FIOWrap.typ"
-    Type="File"
-    LastWriteTime="133426313673210332"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\fiowrap\FIOWrap.var"
-    LogicalPath="Libraries.Loupe.fiowrap.FIOWrap.var"
-    Type="File"
-    LastWriteTime="133426313673210332"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\fiowrap\FIOWrap.fun"
-    LogicalPath="Libraries.Loupe.fiowrap.FIOWrap.fun"
-    Type="File"
-    LastWriteTime="133426313673210332"
+    LastWriteTime="133433238494974174"
     Private="false" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\persist\Binary.lby"
     LogicalPath="Libraries.Loupe.persist"
     Type="Library"
-    LastWriteTime="133426313804140652" />
+    LastWriteTime="133433232965087201" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\persist\VersionHistory.txt"
     LogicalPath="Libraries.Loupe.persist.VersionHistory.txt"
     Type="File"
-    LastWriteTime="133426313804140652"
+    LastWriteTime="133433232965087201"
     Private="false" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\persist\Persist.typ"
     LogicalPath="Libraries.Loupe.persist.Persist.typ"
     Type="File"
-    LastWriteTime="133426313804140652"
+    LastWriteTime="133433232965087201"
     Private="false" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\persist\Persist.var"
     LogicalPath="Libraries.Loupe.persist.Persist.var"
     Type="File"
-    LastWriteTime="133426313804140652"
+    LastWriteTime="133433232965087201"
     Private="false" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\persist\Persist.fun"
     LogicalPath="Libraries.Loupe.persist.Persist.fun"
     Type="File"
-    LastWriteTime="133426313804140652"
+    LastWriteTime="133433232964931174"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\csvfilelib\Binary.lby"
+    LogicalPath="Libraries.Loupe.csvfilelib"
+    Type="Library"
+    LastWriteTime="133433232965399504" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\csvfilelib\CSVFileLib.html"
+    LogicalPath="Libraries.Loupe.csvfilelib.CSVFileLib.html"
+    Type="File"
+    LastWriteTime="133433232965246506"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\csvfilelib\CSVFileLib.md"
+    LogicalPath="Libraries.Loupe.csvfilelib.CSVFileLib.md"
+    Type="File"
+    LastWriteTime="133433232965399504"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\csvfilelib\VersionHistory.txt"
+    LogicalPath="Libraries.Loupe.csvfilelib.VersionHistory.txt"
+    Type="File"
+    LastWriteTime="133433232965399504"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\csvfilelib\CSVFileLib.typ"
+    LogicalPath="Libraries.Loupe.csvfilelib.CSVFileLib.typ"
+    Type="File"
+    LastWriteTime="133433232965559175"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\csvfilelib\CSVFileLib.var"
+    LogicalPath="Libraries.Loupe.csvfilelib.CSVFileLib.var"
+    Type="File"
+    LastWriteTime="133433232965712583"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\csvfilelib\CSVFileLib.fun"
+    LogicalPath="Libraries.Loupe.csvfilelib.CSVFileLib.fun"
+    Type="File"
+    LastWriteTime="133433232965087201"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\csvfilelib\CSVFileLib_enum.typ"
+    LogicalPath="Libraries.Loupe.csvfilelib.CSVFileLib_enum.typ"
+    Type="File"
+    LastWriteTime="133433232965559175"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\csvfilelib\CSVFileMgr.typ"
+    LogicalPath="Libraries.Loupe.csvfilelib.CSVFileMgr.typ"
+    Type="File"
+    LastWriteTime="133433232965712583"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\csvfilelib\CSVFileMgr_HMI.typ"
+    LogicalPath="Libraries.Loupe.csvfilelib.CSVFileMgr_HMI.typ"
+    Type="File"
+    LastWriteTime="133433232965559175"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\csvfilelib\BuildOptions.txt"
+    LogicalPath="Libraries.Loupe.csvfilelib.BuildOptions.txt"
+    Type="File"
+    LastWriteTime="133433232965399504"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\fiowrap\Binary.lby"
+    LogicalPath="Libraries.Loupe.fiowrap"
+    Type="Library"
+    LastWriteTime="133433232965087201" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\fiowrap\FIOWrap.html"
+    LogicalPath="Libraries.Loupe.fiowrap.FIOWrap.html"
+    Type="File"
+    LastWriteTime="133433232965087201"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\fiowrap\FIOWrap.md"
+    LogicalPath="Libraries.Loupe.fiowrap.FIOWrap.md"
+    Type="File"
+    LastWriteTime="133433232965246506"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\fiowrap\VersionHistory.txt"
+    LogicalPath="Libraries.Loupe.fiowrap.VersionHistory.txt"
+    Type="File"
+    LastWriteTime="133433232965246506"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\fiowrap\FIOWrap.typ"
+    LogicalPath="Libraries.Loupe.fiowrap.FIOWrap.typ"
+    Type="File"
+    LastWriteTime="133433232965246506"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\fiowrap\FIOWrap.var"
+    LogicalPath="Libraries.Loupe.fiowrap.FIOWrap.var"
+    Type="File"
+    LastWriteTime="133433232965246506"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\fiowrap\FIOWrap.fun"
+    LogicalPath="Libraries.Loupe.fiowrap.FIOWrap.fun"
+    Type="File"
+    LastWriteTime="133433232964931174"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\stringext\Binary.lby"
+    LogicalPath="Libraries.Loupe.stringext"
+    Type="Library"
+    LastWriteTime="133433231983370526" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\stringext\RevisionHistory.txt"
+    LogicalPath="Libraries.Loupe.stringext.RevisionHistory.txt"
+    Type="File"
+    LastWriteTime="133433231983526469"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\stringext\LICENSE.txt"
+    LogicalPath="Libraries.Loupe.stringext.LICENSE.txt"
+    Type="File"
+    LastWriteTime="133433231983526469"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\stringext\StringExt.typ"
+    LogicalPath="Libraries.Loupe.stringext.StringExt.typ"
+    Type="File"
+    LastWriteTime="133433231983683250"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\stringext\StringExt.var"
+    LogicalPath="Libraries.Loupe.stringext.StringExt.var"
+    Type="File"
+    LastWriteTime="133433231983683250"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\stringext\StringExt.fun"
+    LogicalPath="Libraries.Loupe.stringext.StringExt.fun"
+    Type="File"
+    LastWriteTime="133433231983055155"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\Binary.lby"
+    LogicalPath="Libraries.Loupe.hmitools"
+    Type="Library"
+    LastWriteTime="133433231983370526" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\HMITools.html"
+    LogicalPath="Libraries.Loupe.hmitools.HMITools.html"
+    Type="File"
+    LastWriteTime="133433231983215435"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\HMITools.md"
+    LogicalPath="Libraries.Loupe.hmitools.HMITools.md"
+    Type="File"
+    LastWriteTime="133433231983526469"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\VersionHistory.txt"
+    LogicalPath="Libraries.Loupe.hmitools.VersionHistory.txt"
+    Type="File"
+    LastWriteTime="133433231983683250"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\Coffee_Machine.png"
+    LogicalPath="Libraries.Loupe.hmitools.Coffee_Machine.png"
+    Type="File"
+    LastWriteTime="133433231983683250"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\HMITools.typ"
+    LogicalPath="Libraries.Loupe.hmitools.HMITools.typ"
+    Type="File"
+    LastWriteTime="133433231983837945"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\HMITools.var"
+    LogicalPath="Libraries.Loupe.hmitools.HMITools.var"
+    Type="File"
+    LastWriteTime="133433231983997564"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\HMITools.fun"
+    LogicalPath="Libraries.Loupe.hmitools.HMITools.fun"
+    Type="File"
+    LastWriteTime="133433231982899450"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\HMI_Basic.typ"
+    LogicalPath="Libraries.Loupe.hmitools.HMI_Basic.typ"
+    Type="File"
+    LastWriteTime="133433231983683250"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\HMI_Basic.var"
+    LogicalPath="Libraries.Loupe.hmitools.HMI_Basic.var"
+    Type="File"
+    LastWriteTime="133433231983997564"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\HMI_File_Browse.typ"
+    LogicalPath="Libraries.Loupe.hmitools.HMI_File_Browse.typ"
+    Type="File"
+    LastWriteTime="133433231983837945"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\LogViewer.typ"
+    LogicalPath="Libraries.Loupe.hmitools.LogViewer.typ"
+    Type="File"
+    LastWriteTime="133433231983837945"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\EditorControl.typ"
+    LogicalPath="Libraries.Loupe.hmitools.EditorControl.typ"
+    Type="File"
+    LastWriteTime="133433231983683250"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\HMI_Trend.typ"
+    LogicalPath="Libraries.Loupe.hmitools.HMI_Trend.typ"
+    Type="File"
+    LastWriteTime="133433231983837945"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\RecipeMgr.typ"
+    LogicalPath="Libraries.Loupe.hmitools.RecipeMgr.typ"
+    Type="File"
+    LastWriteTime="133433231983837945"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\hmitools\Updater.typ"
+    LogicalPath="Libraries.Loupe.hmitools.Updater.typ"
+    Type="File"
+    LastWriteTime="133433231983997564"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\ringbuflib\Binary.lby"
+    LogicalPath="Libraries.Loupe.ringbuflib"
+    Type="Library"
+    LastWriteTime="133433231983370526" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\ringbuflib\RingBufLib.html"
+    LogicalPath="Libraries.Loupe.ringbuflib.RingBufLib.html"
+    Type="File"
+    LastWriteTime="133433231983215435"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\ringbuflib\RingBufLib.md"
+    LogicalPath="Libraries.Loupe.ringbuflib.RingBufLib.md"
+    Type="File"
+    LastWriteTime="133433231983526469"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\ringbuflib\VersionHistory.txt"
+    LogicalPath="Libraries.Loupe.ringbuflib.VersionHistory.txt"
+    Type="File"
+    LastWriteTime="133433231983526469"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\ringbuflib\RingBufLib.typ"
+    LogicalPath="Libraries.Loupe.ringbuflib.RingBufLib.typ"
+    Type="File"
+    LastWriteTime="133433231983526469"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\ringbuflib\RingBufLib.fun"
+    LogicalPath="Libraries.Loupe.ringbuflib.RingBufLib.fun"
+    Type="File"
+    LastWriteTime="133433231982899450"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\logthat\Binary.lby"
+    LogicalPath="Libraries.Loupe.logthat"
+    Type="Library"
+    LastWriteTime="133433231983370526" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\logthat\Types.typ"
+    LogicalPath="Libraries.Loupe.logthat.Types.typ"
+    Type="File"
+    LastWriteTime="133433231983526469"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\logthat\Constants.var"
+    LogicalPath="Libraries.Loupe.logthat.Constants.var"
+    Type="File"
+    LastWriteTime="133433231983526469"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\logthat\LogThat.fun"
+    LogicalPath="Libraries.Loupe.logthat.LogThat.fun"
+    Type="File"
+    LastWriteTime="133433231982899450"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\logthat\LogInternalWrite.h"
+    LogicalPath="Libraries.Loupe.logthat.LogInternalWrite.h"
+    Type="File"
+    LastWriteTime="133433231983055155"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\logthat\README.md"
+    LogicalPath="Libraries.Loupe.logthat.README.md"
+    Type="File"
+    LastWriteTime="133433231983526469"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\logthat\LICENSE.md"
+    LogicalPath="Libraries.Loupe.logthat.LICENSE.md"
+    Type="File"
+    LastWriteTime="133433231983370526"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\piper\Binary.lby"
+    LogicalPath="Libraries.Loupe.piper"
+    Type="Library"
+    LastWriteTime="133433231983370526" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\piper\VersionHistory.txt"
+    LogicalPath="Libraries.Loupe.piper.VersionHistory.txt"
+    Type="File"
+    LastWriteTime="133433231983370526"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\piper\Piper.typ"
+    LogicalPath="Libraries.Loupe.piper.Piper.typ"
+    Type="File"
+    LastWriteTime="133433231983526469"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\piper\Piper.var"
+    LogicalPath="Libraries.Loupe.piper.Piper.var"
+    Type="File"
+    LastWriteTime="133433231983526469"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\piper\Piper.fun"
+    LogicalPath="Libraries.Loupe.piper.Piper.fun"
+    Type="File"
+    LastWriteTime="133433231982899450"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\Binary.lby"
+    LogicalPath="Libraries.Loupe.errorlib"
+    Type="Library"
+    LastWriteTime="133433231983526469" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\ErrorLib.html"
+    LogicalPath="Libraries.Loupe.errorlib.ErrorLib.html"
+    Type="File"
+    LastWriteTime="133433231983370526"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\ErrorLib.md"
+    LogicalPath="Libraries.Loupe.errorlib.ErrorLib.md"
+    Type="File"
+    LastWriteTime="133433231983526469"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\ErrorLibOverview.graffle"
+    LogicalPath="Libraries.Loupe.errorlib.ErrorLibOverview.graffle"
+    Type="File"
+    LastWriteTime="133433231983055155"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\ErrorLibOverview.png"
+    LogicalPath="Libraries.Loupe.errorlib.ErrorLibOverview.png"
+    Type="File"
+    LastWriteTime="133433231983683250"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\VersionHistory.txt"
+    LogicalPath="Libraries.Loupe.errorlib.VersionHistory.txt"
+    Type="File"
+    LastWriteTime="133433231983683250"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\ErrorLib.typ"
+    LogicalPath="Libraries.Loupe.errorlib.ErrorLib.typ"
+    Type="File"
+    LastWriteTime="133433231983837945"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\ErrorLib.var"
+    LogicalPath="Libraries.Loupe.errorlib.ErrorLib.var"
+    Type="File"
+    LastWriteTime="133433231983837945"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\ErrorLib.fun"
+    LogicalPath="Libraries.Loupe.errorlib.ErrorLib.fun"
+    Type="File"
+    LastWriteTime="133433231982899450"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\ErrorLib_enum.typ"
+    LogicalPath="Libraries.Loupe.errorlib.ErrorLib_enum.typ"
+    Type="File"
+    LastWriteTime="133433231983837945"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\ErrorCollector.typ"
+    LogicalPath="Libraries.Loupe.errorlib.ErrorCollector.typ"
+    Type="File"
+    LastWriteTime="133433231983837945"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\errorlib\ErrorCollector_HMI.typ"
+    LogicalPath="Libraries.Loupe.errorlib.ErrorCollector_HMI.typ"
+    Type="File"
+    LastWriteTime="133433231983837945"
     Private="false" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\vartools\Binary.lby"
     LogicalPath="Libraries.Loupe.vartools"
     Type="Library"
-    LastWriteTime="133426313963830328" />
+    LastWriteTime="133433232969619815" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\vartools\RevisionHistory.txt"
     LogicalPath="Libraries.Loupe.vartools.RevisionHistory.txt"
     Type="File"
-    LastWriteTime="133426313963671475"
+    LastWriteTime="133433232969776463"
     Private="false" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\vartools\VarTools.typ"
     LogicalPath="Libraries.Loupe.vartools.VarTools.typ"
     Type="File"
-    LastWriteTime="133426313963671475"
+    LastWriteTime="133433232969776463"
     Private="false" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\vartools\VarTools.var"
     LogicalPath="Libraries.Loupe.vartools.VarTools.var"
     Type="File"
-    LastWriteTime="133426313963671475"
+    LastWriteTime="133433232969776463"
     Private="false" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\vartools\VarTools.fun"
     LogicalPath="Libraries.Loupe.vartools.VarTools.fun"
     Type="File"
-    LastWriteTime="133426313963671475"
+    LastWriteTime="133433232969461747"
     Private="false" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Libraries\Loupe\vartools\varToolsInternal.h"
     LogicalPath="Libraries.Loupe.vartools.varToolsInternal.h"
     Type="File"
-    LastWriteTime="133426313963830328"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Infrastructure\Package.pkg"
-    LogicalPath="Infrastructure"
-    Type="Package"
-    LastWriteTime="133426316126332169" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Infrastructure\FirstInitProg\IEC.prg"
-    LogicalPath="Infrastructure.FirstInitProg"
-    Type="Program"
-    LastWriteTime="133426316016485380" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Infrastructure\FirstInitProg\Init.st"
-    LogicalPath="Infrastructure.FirstInitProg.Init.st"
-    Type="File"
-    LastWriteTime="133426316016330980"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Infrastructure\FirstInitProg\Cyclic.st"
-    LogicalPath="Infrastructure.FirstInitProg.Cyclic.st"
-    Type="File"
-    LastWriteTime="133426316016330980"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Infrastructure\FirstInitProg\Types.typ"
-    LogicalPath="Infrastructure.FirstInitProg.Types.typ"
-    Type="File"
-    LastWriteTime="133426316016330980"
-    Private="true" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Infrastructure\FirstInitProg\Variables.var"
-    LogicalPath="Infrastructure.FirstInitProg.Variables.var"
-    Type="File"
-    LastWriteTime="133426316016330980"
-    Private="true" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Infrastructure\Infrastructure.typ"
-    LogicalPath="Infrastructure.Infrastructure.typ"
-    Type="File"
-    LastWriteTime="133426316016485380"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Infrastructure\Infrastructure.var"
-    LogicalPath="Infrastructure.Infrastructure.var"
-    Type="File"
-    LastWriteTime="133426316016485380"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\Package.pkg"
-    LogicalPath="MachineControl"
-    Type="Package"
-    LastWriteTime="133426319252805720" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\cPiperModuleTemplate\ANSIC.prg"
-    LogicalPath="MachineControl.cPiperModuleTemplate"
-    Type="Program"
-    LastWriteTime="133426319252334536" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\cPiperModuleTemplate\Cyclic.c"
-    LogicalPath="MachineControl.cPiperModuleTemplate.Cyclic.c"
-    Type="File"
-    LastWriteTime="133426319252334536"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\cPiperModuleTemplate\PiperModule.var"
-    LogicalPath="MachineControl.cPiperModuleTemplate.PiperModule.var"
-    Type="File"
-    LastWriteTime="133426319252334536"
-    Private="true" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\cPiperModuleTemplate\PiperInterface.c"
-    LogicalPath="MachineControl.cPiperModuleTemplate.PiperInterface.c"
-    Type="File"
-    LastWriteTime="133426319252334536"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\MachineControl.typ"
-    LogicalPath="MachineControl.MachineControl.typ"
-    Type="File"
-    LastWriteTime="133426319252490581"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\MachineControl.var"
-    LogicalPath="MachineControl.MachineControl.var"
-    Type="File"
-    LastWriteTime="133426319252490581"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\MachineHMI\IEC.prg"
-    LogicalPath="MachineControl.MachineHMI"
-    Type="Program"
-    LastWriteTime="133426319252490581" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\MachineHMI\MachineProgCyclic.st"
-    LogicalPath="MachineControl.MachineHMI.MachineProgCyclic.st"
-    Type="File"
-    LastWriteTime="133426319252490581"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\MachineHMI\MachineProgInit.st"
-    LogicalPath="MachineControl.MachineHMI.MachineProgInit.st"
-    Type="File"
-    LastWriteTime="133426319252490581"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\MachineHMI\MachineProg.typ"
-    LogicalPath="MachineControl.MachineHMI.MachineProg.typ"
-    Type="File"
-    LastWriteTime="133426319252490581"
-    Private="true" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\MachineHMI\MachineProg.var"
-    LogicalPath="MachineControl.MachineHMI.MachineProg.var"
-    Type="File"
-    LastWriteTime="133426319252490581"
-    Private="true" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\MachineProg\IEC.prg"
-    LogicalPath="MachineControl.MachineProg"
-    Type="Program"
-    LastWriteTime="133426319252647745" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\MachineProg\MachineProgCyclic.st"
-    LogicalPath="MachineControl.MachineProg.MachineProgCyclic.st"
-    Type="File"
-    LastWriteTime="133426319252647745"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\MachineProg\MachineProg.typ"
-    LogicalPath="MachineControl.MachineProg.MachineProg.typ"
-    Type="File"
-    LastWriteTime="133426319252647745"
-    Private="true" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\MachineProg\MachineProg.var"
-    LogicalPath="MachineControl.MachineProg.MachineProg.var"
-    Type="File"
-    LastWriteTime="133426319252647745"
-    Private="true" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\PiperModuleTemplate\IEC.prg"
-    LogicalPath="MachineControl.PiperModuleTemplate"
-    Type="Program"
-    LastWriteTime="133426319252805720" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\PiperModuleTemplate\Cyclic.st"
-    LogicalPath="MachineControl.PiperModuleTemplate.Cyclic.st"
-    Type="File"
-    LastWriteTime="133426319252805720"
-    Private="false" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\PiperModuleTemplate\PiperModule.var"
-    LogicalPath="MachineControl.PiperModuleTemplate.PiperModule.var"
-    Type="File"
-    LastWriteTime="133426319252805720"
-    Private="true" />
-  <Object
-    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\PiperModuleTemplate\PiperInterface.st"
-    LogicalPath="MachineControl.PiperModuleTemplate.PiperInterface.st"
-    Type="File"
-    LastWriteTime="133426319252805720"
+    LastWriteTime="133433232969619815"
     Private="false" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\src\Ar\Servo\Package.pkg"
@@ -1203,56 +1042,217 @@
     LastWriteTime="133394628163714003"
     Private="true" />
   <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\Package.pkg"
+    LogicalPath="MachineControl"
+    Type="Package"
+    LastWriteTime="133433264607738099" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\cPiperModuleTemplate\ANSIC.prg"
+    LogicalPath="MachineControl.cPiperModuleTemplate"
+    Type="Program"
+    LastWriteTime="133433231983055155" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\cPiperModuleTemplate\Cyclic.c"
+    LogicalPath="MachineControl.cPiperModuleTemplate.Cyclic.c"
+    Type="File"
+    LastWriteTime="133433231982589648"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\cPiperModuleTemplate\PiperModule.var"
+    LogicalPath="MachineControl.cPiperModuleTemplate.PiperModule.var"
+    Type="File"
+    LastWriteTime="133433231983837945"
+    Private="true" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\cPiperModuleTemplate\PiperInterface.c"
+    LogicalPath="MachineControl.cPiperModuleTemplate.PiperInterface.c"
+    Type="File"
+    LastWriteTime="133433231982746540"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\MachineControl.typ"
+    LogicalPath="MachineControl.MachineControl.typ"
+    Type="File"
+    LastWriteTime="133433264607271663"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\MachineControl.var"
+    LogicalPath="MachineControl.MachineControl.var"
+    Type="File"
+    LastWriteTime="133433264607271663"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\MachineHMI\IEC.prg"
+    LogicalPath="MachineControl.MachineHMI"
+    Type="Program"
+    LastWriteTime="133433231983215435" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\MachineHMI\MachineProgCyclic.st"
+    LogicalPath="MachineControl.MachineHMI.MachineProgCyclic.st"
+    Type="File"
+    LastWriteTime="133433231983526469"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\MachineHMI\MachineProgInit.st"
+    LogicalPath="MachineControl.MachineHMI.MachineProgInit.st"
+    Type="File"
+    LastWriteTime="133433231983526469"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\MachineHMI\MachineProg.typ"
+    LogicalPath="MachineControl.MachineHMI.MachineProg.typ"
+    Type="File"
+    LastWriteTime="133433231983683250"
+    Private="true" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\MachineHMI\MachineProg.var"
+    LogicalPath="MachineControl.MachineHMI.MachineProg.var"
+    Type="File"
+    LastWriteTime="133433231983837945"
+    Private="true" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\MachineProg\IEC.prg"
+    LogicalPath="MachineControl.MachineProg"
+    Type="Program"
+    LastWriteTime="133433231983215435" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\MachineProg\MachineProgCyclic.st"
+    LogicalPath="MachineControl.MachineProg.MachineProgCyclic.st"
+    Type="File"
+    LastWriteTime="133433231983526469"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\MachineProg\MachineProg.typ"
+    LogicalPath="MachineControl.MachineProg.MachineProg.typ"
+    Type="File"
+    LastWriteTime="133433231983683250"
+    Private="true" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\MachineProg\MachineProg.var"
+    LogicalPath="MachineControl.MachineProg.MachineProg.var"
+    Type="File"
+    LastWriteTime="133433231983837945"
+    Private="true" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\PiperModuleTemplate\IEC.prg"
+    LogicalPath="MachineControl.PiperModuleTemplate"
+    Type="Program"
+    LastWriteTime="133433231983370526" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\PiperModuleTemplate\Cyclic.st"
+    LogicalPath="MachineControl.PiperModuleTemplate.Cyclic.st"
+    Type="File"
+    LastWriteTime="133433231983370526"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\PiperModuleTemplate\PiperModule.var"
+    LogicalPath="MachineControl.PiperModuleTemplate.PiperModule.var"
+    Type="File"
+    LastWriteTime="133433231983837945"
+    Private="true" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\MachineControl\PiperModuleTemplate\PiperInterface.st"
+    LogicalPath="MachineControl.PiperModuleTemplate.PiperInterface.st"
+    Type="File"
+    LastWriteTime="133433231983683250"
+    Private="false" />
+  <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Diagnostics\Package.pkg"
     LogicalPath="Diagnostics"
     Type="Package"
-    LastWriteTime="133426320068529318" />
+    LastWriteTime="133433264606958922" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Diagnostics\Diagnostics.var"
     LogicalPath="Diagnostics.Diagnostics.var"
     Type="File"
-    LastWriteTime="133426320068372002"
+    LastWriteTime="133433264606801903"
     Private="false" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Diagnostics\ErrorProg\IEC.prg"
     LogicalPath="Diagnostics.ErrorProg"
     Type="Program"
-    LastWriteTime="133426320068529318" />
+    LastWriteTime="133433231982589648" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Diagnostics\ErrorProg\ErrorProgInit.st"
     LogicalPath="Diagnostics.ErrorProg.ErrorProgInit.st"
     Type="File"
-    LastWriteTime="133426320068372002"
+    LastWriteTime="133433231982746540"
     Private="false" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Diagnostics\ErrorProg\ErrorProgCyclic.st"
     LogicalPath="Diagnostics.ErrorProg.ErrorProgCyclic.st"
     Type="File"
-    LastWriteTime="133426320068372002"
+    LastWriteTime="133433231982746540"
     Private="false" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Diagnostics\ErrorProg\ErrorProg.typ"
     LogicalPath="Diagnostics.ErrorProg.ErrorProg.typ"
     Type="File"
-    LastWriteTime="133426320068529318"
+    LastWriteTime="133433231982899450"
     Private="true" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Diagnostics\ErrorProg\ErrorProg.var"
     LogicalPath="Diagnostics.ErrorProg.ErrorProg.var"
     Type="File"
-    LastWriteTime="133426320068529318"
+    LastWriteTime="133433231983055155"
     Private="true" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Diagnostics\ErrorProg\PiperModuleTemplate.var"
     LogicalPath="Diagnostics.ErrorProg.PiperModuleTemplate.var"
     Type="File"
-    LastWriteTime="133426320068529318"
+    LastWriteTime="133433231983215435"
     Private="true" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Diagnostics\ErrorProg\PiperModuleInterface.st"
     LogicalPath="Diagnostics.ErrorProg.PiperModuleInterface.st"
     Type="File"
-    LastWriteTime="133426320068529318"
+    LastWriteTime="133433231982899450"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Infrastructure\Package.pkg"
+    LogicalPath="Infrastructure"
+    Type="Package"
+    LastWriteTime="133433264603837287" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Infrastructure\FirstInitProg\ANSIC.prg"
+    LogicalPath="Infrastructure.FirstInitProg"
+    Type="Program"
+    LastWriteTime="133433264600862665" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Infrastructure\FirstInitProg\FirstInitProgInit.c"
+    LogicalPath="Infrastructure.FirstInitProg.FirstInitProgInit.c"
+    Type="File"
+    LastWriteTime="133433264600707216"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Infrastructure\FirstInitProg\FirstInitProgCyclic.c"
+    LogicalPath="Infrastructure.FirstInitProg.FirstInitProgCyclic.c"
+    Type="File"
+    LastWriteTime="133433264600707216"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Infrastructure\FirstInitProg\FirstInitProg.typ"
+    LogicalPath="Infrastructure.FirstInitProg.FirstInitProg.typ"
+    Type="File"
+    LastWriteTime="133433264600862665"
+    Private="true" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Infrastructure\FirstInitProg\FirstInitProg.var"
+    LogicalPath="Infrastructure.FirstInitProg.FirstInitProg.var"
+    Type="File"
+    LastWriteTime="133433264600862665"
+    Private="true" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Infrastructure\Infrastructure.typ"
+    LogicalPath="Infrastructure.Infrastructure.typ"
+    Type="File"
+    LastWriteTime="133433264603676517"
+    Private="false" />
+  <Object
+    Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Logical\Infrastructure\Infrastructure.var"
+    LogicalPath="Infrastructure.Infrastructure.var"
+    Type="File"
+    LastWriteTime="133433264603837287"
     Private="false" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Physical\Config1\Config.pkg"
@@ -1280,7 +1280,7 @@
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Physical\Config1\5PC900_TS17_00\Cpu.sw"
     LogicalPath="Config1.5PC900_TS17_00.Cpu.sw"
     Type="File"
-    LastWriteTime="133426320092116911"
+    LastWriteTime="133433274384206712"
     Private="false" />
   <Object
     Path="C:\Projects\Loupe\AxisLib\example\AsProject\ServoMgr\Physical\Config1\5PC900_TS17_00\Cpu.per"

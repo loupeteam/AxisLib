@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _LIBRARIES_20231024074031_
-#define _LIBRARIES_20231024074031_
+#ifndef _LIBRARIES_20231101085048_
+#define _LIBRARIES_20231101085048_
 
 __asm__(".section \".plc\"");
 
@@ -57,24 +57,24 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/asstring/asstring.var\\\" scope 
 __asm__(".ascii \"iecfile \\\"C:/Projects/Loupe/AxisLib/src/Ar/AxisLib/Types.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"C:/Projects/Loupe/AxisLib/src/Ar/AxisLib/Constants.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"C:/Projects/Loupe/AxisLib/src/Ar/AxisLib/AxisLib.fun\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/piper/Piper.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/piper/Piper.var\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/piper/Piper.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/axiserrlib/Types.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/axiserrlib/Constants.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/axiserrlib/AxisErrLib.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/persist/Persist.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/persist/Persist.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/persist/Persist.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/csvfilelib/CSVFileLib.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/csvfilelib/CSVFileLib.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/csvfilelib/CSVFileLib.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/csvfilelib/CSVFileLib_enum.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/csvfilelib/CSVFileMgr.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/csvfilelib/CSVFileMgr_HMI.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/fiowrap/FIOWrap.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/fiowrap/FIOWrap.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/fiowrap/FIOWrap.fun\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/stringext/StringExt.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/stringext/StringExt.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/stringext/StringExt.fun\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/logthat/Types.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/logthat/Constants.var\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/logthat/LogThat.fun\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/AxisErrLib/Types.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/AxisErrLib/Constants.var\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/AxisErrLib/AxisErrLib.fun\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/errorlib/ErrorLib.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/errorlib/ErrorLib.var\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/errorlib/ErrorLib.fun\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/errorlib/ErrorLib_enum.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/errorlib/ErrorCollector.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/errorlib/ErrorCollector_HMI.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/hmitools/HMITools.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/hmitools/HMITools.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/hmitools/HMITools.fun\\\" scope \\\"global\\\"\\n\"");
@@ -88,18 +88,18 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/hmitools/RecipeMgr.typ\\\"
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/hmitools/Updater.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/ringbuflib/RingBufLib.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/ringbuflib/RingBufLib.fun\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/csvfilelib/CSVFileLib.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/csvfilelib/CSVFileLib.var\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/csvfilelib/CSVFileLib.fun\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/csvfilelib/CSVFileLib_enum.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/csvfilelib/CSVFileMgr.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/csvfilelib/CSVFileMgr_HMI.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/fiowrap/FIOWrap.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/fiowrap/FIOWrap.var\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/fiowrap/FIOWrap.fun\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/persist/Persist.typ\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/persist/Persist.var\\\" scope \\\"global\\\"\\n\"");
-__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/persist/Persist.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/logthat/Types.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/logthat/Constants.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/logthat/LogThat.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/piper/Piper.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/piper/Piper.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/piper/Piper.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/errorlib/ErrorLib.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/errorlib/ErrorLib.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/errorlib/ErrorLib.fun\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/errorlib/ErrorLib_enum.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/errorlib/ErrorCollector.typ\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/errorlib/ErrorCollector_HMI.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/vartools/VarTools.typ\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/vartools/VarTools.var\\\" scope \\\"global\\\"\\n\"");
 __asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/vartools/VarTools.fun\\\" scope \\\"global\\\"\\n\"");
@@ -937,15 +937,44 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/vartools/VarTools.fun\\\" 
 	__asm__(".ascii \"plcexport \\\"AxisRestorePosition\\\" FUB\\n\"");
 	__asm__(".ascii \"plcexport \\\"AxisExpandLimit\\\" FUB\\n\"");
 #endif
-#ifdef _PIPER_EXPORT
-	__asm__(".ascii \"plcexport \\\"Piper_fn_Cyclic\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"Piper_Module_Fub\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"Piper_setCommand\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"Piper_checkResponses\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"Piper_handleResponseState\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"Piper_PackML\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"PackMLStateString\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"PiperStateChange\\\" FUN\\n\"");
+#ifdef _AXISERRLIB_EXPORT
+	__asm__(".ascii \"plcexport \\\"AxisAddErrorsToCollector\\\" FUB\\n\"");
+#endif
+#ifdef _PERSIST_EXPORT
+	__asm__(".ascii \"plcexport \\\"PersistFn_Init\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"PersistFn_Cyclic\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"persistInternalMapMemory\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"persistInternalBackup\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"persistInternalRestore\\\" FUN\\n\"");
+#endif
+#ifdef _CSVFILELIB_EXPORT
+	__asm__(".ascii \"plcexport \\\"CSVFn_Init\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"CSVOpenFile_Init\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"CSVFn_Cyclic\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"csvInitBuffer\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"csvClearBuffer\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"csvAddToBuffer\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"csvSetError\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"csvExpandVar\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"csvProcessData\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"csvAddLogInfo\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"csvParseLine\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"csvGetVarInfo\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"csvOpenVar\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"csvSaveVar\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"csvWriteHeader\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"csvRemovePrefix\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"csvAddPrefix\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"CSVFn_HMI_Cyclic\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"csvhmiGenerateFileListString\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"csvDTOA\\\" FUN\\n\"");
+#endif
+#ifdef _FIOWRAP_EXPORT
+	__asm__(".ascii \"plcexport \\\"FIOManageFn_Cyclic\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"FIOWrapFn_Cyclic\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"fiowSetError\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"fiomSetError\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"fioOpenFile_Init\\\" FUN\\n\"");
 #endif
 #ifdef _STRINGEXT_EXPORT
 	__asm__(".ascii \"plcexport \\\"lstrip\\\" FUN\\n\"");
@@ -972,35 +1001,6 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/vartools/VarTools.fun\\\" 
 	__asm__(".ascii \"plcexport \\\"formatString\\\" FUN\\n\"");
 	__asm__(".ascii \"plcexport \\\"stringfTime\\\" FUN\\n\"");
 	__asm__(".ascii \"plcexport \\\"stringpTime\\\" FUN\\n\"");
-#endif
-#ifdef _LOGTHAT_EXPORT
-	__asm__(".ascii \"plcexport \\\"logDelete\\\" FUB\\n\"");
-	__asm__(".ascii \"plcexport \\\"createLogInit\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"logEventID\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"logSuccess\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"logWarning\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"logError\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"logInfo\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"logStateChange\\\" FUB\\n\"");
-#endif
-#ifdef _AXISERRLIB_EXPORT
-	__asm__(".ascii \"plcexport \\\"AxisAddErrorsToCollector\\\" FUB\\n\"");
-#endif
-#ifdef _ERRORLIB_EXPORT
-	__asm__(".ascii \"plcexport \\\"errcolAddSourceByAddress\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"errcolAddSourceByName\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"errcolAddError\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"errcolAcknowledge\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"ErrorCollectorFn_Init\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"ErrorCollectorFn_Cyclic\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"ErrorCollectorFn_HMI_Cyclic\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"errcolInternalSetError\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"errcolIntGenerateDisplayString\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"errcolInternalAddError\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"errcolInternalLogError\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"errcolInternalLogAcknowledge\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"errcolInternalRemoveError\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"errcolInternalRefreshHMIDisplay\\\" FUN\\n\"");
 #endif
 #ifdef _HMITOOLS_EXPORT
 	__asm__(".ascii \"plcexport \\\"HMIFileBrowse\\\" FUB\\n\"");
@@ -1060,41 +1060,41 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/vartools/VarTools.fun\\\" 
 	__asm__(".ascii \"plcexport \\\"SetStatusPointer\\\" FUN\\n\"");
 	__asm__(".ascii \"plcexport \\\"GetNextTopIndex\\\" FUN\\n\"");
 #endif
-#ifdef _CSVFILELIB_EXPORT
-	__asm__(".ascii \"plcexport \\\"CSVFn_Init\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"CSVOpenFile_Init\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"CSVFn_Cyclic\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"csvInitBuffer\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"csvClearBuffer\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"csvAddToBuffer\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"csvSetError\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"csvExpandVar\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"csvProcessData\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"csvAddLogInfo\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"csvParseLine\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"csvGetVarInfo\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"csvOpenVar\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"csvSaveVar\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"csvWriteHeader\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"csvRemovePrefix\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"csvAddPrefix\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"CSVFn_HMI_Cyclic\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"csvhmiGenerateFileListString\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"csvDTOA\\\" FUN\\n\"");
+#ifdef _LOGTHAT_EXPORT
+	__asm__(".ascii \"plcexport \\\"logDelete\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"createLogInit\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"logEventID\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"logSuccess\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"logWarning\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"logError\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"logInfo\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"logStateChange\\\" FUB\\n\"");
 #endif
-#ifdef _FIOWRAP_EXPORT
-	__asm__(".ascii \"plcexport \\\"FIOManageFn_Cyclic\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"FIOWrapFn_Cyclic\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"fiowSetError\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"fiomSetError\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"fioOpenFile_Init\\\" FUN\\n\"");
+#ifdef _PIPER_EXPORT
+	__asm__(".ascii \"plcexport \\\"Piper_fn_Cyclic\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"Piper_Module_Fub\\\" FUB\\n\"");
+	__asm__(".ascii \"plcexport \\\"Piper_setCommand\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"Piper_checkResponses\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"Piper_handleResponseState\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"Piper_PackML\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"PackMLStateString\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"PiperStateChange\\\" FUN\\n\"");
 #endif
-#ifdef _PERSIST_EXPORT
-	__asm__(".ascii \"plcexport \\\"PersistFn_Init\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"PersistFn_Cyclic\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"persistInternalMapMemory\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"persistInternalBackup\\\" FUN\\n\"");
-	__asm__(".ascii \"plcexport \\\"persistInternalRestore\\\" FUN\\n\"");
+#ifdef _ERRORLIB_EXPORT
+	__asm__(".ascii \"plcexport \\\"errcolAddSourceByAddress\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"errcolAddSourceByName\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"errcolAddError\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"errcolAcknowledge\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"ErrorCollectorFn_Init\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"ErrorCollectorFn_Cyclic\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"ErrorCollectorFn_HMI_Cyclic\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"errcolInternalSetError\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"errcolIntGenerateDisplayString\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"errcolInternalAddError\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"errcolInternalLogError\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"errcolInternalLogAcknowledge\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"errcolInternalRemoveError\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"errcolInternalRefreshHMIDisplay\\\" FUN\\n\"");
 #endif
 #ifdef _VARTOOLS_EXPORT
 	__asm__(".ascii \"plcexport \\\"varGetInfo\\\" FUN\\n\"");
@@ -1104,6 +1104,7 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/vartools/VarTools.fun\\\" 
 	__asm__(".ascii \"plcexport \\\"varRefresh\\\" FUN\\n\"");
 	__asm__(".ascii \"plcexport \\\"varSetValue\\\" FUN\\n\"");
 	__asm__(".ascii \"plcexport \\\"varGetVariableList\\\" FUN\\n\"");
+	__asm__(".ascii \"plcexport \\\"varGetTaskList\\\" FUN\\n\"");
 	__asm__(".ascii \"plcexport \\\"varPopulateMemberNames\\\" FUN\\n\"");
 	__asm__(".ascii \"plcexport \\\"varVariableWatch\\\" FUB\\n\"");
 	__asm__(".ascii \"plcexport \\\"variableBrowser\\\" FUB\\n\"");
@@ -1112,5 +1113,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Libraries/Loupe/vartools/VarTools.fun\\\" 
 __asm__(".previous");
 
 
-#endif /* _LIBRARIES_20231024074031_ */
+#endif /* _LIBRARIES_20231101085048_ */
 

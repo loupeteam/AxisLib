@@ -1,9 +1,9 @@
-$(AS_PROJECT_PATH)/Logical/Libraries/Loupe/AxisErrLib/AxisErrLib.fun
+$(AS_PROJECT_PATH)/Logical/Libraries/Loupe/axiserrlib/AxisErrLib.fun
 $(AS_PROJECT_PATH)/Logical/Libraries/Loupe/errorlib/ErrorLib.var
 $(AS_PROJECT_PATH)/Logical/Libraries/Acp10_MC/acp10_mc.typ
 $(AS_PROJECT_PATH)/Logical/Libraries/Acp10_MC/acp10_mc.fun
 $(AS_PROJECT_PATH)/Logical/Libraries/Loupe/errorlib/ErrorLib_enum.typ
-$(AS_PROJECT_PATH)/Logical/Libraries/Loupe/AxisErrLib/Types.typ
+$(AS_PROJECT_PATH)/Logical/Libraries/Loupe/axiserrlib/Types.typ
 $(AS_PROJECT_PATH)/Logical/Libraries/standard/standard.fun
 $(AS_PROJECT_PATH)/Logical/Libraries/Loupe/piper/Piper.fun
 $(AS_PROJECT_PATH)/Logical/Libraries/Loupe/piper/Piper.typ

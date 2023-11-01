@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1697823387_5_
-#define _BUR_1697823387_5_
+#ifndef _BUR_1698850590_3_
+#define _BUR_1698850590_3_
 
 #include <bur/plctypes.h>
 
@@ -38,5 +38,5 @@ __asm__(".ascii \"iecfile \\\"C:/Projects/Loupe/AxisLib/src/Ar/Servo/ServoContro
 __asm__(".previous");
 
 
-#endif /* _BUR_1697823387_5_ */
+#endif /* _BUR_1698850590_3_ */
 

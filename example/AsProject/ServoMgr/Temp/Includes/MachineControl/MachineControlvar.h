@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1698158343_2_
-#define _BUR_1698158343_2_
+#ifndef _BUR_1698852889_2_
+#define _BUR_1698852889_2_
 
 #include <bur/plctypes.h>
 
@@ -32,5 +32,5 @@ __asm__(".ascii \"iecfile \\\"Logical/MachineControl/MachineControl.var\\\" scop
 __asm__(".previous");
 
 
-#endif /* _BUR_1698158343_2_ */
+#endif /* _BUR_1698852889_2_ */
 

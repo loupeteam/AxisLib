@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File" Description="Package variables">Diagnostics.var</Object>
+    <Object Type="Program" Language="IEC" Description="Program to handle error collection from various subsystems">ErrorProg</Object>
+  </Objects>
+</Package>

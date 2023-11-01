@@ -1,12 +1,32 @@
 {
-  "name": "servo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "@loupeteam/servomgracp10pkg",
+  "version": "0.1.0",
+  "description": "Supports servo manager for ACP10",
+  "author": "Loupe",
+  "license": "Loupe Software License Agreement",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loupeteam/AxisLib.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "@loupeteam/axislib": "^3.6.4",
+    "@loupeteam/piperpkg": "*",
+    "@loupeteam/firstinitprogpkg": "*",
+    "@loupeteam/errorprogpkg": "*",
+    "@loupeteam/axiserrlib": "*"
+  },
+  "lpm": {
+    "type": "package",
+    "logical": {
+      "destination": "Servo"
+    },
+    "physical": {
+      "cpu": [
+        {
+          "source": "ServoMgr",
+          "destination": "TC3"
+        }
+      ]
+    }
+  }
 }

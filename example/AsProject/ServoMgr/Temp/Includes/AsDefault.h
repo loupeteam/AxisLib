@@ -25,16 +25,16 @@ extern "C"
 	#include <ringbuflib.h>
 	#include <AsIecCon.h>
 	#include <Acp10_MC.h>
-	#include <stringext.h>
 	#include <persist.h>
-	#include <logthat.h>
+	#include <stringext.h>
 	#include <fiowrap.h>
+	#include <logthat.h>
 	#include <vartools.h>
-	#include <piper.h>
 	#include <hmitools.h>
-	#include <errorlib.h>
+	#include <piper.h>
 	#include <csvfilelib.h>
-	#include <AxisErrLib.h>
+	#include <errorlib.h>
+	#include <axiserrlib.h>
 	#include <AxisLib.h>
 #ifdef __cplusplus
 };
@@ -42,11 +42,11 @@ extern "C"
 
 #include <globalTYP.h>
 #include <globalVAR.h>
-#include <infrastructure/infrastructureTYP.h>
-#include <infrastructure/infrastructureVAR.h>
-#include <machinecontrol/machinecontrolTYP.h>
-#include <machinecontrol/machinecontrolVAR.h>
 #include <servo/servocontrolTYP.h>
 #include <servo/servocontrolVAR.h>
+#include <machinecontrol/machinecontrolTYP.h>
+#include <machinecontrol/machinecontrolVAR.h>
 #include <diagnostics/diagnosticsVAR.h>
+#include <infrastructure/infrastructureTYP.h>
+#include <infrastructure/infrastructureVAR.h>
 #endif

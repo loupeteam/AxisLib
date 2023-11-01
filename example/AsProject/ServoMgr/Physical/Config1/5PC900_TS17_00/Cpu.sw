@@ -2,23 +2,22 @@
 <?AutomationStudio FileVersion="4.9"?>
 <SwConfiguration CpuAddress="SL1" xmlns="http://br-automation.co.at/AS/SwConfiguration">
   <TaskClass Name="Cyclic#1">
-    <Task Name="FirstInitP" Source="Infrastructure.FirstInitProg.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="FirstInitP" Source="Infrastructure.FirstInitProg.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#2" />
   <TaskClass Name="Cyclic#3">
     <Task Name="ServoMgr" Source="Servo.ServoMgr.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#4">
-    <Task Name="cPiperModu" Source="MachineControl.cPiperModuleTemplate.prg" Memory="UserROM" Language="ANSIC" Debugging="true" />
-    <Task Name="MachineHMI" Source="MachineControl.MachineHMI.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="MachinePro" Source="MachineControl.MachineProg.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="PiperModul" Source="MachineControl.PiperModuleTemplate.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="ErrorProg" Source="Diagnostics.ErrorProg.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#5" />
   <TaskClass Name="Cyclic#6" />
   <TaskClass Name="Cyclic#7" />
-  <TaskClass Name="Cyclic#8" />
+  <TaskClass Name="Cyclic#8">
+    <Task Name="ErrorProg" Source="Diagnostics.ErrorProg.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="MachineHMI" Source="MachineControl.MachineHMI.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+  </TaskClass>
   <DataObjects>
     <DataObject Name="Acp10sys" Source="" Memory="UserROM" Language="Binary" />
   </DataObjects>
@@ -56,16 +55,16 @@
     <LibraryObject Name="asstring" Source="Libraries.asstring.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="Acp10_MC" Source="Libraries.Acp10_MC.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="piper" Source="Libraries.Loupe.piper.lby" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="stringext" Source="Libraries.Loupe.stringext.lby" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="logthat" Source="Libraries.Loupe.logthat.lby" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="AxisErrLib" Source="Libraries.Loupe.AxisErrLib.lby" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="persist" Source="Libraries.Loupe.persist.lby" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="csvfilelib" Source="Libraries.Loupe.csvfilelib.lby" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="fiowrap" Source="Libraries.Loupe.fiowrap.lby" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="vartools" Source="Libraries.Loupe.vartools.lby" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="axiserrlib" Source="Libraries.Loupe.axiserrlib.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="errorlib" Source="Libraries.Loupe.errorlib.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="hmitools" Source="Libraries.Loupe.hmitools.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="ringbuflib" Source="Libraries.Loupe.ringbuflib.lby" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="csvfilelib" Source="Libraries.Loupe.csvfilelib.lby" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="fiowrap" Source="Libraries.Loupe.fiowrap.lby" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="persist" Source="Libraries.Loupe.persist.lby" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="vartools" Source="Libraries.Loupe.vartools.lby" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="logthat" Source="Libraries.Loupe.logthat.lby" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="stringext" Source="Libraries.Loupe.stringext.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="powerlnk" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="asieccon" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
   </Libraries>

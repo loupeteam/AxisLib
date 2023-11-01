@@ -1,8 +1,8 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
 
-#ifndef _BUR_1698158432_1_
-#define _BUR_1698158432_1_
+#ifndef _BUR_1698852889_3_
+#define _BUR_1698852889_3_
 
 #include <bur/plctypes.h>
 
@@ -30,5 +30,5 @@ __asm__(".ascii \"iecfile \\\"Logical/Diagnostics/Diagnostics.var\\\" scope \\\"
 __asm__(".previous");
 
 
-#endif /* _BUR_1698158432_1_ */
+#endif /* _BUR_1698852889_3_ */
 

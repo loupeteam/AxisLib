@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* AxisErrLib 0.00.5 */
+/* axiserrlib 0.00.5 */
 
 #ifndef _AXISERRLIB_
 #define _AXISERRLIB_
@@ -8,8 +8,8 @@
 extern "C" 
 {
 #endif
-#ifndef _AxisErrLib_VERSION
-#define _AxisErrLib_VERSION 0.00.5
+#ifndef _axiserrlib_VERSION
+#define _axiserrlib_VERSION 0.00.5
 #endif
 
 #include <bur/plctypes.h>
@@ -17,24 +17,25 @@ extern "C"
 #ifndef _BUR_PUBLIC
 #define _BUR_PUBLIC
 #endif
-#ifdef _SG4
-		#include "Acp10par.h"
-		#include "Acp10_MC.h"
-		#include "stringext.h"
-		#include "errorlib.h"
-#endif
 #ifdef _SG3
+		#include "ErrorLib.h"
+		#include "StringExt.h"
 		#include "Acp10par.h"
 		#include "Acp10_MC.h"
-		#include "stringext.h"
-		#include "errorlib.h"
+#endif
+#ifdef _SG4
+		#include "ErrorLib.h"
+		#include "StringExt.h"
+		#include "Acp10par.h"
+		#include "Acp10_MC.h"
 #endif
 #ifdef _SGC
+		#include "ErrorLib.h"
+		#include "StringExt.h"
 		#include "Acp10par.h"
 		#include "Acp10_MC.h"
-		#include "stringext.h"
-		#include "errorlib.h"
-#endif
+#endif
+
 
 /* Datatypes and datatypes of function blocks */
 typedef enum AXERR_RETRIEVE_ST_enum
@@ -96,7 +97,7 @@ _BUR_PUBLIC void AxisAddErrorsToCollector(struct AxisAddErrorsToCollector* inst)
 __asm__(".section \".plc\"");
 
 /* Additional IEC dependencies */
-__asm__(".ascii \"iecdep \\\"Logical/Libraries/Loupe/errorlib/ErrorLib.var\\\" scope \\\"global\\\"\\n\"");
+__asm__(".ascii \"iecdep \\\"Logical/Libraries/Loupe/ErrorLib/ErrorLib.var\\\" scope \\\"global\\\"\\n\"");
 
 __asm__(".previous");
 

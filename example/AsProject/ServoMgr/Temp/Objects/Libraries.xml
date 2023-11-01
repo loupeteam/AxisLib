@@ -62,7 +62,7 @@
     UseAsStatic="false"
     Version="" />
   <Library
-    Name="AxisErrLib"
+    Name="axiserrlib"
     IsDeployed="true"
     IsStatic="false"
     UseAsStatic="false"
@@ -174,5 +174,5 @@
     IsDeployed="true"
     IsStatic="false"
     UseAsStatic="false"
-    Version="0.11.3" />
+    Version="0.11.4" />
 </LibraryInfos>
