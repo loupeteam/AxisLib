@@ -1,5 +1,5 @@
 {
-  "name": "servomgr",
+  "name": "@loupeteam/servomgracp10pkg",
   "version": "0.1.0",
   "description": "Package that will add the ACP10 Servo Manager program to your AS project",
   "author": "Loupe",
