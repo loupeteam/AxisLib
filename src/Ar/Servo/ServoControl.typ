@@ -1,13 +1,10 @@
-(********************************************************************
- * COPYRIGHT -- Automation Resources Group
- ********************************************************************
- * Package: ServoControl
- * File: ServoControl.typ
- * Author: David
- * Created: March 07, 2011
- ********************************************************************
- * Data types of package ServoControl
- ********************************************************************)
+(*
+* File: ServoControl.typ
+* Copyright (c) 2023 Loupe
+* https://loupe.team
+* 
+* This file is part of ServoMgr, licensed under the MIT License.
+*)
 
 TYPE
 	MOTOR_INDEX_GENERIC : 

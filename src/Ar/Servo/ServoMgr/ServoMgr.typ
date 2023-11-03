@@ -1,13 +1,10 @@
-(********************************************************************
- * COPYRIGHT -- Automation Resources Group
- ********************************************************************
- * Program: ServoProg
- * File: ServoProg.typ
- * Author: David
- * Created: March 07, 2011
- ********************************************************************
- * Local data types of program ServoProg
- ********************************************************************)
+(*
+* File: ServoMgr.typ
+* Copyright (c) 2023 Loupe
+* https://loupe.team
+* 
+* This file is part of ServoMgr, licensed under the MIT License.
+*)
 
 TYPE
 	Configuration_typ : 	STRUCT 

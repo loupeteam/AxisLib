@@ -1,13 +1,10 @@
-(********************************************************************
- * COPYRIGHT -- Automation Resources Group
- ********************************************************************
- * Program: ServoProg
- * File: ServoProg.var
- * Author: David
- * Created: March 07, 2011
- ********************************************************************
- * Local variables of program ServoProg
- ********************************************************************)
+(*
+* File: ServoMgr.var
+* Copyright (c) 2023 Loupe
+* https://loupe.team
+* 
+* This file is part of ServoMgr, licensed under the MIT License.
+*)
 VAR
 	axisHmi : axisHmi_typ := (0);
 	axisErrorCollector : ARRAY[0..MAI_MOTOR] OF AxisAddErrorsToCollector;

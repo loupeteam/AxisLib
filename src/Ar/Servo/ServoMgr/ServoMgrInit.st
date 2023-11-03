@@ -1,13 +1,10 @@
-(*******************************************************************
-* COPYRIGHT -- Automation Resources Group
-********************************************************************
-* Program: ServoProg
-* File: ServoProgInit.st
-* Author: David
-* Created: March 07, 2011
-********************************************************************
-* Implementation of program ServoProg
-********************************************************************)
+(*
+* File: ServoMgrInit.st
+* Copyright (c) 2023 Loupe
+* https://loupe.team
+* 
+* This file is part of ServoMgr, licensed under the MIT License.
+*)
 
 
 PROGRAM _INIT

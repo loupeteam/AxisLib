@@ -1,14 +1,10 @@
-(********************************************************************
- * COPYRIGHT -- Automation Resources Group
- ********************************************************************
- * Program: ServoMgr
- * File: ServoMgrCyclic.st
- * Author: David
- * Created: March 07, 2011
- ********************************************************************
- * Implementation of program ServoMgr
- ********************************************************************)
-
+(*
+* File: ServoMgrCyclic.st
+* Copyright (c) 2023 Loupe
+* https://loupe.team
+* 
+* This file is part of ServoMgr, licensed under the MIT License.
+*)
 
 PROGRAM _CYCLIC
 	
