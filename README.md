@@ -5,7 +5,7 @@ info@loupe.team
 1-800-240-7042  
 
 # Description
-This repo provide packages that allow basic control of B&R servo axes.  
+This repo provides packages that allow basic control of B&R servo axes.  
 ### Program Package
 This program package will install the Servo B&R package that will contain the ServoMgr program for a Automation Studio project and all its dependencies.
 The ServoMgrInit program will perform simple initialization of parameters if needed.
