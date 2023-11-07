@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "This is a program package that will add the ACP10 Servo Manager program to your AS project",
   "author": "Loupe",
-  "license": "Loupe Software License Agreement",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/loupeteam/AxisLib.git"
@@ -16,7 +16,7 @@
     "@loupeteam/axislib": "3.6.4"
   },
   "lpm": {
-    "type": "package",
+    "type": "program",
     "logical": {
       "destination": "Servo"
     },
