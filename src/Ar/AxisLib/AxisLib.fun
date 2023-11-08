@@ -1,13 +1,11 @@
 (*
- * File: AxisLib.fun
- * Copyright (c) 2023 Loupe
- * https://loupe.team
- * 
- * This file is part of AxisLib, licensed under the MIT License.
- * 
-  ********************************************************************
- * Functions and function blocks of library AxisLib
- ********************************************************************)
+* File: AxisLib.fun
+* Copyright (c) 2023 Loupe
+* https://loupe.team
+* 
+* This file is part of AxisLib, licensed under the MIT License.
+* 
+*)
 
 FUNCTION_BLOCK AxisStatus (*Gather status information about an axis*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
 	VAR_INPUT
