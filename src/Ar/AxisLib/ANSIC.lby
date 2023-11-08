@@ -4,7 +4,6 @@
   <Files>
     <File>AxisLib.html</File>
     <File>AxisLib.md</File>
-    <File>VersionHistory.txt</File>
     <File Description="Exported data types">Types.typ</File>
     <File Description="Exported constants">Constants.var</File>
     <File Description="Exported functions and function blocks">AxisLib.fun</File>
