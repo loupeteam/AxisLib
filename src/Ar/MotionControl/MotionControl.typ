@@ -6,8 +6,13 @@
  * This file is part of AxisLib, licensed under the MIT License.
  *)
 
-VAR CONSTANT
-	WAYPOINT_NUM : USINT := 10;
-	WAYPOINT_MAI : USINT := WAYPOINT_NUM-1;
-	AXLIB_STRLEN_NAME : UINT := 120;
-END_VAR
+TYPE
+	Axis_enum : 
+		(
+		Axis_1,
+		Axis_2,
+		Axis_3,
+		Axis_4,
+		END_OF_AXIS
+	);
+END_TYPE

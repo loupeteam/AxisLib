@@ -6,8 +6,10 @@
  * This file is part of AxisLib, licensed under the MIT License.
  *)
 
-VAR CONSTANT
-	WAYPOINT_NUM : USINT := 10;
-	WAYPOINT_MAI : USINT := WAYPOINT_NUM-1;
-	AXLIB_STRLEN_NAME : UINT := 120;
+VAR
+	Configuration : Configuration_typ;
+	groupStatus : BOOL;
+	axisIdx : UDINT;
+	task : Task_typ;
+(*	sim : Sim_typ;*)
 END_VAR
