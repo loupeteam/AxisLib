@@ -1,10 +1,11 @@
 (*
- * File: Types.typ
- * Copyright (c) 2023 Loupe
- * https://loupe.team
- * 
- * This file is part of AxisLib, licensed under the MIT License.
- *)
+* File: Types.typ
+* Copyright (c) 2023 Loupe
+* https://loupe.team
+* 
+* This file is part of AxisLib, licensed under the MIT License.
+*
+*)
 
 (********************************************************************
 This task defines the behavior of the axes in the system. Axes begin
