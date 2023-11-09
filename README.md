@@ -8,16 +8,14 @@ info@loupe.team
 This repo provides packages that allow basic control of B&R Mapp Motion servo axes.  
 
 ### Program Package
-This program package will install the Servo B&R package that will contain the ServoMgr program for a Automation Studio project and all its dependencies that supports Mapp Motion.
-The ServoMgrInit program will perform simple initialization of parameters if needed.
-The ServoMgrCyclic program will call the AxisBasicFn_Cyclic function block which handles much of the basic axis control.
-The cyclic program also calls the axisErrorCollector function which will support axis error handling.
+This program package will install the Servo B&R package that will contain the AxisBasic program for a Automation Studio project and all its dependencies that supports Mapp Motion.
+The AxisBasic program will call the AxisBasic_Cyclic function block which handles much of the basic axis control.
 
 ### Library Package
-This library package allows access to the servo basic function blocks.
+This library package allows access to the axis basic function blocks.
 
 # Installation
-To install using the Loupe Package Manager (LPM), in an initialized Automation Studio project directory run `lpm install servomgrmappprog`. Note that this will also pull in the library package as a dependency.  
+To install using the Loupe Package Manager (LPM), in an initialized Automation Studio project directory run `lpm install axisbasicmappprog`. Note that this will also pull in the library package as a dependency.  
 If you only want to install the library package, run `lpm install axislib`.   
 For more information about LPM, see https://loupeteam.github.io/LoupeDocs/tools/lpm.html
 
