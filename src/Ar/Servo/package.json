@@ -1,5 +1,5 @@
 {
-  "name": "@loupeteam/servomgracp10prog",
+  "name": "@loupeteam/acp10motionprog",
   "version": "0.1.0",
   "description": "This is a program package that will add the ACP10 Servo Manager program to your AS project",
   "author": "Loupe",
