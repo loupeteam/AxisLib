@@ -1,13 +1,11 @@
 (*
- * File: Types.typ
- * Copyright (c) 2023 Loupe
- * https://loupe.team
- * 
- * This file is part of AxisLib, licensed under the MIT License.
- * 
-  ********************************************************************
- * Data types of library AxisLib
- ********************************************************************)
+* File: Types.typ
+* Copyright (c) 2023 Loupe
+* https://loupe.team
+* 
+* This file is part of AxisLib, licensed under the MIT License.
+* 
+*)
 (*Status*)
 
 TYPE
