@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<NcConfiguration Version="5.23.1" NcSwId="Acp10">
+<NcConfiguration Version="5.12.2" NcSwId="Acp10">
   <Group ID="ACP10CF1_typ">
     <Parameter ID="cnt_nettrc_rec_drive" Value="150" />
     <Parameter ID="bufsize_trace_upload" Value="1200" />
