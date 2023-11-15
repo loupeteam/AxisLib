@@ -1,13 +1,10 @@
-(********************************************************************
- * COPYRIGHT -- Automation Resources Group
- ********************************************************************
- * Library: AxisLib
- * Author: blackburnd
- * Created: March 30, 2010
- ********************************************************************
- * Data types of library AxisLib
- ********************************************************************)
-(*Status*)
+(*
+* File: AxisLib.typ
+* Copyright (c) 2023 Loupe
+* https://loupe.team
+* 
+* This file is part of AxisLib, licensed under the MIT License.
+*)
 
 TYPE
 	AxisStatus_Int_typ : 	STRUCT 

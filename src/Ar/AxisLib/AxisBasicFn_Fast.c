@@ -1,7 +1,9 @@
 //--------------------------------------------------------------------------------
-// Copyright: Automation Resources Group
-// Author:    dfblackburn
-// Created:   May 19, 2016
+// File: AxisBasicFn_Fast.c
+// Copyright (c) 2023 Loupe
+// https://loupe.team
+// 
+// This file is part of AxisLib, licensed under the MIT License.
 //--------------------------------------------------------------------------------
 
 #include <bur/plctypes.h>
