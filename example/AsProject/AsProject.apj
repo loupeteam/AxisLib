@@ -8,6 +8,6 @@
   <Project StoreRuntimeInProject="false" />
   <Variables DefaultInitValue="0" DefaultRetain="false" DefaultVolatile="true" />
   <TechnologyPackages>
-    <mappMotion Version="5.15.1" />
+    <mappMotion McAcpDrv="5.15.1" McAcpSim="5.15.1" McAcpSys="5.15.1" Version="5.15.1" />
   </TechnologyPackages>
 </Project>
