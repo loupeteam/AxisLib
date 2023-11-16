@@ -1,4 +1,10 @@
-
+(*
+ * File: AxisErrLib.fun
+ * Copyright (c) 2023 Loupe
+ * https://loupe.team
+ * 
+ * This file is part of AxisErrLib, licensed under the MIT License.
+ *)
 FUNCTION_BLOCK AxisAddErrorsToCollector (*Add all current axis errors to an error collector*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
 	VAR_INPUT
 		Axis : UDINT;

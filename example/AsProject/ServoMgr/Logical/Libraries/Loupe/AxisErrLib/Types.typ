@@ -1,4 +1,10 @@
-
+(*
+ * File: Types.typ
+ * Copyright (c) 2023 Loupe
+ * https://loupe.team
+ * 
+ * This file is part of AxisErrLib, licensed under the MIT License.
+ *)
 TYPE
 	AXERR_RETRIEVE_ST_enum : 
 		(

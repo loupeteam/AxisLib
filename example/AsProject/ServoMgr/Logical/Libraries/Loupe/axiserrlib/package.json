@@ -1,15 +1,18 @@
 {
   "name": "@loupeteam/axiserrlib",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Loupe's axiserrlib library for Automation Runtime",
-  "homepage": "https://loupeteam.github.io/Sandbox/libraries/axiserrlib.html",
+  "homepage": "https://loupeteam.github.io/LoupeDocs/libraries/axiserrlib.html",
   "scripts": {},
   "keywords": [],
   "author": "Loupe",
-  "license": "Loupe Software License Agreement",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/loupeteam/axiserrlib"
+    "url": "https://github.com/loupeteam/AxisErrLib"
+  },
+  "lpm": {
+    "type": "library"
   },
   "dependencies": {
     "@loupeteam/errorlib": ">=0.23.0 <=0.23.9",
