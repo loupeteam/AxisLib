@@ -67,6 +67,7 @@ VAR CONSTANT
 	mcDIR_INDEPENDENT_SPEED_AX_POS : UINT := 260; (*mode for MPDC*)
 	mcDISTANCE_BASED : UINT := 0; (*basis for cam movement (e.g. for MC_BR_CamTransition)*)
 	mcDITHER : USINT := 32; (*setup mode*)
+	mcDITHER2 : USINT := 35; (*setup mode*)
 	mcEDGE_SENSITIVE : USINT := 4; (*additional mode for trigger event*)
 	mcENABLE : UINT := 2;
 	mcENABLE_LIMIT_NEG : INT := 5; (*PLCopen motion parameter*)
@@ -262,6 +263,9 @@ VAR CONSTANT
 	mcTRACE_TRIGGER : USINT := 3; (*trace status*)
 	mcTRANSITION_OFF : UINT := 0;
 	mcTRANSITION_ON : UINT := 1;
+	mcTUNE_FBCTRL_MODEL_1MASS : UINT := 12288; (*setup mode*)
+    mcTUNE_FBCTRL_MODEL_2MASS : UINT := 8192; (*setup mode*)
+    mcTUNE_MODEL_2MASS : UINT := 32768; (*setup mode*)
 	mcTUNE_STANDSTILL : USINT := 0; (*constant for OperatingPoint*)
     mcTUNE_TN : UINT := 16; (*setup mode*)
 	mcTUNE_V_CONSTANT : USINT := 1; (*constant for OperatingPoint*)

@@ -36,6 +36,9 @@ extern "C"
  #define mcTUNE_V_CONSTANT 1U
  #define mcTUNE_TN 16U
  #define mcTUNE_STANDSTILL 0U
+ #define mcTUNE_MODEL_2MASS 32768U
+ #define mcTUNE_FBCTRL_MODEL_2MASS 8192U
+ #define mcTUNE_FBCTRL_MODEL_1MASS 12288U
  #define mcTRANSITION_ON 1U
  #define mcTRANSITION_OFF 0U
  #define mcTRACE_TRIGGER 3U
@@ -231,6 +234,7 @@ extern "C"
  #define mcENABLE_LIMIT_NEG 5
  #define mcENABLE 2U
  #define mcEDGE_SENSITIVE 4U
+ #define mcDITHER2 35U
  #define mcDITHER 32U
  #define mcDISTANCE_BASED 0U
  #define mcDIR_INDEPENDENT_SPEED_AX_POS 260U
@@ -324,6 +328,9 @@ extern "C"
  _GLOBAL_CONST unsigned char mcTUNE_V_CONSTANT;
  _GLOBAL_CONST unsigned short mcTUNE_TN;
  _GLOBAL_CONST unsigned char mcTUNE_STANDSTILL;
+ _GLOBAL_CONST unsigned short mcTUNE_MODEL_2MASS;
+ _GLOBAL_CONST unsigned short mcTUNE_FBCTRL_MODEL_2MASS;
+ _GLOBAL_CONST unsigned short mcTUNE_FBCTRL_MODEL_1MASS;
  _GLOBAL_CONST unsigned short mcTRANSITION_ON;
  _GLOBAL_CONST unsigned short mcTRANSITION_OFF;
  _GLOBAL_CONST unsigned char mcTRACE_TRIGGER;
@@ -519,6 +526,7 @@ extern "C"
  _GLOBAL_CONST signed short mcENABLE_LIMIT_NEG;
  _GLOBAL_CONST unsigned short mcENABLE;
  _GLOBAL_CONST unsigned char mcEDGE_SENSITIVE;
+ _GLOBAL_CONST unsigned char mcDITHER2;
  _GLOBAL_CONST unsigned char mcDITHER;
  _GLOBAL_CONST unsigned short mcDISTANCE_BASED;
  _GLOBAL_CONST unsigned short mcDIR_INDEPENDENT_SPEED_AX_POS;

@@ -1,4 +1,4 @@
-/* ncglobal.h V5.12.2 */ 
+/* ncglobal.h V5.17.1 */ 
 /* COPYRIGHT (C) B&R Industrial Automation GmbH */ 
 
 /* Automation Studio generated header file */
@@ -408,6 +408,7 @@
  #define ncHIPERFACE 8U
  #define ncHIPERFACE_DSL 13U
  #define ncHOME_OFFSET 5U
+ #define ncHOME_OFFSET_INTERNAL 11U
  #define ncHOMING 106U
  #define ncHORIZONTAL 0U
  #define ncHW_END 4096U
@@ -502,6 +503,7 @@
  #define ncMOTOR_PHASING 143U
  #define ncMOTOR_SYNCHRON 142U
  #define ncMOTPH_DITHER 32U
+ #define ncMOTPH_DITHER2 35U
  #define ncMOTPH_SATURATION 30U
  #define ncMOTPH_SET_OFFSET 34U
  #define ncMOTPH_STEPPER 31U
@@ -755,6 +757,7 @@
  #define ncTRIGGPOS 112U
  #define ncTRQ_LIMIT 30U
  #define ncTRUE 1U
+ #define ncTUNE_FBCTRL_MODEL_1MASS 12288U
  #define ncTUNE_FBCTRL_MODEL_2MASS 8192U
  #define ncTUNE_MODEL_2MASS 32768U
  #define ncTUNE_MODEL_FRICTION 8192U
@@ -1204,6 +1207,7 @@
  _IEC_CONST unsigned char ncHIPERFACE = 8U;
  _IEC_CONST unsigned char ncHIPERFACE_DSL = 13U;
  _IEC_CONST unsigned char ncHOME_OFFSET = 5U;
+ _IEC_CONST unsigned char ncHOME_OFFSET_INTERNAL = 11U;
  _IEC_CONST unsigned short ncHOMING = 106U;
  _IEC_CONST unsigned char ncHORIZONTAL = 0U;
  _IEC_CONST unsigned short ncHW_END = 4096U;
@@ -1298,6 +1302,7 @@
  _IEC_CONST unsigned short ncMOTOR_PHASING = 143U;
  _IEC_CONST unsigned short ncMOTOR_SYNCHRON = 142U;
  _IEC_CONST unsigned short ncMOTPH_DITHER = 32U;
+ _IEC_CONST unsigned short ncMOTPH_DITHER2 = 35U;
  _IEC_CONST unsigned short ncMOTPH_SATURATION = 30U;
  _IEC_CONST unsigned short ncMOTPH_SET_OFFSET = 34U;
  _IEC_CONST unsigned short ncMOTPH_STEPPER = 31U;
@@ -1551,6 +1556,7 @@
  _IEC_CONST unsigned short ncTRIGGPOS = 112U;
  _IEC_CONST unsigned char ncTRQ_LIMIT = 30U;
  _IEC_CONST unsigned char ncTRUE = 1U;
+ _IEC_CONST unsigned short ncTUNE_FBCTRL_MODEL_1MASS = 12288U;
  _IEC_CONST unsigned short ncTUNE_FBCTRL_MODEL_2MASS = 8192U;
  _IEC_CONST unsigned short ncTUNE_MODEL_2MASS = 32768U;
  _IEC_CONST unsigned short ncTUNE_MODEL_FRICTION = 8192U;

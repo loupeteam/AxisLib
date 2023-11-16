@@ -1,4 +1,4 @@
-    1: Parameter-ID ungültig
+    1: Parameter ungültig
     2: Datenblock für Upload ist nicht vorhanden
     3: Schreibzugriff auf einen Read-Only-Parameter
     4: Lesezugriff auf einen Write-Only-Parameter
@@ -11,8 +11,8 @@
    18: Das Datensegment bei Datenblock lesen ist noch nicht das letzte
    19: Das Datensegment bei Datenblock schreiben ist noch nicht das letzte
    21: Checksum nach Datenblock schreiben ist ungültig
-   23: Parameter-ID im Datenblock ist ungültig (Datenblock schreiben)
-       Info('PARID'): Parameter-ID
+   23: Parameter im Datenblock ist ungültig (Datenblock schreiben)
+       Info('PARID'): Parameter
    25: System-Modul brennen nur unmittelbar nach Download erlaubt
    27: Betriebssystem starten nicht möglich (Betriebssystem ist nicht auf dem FPROM)
    40: Wert des Parameters größer als Maximalwert
@@ -34,13 +34,13 @@
    66: Das Betriebssystem auf dem Antrieb ist inkompatibel zum vorhandenen Netzwerk
        Info(USINT): Hardware-ID des Betriebssystemes
    67: Notwendiger Parameter fehlt oder ist ungültig
-       Info('PARID'): Parameter-ID
+       Info('PARID'): Parameter
    68: Datenblock-Länge ungültig
    69: Kommando-Schnittstelle ist belegt
    70: Wert eines erforderlichen Parameters zu groß
-       Info('PARID'): Parameter-ID
+       Info('PARID'): Parameter
    71: Wert eines erforderlichen Parameters zu klein
-       Info('PARID'): Parameter-ID
+       Info('PARID'): Parameter
    72: Firmwareversion kleiner als Minimalversion
        Info(UINT): Mindestversion
    73: Ungültiges R4 Fließkomma-Format
@@ -49,7 +49,6 @@
  1001: Fehler-FIFO Überlauf
  1002: Parameter nicht im gültigen Wertebereich
  1003: Parameter schreiben bei aktiver Regelung nicht erlaubt
- 1004: Timeout bei Netzwerk-Lebensüberwachung
  1005: Parameter schreiben bei aktiver Bewegung nicht erlaubt
  1006: Ungültiger Parameter für Trigger-Ereignis (Digital-Eingang + Flanke)
  1008: Master für Netzwerk-Kopplung deaktiviert - Geberfehler
@@ -61,10 +60,10 @@
        Info(UINT): Stationsnummer
  1014: Netzwerk Kommando-Schnittstelle ist besetzt
  1016: Maximale Zykluszeit überschritten - CPU Auslastung zu hoch
- 1017: Ungültige Parameter-ID für zyklischen Lesezugriff
-       Info('PARID'): Parameter-ID
- 1018: Ungültige Parameter-ID für zyklischen Schreibzugriff  
-       Info('PARID'): Parameter-ID
+ 1017: Ungültiger Parameter für zyklischen Lesezugriff
+       Info('PARID'): Parameter
+ 1018: Ungültiger Parameter für zyklischen Schreibzugriff  
+       Info('PARID'): Parameter
  1021: Parameter schreiben nicht erlaubt: Funktionsblock aktiv
  1022: Timeout bei Lebensüberwachung der zyklischen Daten zum Antrieb
  1023: Netzwerk-Kopplung mit dem zyklischen Kommunikations Modus nicht erlaubt
@@ -91,7 +90,7 @@
  4010: Regler einschalten nicht möglich: Beide Endschalter sind belegt
  4011: Regler ausschalten nicht möglich: Bewegung aktiv
  4012: Regler einschalten nicht möglich: Init-Parameter fehlen oder sind ungültig
-       Info('PARID'): Parameter-ID
+       Info('PARID'): Parameter
  4014: Zwei-Geberregelung: Abbruchgrenze der Positionsdifferenz überschritten
        Info(REAL): Aktuelle Positionsdifferenz
  4015: Fehler durch Kommando ausgelöst
@@ -112,12 +111,13 @@
  5017: Referenzier-Modus nicht möglich: Positionsregelung inaktiv
  5018: Referenzieren nicht möglich: Bewegung aktiv
  5019: Referenzier-Parameter nicht im gültigen Wertebereich 
-       Info('PARID'): Parameter-ID
+       Info('PARID'): Parameter
  5020: Referenzieren nicht möglich: Beide Endschalter sind belegt
  5021: Endschalter belegt: Keine Richtungsumkehr bei diesem Referenziermodus
  5022: Zweites Endschalter-Signal erhalten: Referenz-Schalter nicht gefunden
  5023: Falsches Endschalter-Signal für aktuelle Bewegungsrichtung erhalten
  5025: Setzen des Referenzier-Offsets mit Zählbereichs-Korrektur nicht möglich
+       Info(UINT): Detail
  5026: Basis-Bewegungsparameter (mit Override) überschreiten Geschwindigkeitsgrenze
  5027: Basis-Bewegungsparameter (mit Override) überschreiten Beschleunigungsgrenze
  5028: Aktuelle Bewegung ist keine Basis-Bewegung
@@ -138,8 +138,6 @@
        Info(USINT): Zustands-Index
  5102: Zu viele Kurvenwechsel pro Zyklus (Masterperiode zu kurz)
        Info(USINT): Zustands-Index
- 5107: Start Kurvenkopplung nicht möglich: Parameter nicht im gültigen Wertebereich
-       Info('PARID'): Parameter-ID
  5110: Abbruch der Kurvenkopplung: Zyklische Sollpositionen fehlen
        Info(USINT): Zustands-Index
  5111: Abbruch der Kurvenkopplung: Geberfehler
@@ -148,7 +146,7 @@
  5202: Nockensteuerung: Schaltpositionen nicht in ansteigender Reihenfolge
  5300: Datenblock für Upload ist nicht vorhanden
  5301: Start Kurvenautomat nicht möglich: Parameter nicht im gültigen Wertebereich
-       Info('PARID'): Parameter-ID
+       Info('PARID'): Parameter
  5302: Parameter schreiben nicht erlaubt: Kurvenautomat aktiv
  5303: Keine Kurvenscheibendaten bei Index vorhanden
  5304: Format-Fehler in den Kurvenscheibendaten
@@ -179,7 +177,7 @@
        Info(UDINT): Fehlerkennung
  6034: Abbruch der zyklischen Sollwertvorgabe: Sollgeschwindigkeiten fehlen
  6036: Motor-Parameter fehlen oder sind ungültig
-       Info('PARID'): Parameter-ID
+       Info('PARID'): Parameter
  6038: Momentenbegrenzung größer als Motor-Spitzenmoment
        Info(REAL): Motor-Spitzenmoment
  6043: PHASING_MODE ist ungültig
@@ -191,6 +189,7 @@
  6046: Einphasen: Keine Rotorbewegung
  6047: Haltebremse: Ansteuerungssignal aus und Ausgangstatus ein.
  6048: Motorhaltebremse Bewegungsüberwachung: Positionsfehler zu groß
+       Info(REAL): Positionsfehler
  6049: Wechselrichter: Ausgang: Strommessung defekt
        Info(USINT): Phase
  6050: Parameter schreiben nicht erlaubt: Sollstromfilter oder Notchfilter aktiv
@@ -206,7 +205,7 @@
  6059: Enable2: Spannungseinbruch
  6060: Leistungsteil: Grenzdrehzahl überschritten
        Info(REAL): Grenzdrehzahl
- 6061: CTRL Drehzahl: Geschwindigkeitslimit überschritten
+ 6061: CTRL Drehzahl: Geschwindigkeit Abbruchgrenze überschritten
        Info(REAL): Grenzdrehzahl
  6062: CTRL Drehzahl: Geschwindigkeitsfehler Abbruchgrenze überschritten
        Info(REAL): Grenzwert AXLIM_DV_STOP
@@ -231,6 +230,11 @@
        Info(REAL): Grenzwert
  6075: Initialisierung der Lastsimulation fehlgeschlagen
  6076: Wechselrichter: Verdrahtung: Phasenreihenfolge nicht korrekt
+ 6077: Drehmomentgrenze größer als maximales Antriebsdrehmoment des Motorgetriebes
+       Info(REAL): Maximales Antriebsdrehmoment des Motorgetriebes
+ 6078: Wechselrichter: Summenstrom: Analogüberwachung: Überstrom
+ 6079: Haltebremse: Verschleißüberwachung: Abbruchgrenze überschritten
+       Info(REAL): Motor-Haltebremse: Verschleißüberwachung: Grenzwert
  7000: Geber: Fehler aktiv
        Info(USINT): Geber
  7012: Geber: Hiperface Error Bit
@@ -239,7 +243,7 @@
        Info(UDINT): Statuscode
  7014: Geber: CRC Fehler beim Parameter übertragen
        Info(USINT): Geber
- 7015: Geber: Timeout Fehler beim Parameter übertragen
+ 7015: Geber: Timeout Fehler bei der Datenübertragung
        Info(USINT): Geber
  7017: Geber: Fehler beim Lesen der Geber-Parameter
        Info(USINT): Geber
@@ -305,17 +309,17 @@
        Info(UDINT): PARID_ENCOD0_STATUS
  7061: Virtueller Geber: Stillstandsüberwachung
        Info(UDINT): PARID_ENCOD0_STATUS
- 7062: Geber: SMC Modul nicht bereit
+ 7062: Geber: SafeMOTION-Modul nicht bereit
        Info(USINT): Geber
  7063: Geber: Fehler in der UART Kommunikation
        Info(USINT): Geber
- 7064: Geber: Fehler in der SMC Kommunikation
+ 7064: Geber: Fehler in der SafeMOTION Kommunikation
        Info(USINT): Geber
  7065: Geber: Gebertyp ungültig
        Info(USINT): Geber
  7066: Geber: Geber nicht bereit
        Info(USINT): Geber
- 7067: EnDat-Geber: SMC Modul nicht im Zustand Operational
+ 7067: Geber: SafeMOTION-Modul nicht im Zustand Operational
        Info(USINT): Geber
  7068: Geber: Maximale Zykluszeit überschritten
        Info(USINT): Geber
@@ -367,7 +371,11 @@
        Info(USINT): Geber
  7094: Geber: HIPERFACE DSL: Online Status: Bit 14: SUM: Sammelbyte Geber Status
        Info(USINT): Geber
- 7100: Parameterfunktion wird nicht unterstützt. (Einsteckkarte ?)
+ 7095: Geber: Gebertyp von SafeMOTION Firmware nicht unterstützt
+       Info(USINT): Geber
+ 7096: Geber: Inkremente pro Geberumdrehung ungültig
+       Info(USINT): Geber
+ 7100: Parameterfunktion wird nicht unterstützt.
  7103: Inkompatible Schnittstelle
        Info(UDINT): Schnittstelle + Zusatzinfo
  7104: Initialisierung abgebrochen
@@ -390,7 +398,7 @@
        Info(REAL): Zwischenkreisspannung
  7221: Netz: Störung
        Info(REAL): Netzfrequenz
- 7222: Wechselrichter: Ausgang: Summenstrom: Überstrom (Erdschluss)
+ 7222: Wechselrichter: Summenstrom: Überstrom
        Info(REAL): Grenzwert
  7223: Zwischenkreis: Überspannung DC-GND
  7224: Rückwandstecker: Kontaktüberwachung 24V-GND: Spannung zu klein
@@ -428,9 +436,9 @@
  8004: EEPROM-Variablentyp nicht gültig
  8005: EEPROM Speichertyp nicht gültig
  8006: Wert des EEPROM-Parameters ist gleich 0
-       Info(UINT): EEPROM Parameter-ID
+       Info(UINT): EEPROM Parameter
  8007: Wert des EEPROM-Parameters ist ungültig 
-       Info(UINT): EEPROM Parameter-ID
+       Info(UINT): EEPROM Parameter
  8011: EPROM: Daten nicht gültig
        Info(UDINT): CODE
  8012: EPROM: Controller-ID nicht gültig
@@ -440,7 +448,7 @@
  8020: Ungültige Schaltfrequenz
  8021: Anwender-Gerätekonfigurationsdaten: CRC Fehler
  8022: Anwender-Gerätekonfigurationsdaten: Parameterwert ungültig
-       Info('PARID'): Parameter-ID
+       Info('PARID'): Parameter
  9000: Kühler-Temperatursensor: Abbruchgrenze überschritten
        Info(REAL): Grenztemperatur
  9001: Kühler-Temperatursensor: Ausschaltgrenze überschritten
@@ -560,7 +568,9 @@
 10104: Parameter Identifikation: Bewegung während Shuttlepositionsermittlung
 10105: Parameter Identifikation: Plausibilitätprüfung der Shuttlepositionen
 10500: Induktionshalt wurde abgebrochen
-11000: Intersegmentkommunikation: Verkabelungsfehler
+11000: Intersegmentkommunikation: Verkabelung: Falscher Anschluss
+       Info(UDINT): Anschluss
+11001: Intersegmentkommunikation: Verkabelung: Falscher oder fehlender Teilnehmer
        Info(UDINT): Anschluss
 11101: Geber: Signalamplitude zu klein
        Info(REAL): Position
@@ -1201,6 +1211,8 @@
 32290: INIT Broadcast Datenpunkt: Aufruf der NC-Aktion nur in SDC Taskklasse erlaubt
        Info(USINT): Taskklassennummer des zugehörigen SDC Interface
 32291: INIT Broadcast Datenpunkt: "dp_data_bits" oder "dp_task_class" ist Null
+32292: Daten eines Parameters in einer Parameter-Liste länger als 8 Bytes
+       Info(UDINT): Index dieses Parameters in der Parameter-Liste
 32302: Setup starten nicht möglich: Es ist bereits eine Setup-Operation aktiv
 32322: Datenblock Upload/Download: Der Datenobjekt Name ist Null
 32323: Datenblock Upload/Download: Die Datenblock Parameter-ID ist ungültig
@@ -1351,7 +1363,7 @@
 35002: SMC FS: Interner Fehler, SPI Übertragung
        Info(UDINT): Zusatzinfo
 35003: SMC FS: Interner Fehler, MFW NVM Datenspeicher
-35004: SMC FS: Interner Fehler, Kommunikation EnDat Master
+35004: SMC FS: Interner Fehler, Kommunikation Encoder Master
        Info(UDINT): Zusatzinfo
 35005: SMC FS: Interner Fehler, Kommunikation ACOPOS
        Info(UDINT): Zusatzinfo
@@ -1436,7 +1448,7 @@
 35063: SMC FS: SMS - Überwachung des Positionsschleppfehlers aktiviert
 35064: SMC FS: SMS - Referenzieren aktiviert 
 35065: SMC FS: SMS - Eine nicht zulässige Sicherheitsfunktion ist aktiviert 
-35066: SMC FS: SMS - Eingang SwitchHomingMode aktiviert 
+35066: SMC FS: SMS - Eingang SwitchHomingMode aktiviert
 35067: SMC FS: Interner Fehler, Kreuzkommunikation Cycle F2
        Info(UDINT): Byte Offset
 35068: SMC FS: "Homing - Maximum trigger speed" außerhalb des gültigen Bereichs
@@ -1537,10 +1549,20 @@
 35130: SMC FS: Interner Fehler, Testfall
 35131: SMC FS: Interner Fehler
 35132: SMC FS: BM - Delay time to FFS ist größer 0.8 * Node Guarding Timeout
+       Info(UDINT): Node Guarding Timeout [us]
 35133: SMC FS: SMS - Safe Maximum speed (SMS) in Kombination mit SSO nicht zulässig 
 35134: SMC FS: SMS - Safe stop 1 (SS1) mit "Ramp monitoring" nicht zulässig 
 35135: SMC FS: SMS - Safe stop 1 (SS1) mit "Early Limit Monitoring" nicht zulässig 
 35136: SMC FS: Safe Encoder mounting Fehler
+35137: SMC FS: SafeUserData - Konfigurationsfehler bei Funktion SafeUserData
+       Info(UDINT): Zusatzinfo
+35138: SMC FS: HDSL - Konfigurationsfehler bei HIPERFACE DSL
+       Info(UDINT): Zusatzinfo
+35139: SMC FS: Encoder - Konfigurationsfehler bei Encoder protocol type
+       Info(UDINT): Zusatzinfo
+35140: SMC FS: HDSL - Interner Kommunikationsfehler
+       Info(UDINT): Zusatzinfo
+35141: SMC FS: Safe Maximum speed (SMS): Grenzwertüberschreitung bei aktiviertem SSO
 35150: SMC FS: Nachladbare Safety Parameter: Deakt. Funktion Enable Bit gesetzt
        Info(UDINT): Zusatzinfo
 35151: SMC FS: Nachladbare Safety Parameter: Platzhalter Enable Bit gesetzt
@@ -1593,6 +1615,7 @@
        Info(UDINT): Zusatzinfo
 35185: SMC FFS: Interner Fehler
 35186: SMC FFS: Geber nicht bereit
+       Info(UDINT): Zusatzinfo
 35189: SMC: Safe Brake Test - Verletzung der Positionstoleranz
 35190: SMC FFS: Geberfehler SinCos Auswertung
        Info(UDINT): Zusatzinfo
@@ -1681,6 +1704,29 @@
 35254: SMC: Geber - Länge des physikalischen Referenzsystems zu groß
        Info(UDINT): Zusatzinfo
 35255: SMC FS: Geber - Die Beschleunigungsgrenze wurde überschritten
+35256: SMC: Informationen im Geberfehler Statusregister ausgelesen.
+       Info(UDINT): Zusatzinfo
+35257: SMC: Warnung für eine schlechte Übertragungsqualität.
+       Info(UDINT): Zusatzinfo
+35258: SMC: Timeoutfehler in der HIPERFACE DSL Kommunikation.
+       Info(UDINT): Zusatzinfo
+35259: SMC: Geber - Fehler während des zyklischen Betriebs des Gebers.
+       Info(UDINT): Zusatzinfo
+35260: SMC: Geber - Fehler während der Fehlerbehandlung des Gebers.
+       Info(UDINT): Zusatzinfo
+35261: SMC: HDSL - Verbleibende Lebenszeit unter 6 Monaten
+       Info(UDINT): Zusatzinfo
+35481: SMC: Geber - Alarm ist aktiv
+       Info(UDINT): Zusatzinfo
+35482: SMC: Geber - Betriebszustandsfehlerquelle
+       Info(UDINT): Zusatzinfo
+35483: SMC: Geber - Zeitüberschreitung beim Datentransfer
+35484: SMC: Geber nicht bereit
+       Info(UDINT): Zusatzinfo
+35485: SMC FFS: SafeUserData - Fehler bei angeforderter Funktion SafeUserData
+       Info(UDINT): Zusatzinfo
+35486: SMC: Sicheres Moment ungültig
+       Info(UDINT): Zusatzinfo
 35487: SMC: Funktionaler Einphasungs-Status wurde zurückgesetzt
        Info(UDINT): Zusatzinfo
 35488: SMC: Anforderung SS1 - Positions-/Geschwindigkeitserfassung ist nicht bereit
@@ -1697,6 +1743,8 @@
 35496: SMC: Strommessung ungültig
        Info(UDINT): Zusatzinfo
 35497: SMC: BM - Verzögerungszeit ist abgelaufen
+       Info(UDINT): Zusatzinfo
+35498: SMC: SSO - Keine Begrenzung der beobachteten Beschleunigung möglich
        Info(UDINT): Zusatzinfo
 35499: SMC FFS: Strommessfehler wurde erkannt
 35500: SMC: SSO - Safe speed observer Geschwindigkeitsfehler
@@ -1742,10 +1790,14 @@
        Info(REAL): Maximalwert
 38003: Motorhaltebremse: Prüfmoment wurde begrenzt 
 38004: Motorhaltebremse: Prüfmoment kleiner als Lastmoment 
+38005: Motortest: Geschwindigkeit ist während dem Einschalten zu hoch
+       Info(REAL): Grenzgeschwindigkeit
 38006: Stromregler: Zulässige Stromoffsetwerte überschritten
 38008: Bremswiderstand: Kein Stromfluss
 38009: Wechselrichter: Ausgang: Stromflusstest abgebrochen
        Info(USINT): Phase
+38010: Haltebremse: Verschleißüberwachung: Warnungsgrenze überschritten
+       Info(REAL): Motor-Haltebremse: Verschleißüberwachung: Grenzwert
 39000: Geber: Warnung aktiv
        Info(USINT): Geber
 39001: Geber: Positionskorrektur aktiv
@@ -1875,6 +1927,16 @@
 39090: Geber: HIPERFACE DSL: Online Status: Bit 11: POS: Schätzer eingeschaltet
        Info(USINT): Geber
 39091: Geber: HIPERFACE DSL: Online Status: Bit 13: SCE: CRC-Fehler Safe Channel
+       Info(USINT): Geber
+39092: EnDat-Geber: Warnungsbit - zyklischer Betrieb
+       Info(USINT): Geber
+39093: EnDat-Geber: Warnungsbit - Grenzlage nicht erreicht
+       Info(USINT): Geber
+39094: EnDat-Geber: Warnungsbit - nicht bereit
+       Info(USINT): Geber
+39095: EnDat-Geber: Warnungsbit - Diagnose Schwellwert unterschritten
+       Info(USINT): Geber
+39096: Geber: HIPERFACE DSL: Online Status: Bit 2: QMLW: Qualitätsüberwach. Low-Pegel
        Info(USINT): Geber
 39301: Analog/Digital IO: 24V-Spannungsversorgung fehlerhaft
        Info(USINT): Slot
@@ -2135,4 +2197,9 @@
        Info(UDINT): NetCyc Zykluszeit [us]
 64016: Name der SDC Achskonfigurations-PV ist zu lang (PV wird nicht verwendet)
        Info(UINT): Maximal zulässige Anzahl von Zeichen
+64017: NC Software Prototyp-Version (Einsatz auf Serienmaschinen nicht erlaubt)
+64018: mapp Motion ACOPOS FW Testversion (Gültigkeitsperiode im Logger)
+       Info(UINT): Testversion-Nummer
+64019: mapp Motion ACOPOS FW Testversion: SPS Datum/Zeit außerhalb Gültigkeitsperiode
+64020: NCSYS ist auf dem Zielsystem nicht vorhanden
 65535: Response-Fehler

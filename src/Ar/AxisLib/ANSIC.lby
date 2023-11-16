@@ -14,7 +14,7 @@
     <File>AxisExpandLimit.c</File>
   </Files>
   <Dependencies>
-    <Dependency ObjectName="Acp10_MC" FromVersion="5.12.2" ToVersion="5.12.2" />
-    <Dependency ObjectName="Acp10man" FromVersion="5.12.2" ToVersion="5.12.2" />
+    <Dependency ObjectName="Acp10_MC" FromVersion="5.17.1" ToVersion="5.17.1" />
+    <Dependency ObjectName="Acp10man" FromVersion="5.17.1" ToVersion="5.17.1" />
   </Dependencies>
 </Library>
