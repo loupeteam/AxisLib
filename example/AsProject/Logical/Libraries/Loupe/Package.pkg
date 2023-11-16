@@ -3,7 +3,7 @@
 <Package xmlns="http://br-automation.co.at/AS/Package">
   <Objects>
     <Object Type="Library" Language="Binary" Description="A new source library">piper</Object>
-    <Object Type="Library" Language="ANSIC" Reference="true">C:\Projects\Loupe\AxisLib\src\Ar\AxisLib\ANSIC.lby</Object>
+    <Object Type="Library" Language="ANSIC" Reference="true">..\..\src\Ar\AxisLib\ANSIC.lby</Object>
     <Object Type="Library" Language="Binary">hmitools</Object>
     <Object Type="Library" Language="Binary">ringbuflib</Object>
     <Object Type="Library" Language="Binary">logthat</Object>
