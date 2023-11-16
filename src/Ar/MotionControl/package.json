@@ -1,0 +1,30 @@
+{
+  "name": "@loupeteam/mappmotionprog",
+  "version": "0.1.0",
+  "description": "This is a program package that will add the mapp motion version of Axis Basic to your AS project",
+  "author": "Loupe",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loupeteam/AxisLib.git"
+  },
+  "dependencies": {
+    "@loupeteam/piperprog": "^0.1.0",
+    "loupeteam/axislib": "^4.3.0",
+    "@loupeteam/axisbasicmappprog": "^0.1.0"
+  },
+  "lpm": {
+    "type": "program",
+    "logical": {
+      "destination": "MachineControl"
+    },
+    "physical": {
+      "cpu": [
+        {
+          "source": "MotionControl",
+          "destination": "TC4"
+        }
+      ]
+    }
+  }
+}

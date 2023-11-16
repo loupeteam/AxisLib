@@ -1,0 +1,16 @@
+(*
+* File: Types.typ
+* Copyright (c) 2023 Loupe
+* https://loupe.team
+* 
+* This file is part of AxisLib, licensed under the MIT License.
+*
+*)
+
+VAR
+	Configuration : Configuration_typ;
+	groupStatus : BOOL;
+	axisIdx : UDINT;
+	task : Task_typ;
+(*	sim : Sim_typ;*)
+END_VAR
