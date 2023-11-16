@@ -13,7 +13,7 @@
     "@loupeteam/errorprog": "^0.1.0",
     "@loupeteam/firstinitprog": "^0.1.1",
     "@loupeteam/piperprog": "^0.1.0",
-    "@loupeteam/axislib": "3.6.4"
+    "@loupeteam/axislib": "3.7.0"
   },
   "lpm": {
     "type": "program",

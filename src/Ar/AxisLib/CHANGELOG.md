@@ -1,3 +1,5 @@
+3.7.0 - Updated ACP10 dependancy to 5.17.1
+
 3.6.4 - Fix reset detection in AxisReference()
 
 3.6.3 - Prevent Cyclic and Fast function from running while axis is not active
