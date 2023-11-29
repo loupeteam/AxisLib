@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@loupeteam/piperprog": "^0.1.0",
-    "loupeteam/axislib": "^4.3.0",
     "@loupeteam/axisbasicmappprog": "^0.1.0"
+    "@loupeteam/axislib": "^4.3.0"
   },
   "lpm": {
     "type": "program",
