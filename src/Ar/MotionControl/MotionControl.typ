@@ -1,9 +1,9 @@
 (*
-* File: ServoControl.typ
+* File: MotionControl.typ
 * Copyright (c) 2023 Loupe
 * https://loupe.team
 * 
-* This file is part of ServoMgr, licensed under the MIT License.
+* This file is part of AxisBasic, licensed under the MIT License.
 *)
 
 TYPE

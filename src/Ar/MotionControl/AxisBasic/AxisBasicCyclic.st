@@ -1,9 +1,9 @@
 (*
-* File: ServoMgrCyclic.st
+* File: AxisBasicCyclic.st
 * Copyright (c) 2023 Loupe
 * https://loupe.team
 * 
-* This file is part of ServoMgr, licensed under the MIT License.
+* This file is part of AxisBasic, licensed under the MIT License.
 *)
 
 PROGRAM _CYCLIC

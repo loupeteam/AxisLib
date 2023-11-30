@@ -18,12 +18,12 @@
   "lpm": {
     "type": "program",
     "logical": {
-      "destination": "Servo"
+      "destination": "MotionControl"
     },
     "physical": {
       "cpu": [
         {
-          "source": "ServoMgr",
+          "source": "AxisBasic",
           "destination": "TC3"
         }
       ]

@@ -4,7 +4,7 @@ buildPublishPipeline(
     slackChannel: "sandbox-github",
     asProjectRepo: "axislib",
     asProjectVersion: "feature/servoMgrACP10Pkg", 
-    asProjectPath: "example/AsProject/ServoMgr",
+    asProjectPath: "example/AsProject/AxisBasic",
     skipLpmInstall: true,
-    packagesToPublish: ['src/Ar/AxisLib', 'src/Ar/Servo']
+    packagesToPublish: ['src/Ar/AxisLib', 'src/Ar/MotionControl']
 )
