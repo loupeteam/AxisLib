@@ -15,7 +15,7 @@ The AxisBasic program will call the AxisBasic_Cyclic function block which handle
 This library package allows access to the axis basic function blocks.
 
 # Installation
-To install using the Loupe Package Manager (LPM), in an initialized Automation Studio project directory run `lpm install axisbasicmappprog`. Note that this will also pull in the library package as a dependency.  
+To install using the Loupe Package Manager (LPM), in an initialized Automation Studio project directory run `lpm install mappmotionprog`. Note that this will also pull in the library package as a dependency.  
 If you only want to install the library package, run `lpm install axislib`.   
 For more information about LPM, see https://loupeteam.github.io/LoupeDocs/tools/lpm.html
 
