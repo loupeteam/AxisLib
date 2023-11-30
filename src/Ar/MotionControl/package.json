@@ -15,12 +15,12 @@
   "lpm": {
     "type": "program",
     "logical": {
-      "destination": "MachineControl"
+      "destination": "MotionControl"
     },
     "physical": {
       "cpu": [
         {
-          "source": "MotionControl",
+          "source": "AxisBasic",
           "destination": "TC4"
         }
       ]
