@@ -16,7 +16,7 @@ The cyclic program also calls the axisErrorCollector function which will support
 This library package allows access to the servo basic function blocks.
 
 # Installation
-To install using the Loupe Package Manager (LPM), in an initialized Automation Studio project directory run `lpm install servomgracp10prog`.  Note that this will also pull in the library package as a dependency.  
+To install using the Loupe Package Manager (LPM), in an initialized Automation Studio project directory run `lpm install acp10motionprog`.  Note that this will also pull in the library package as a dependency.  
 If you only want to install the library package, run `lpm install axislib`.  
 For more information about LPM, see https://loupeteam.github.io/LoupeDocs/tools/lpm.html.
 
