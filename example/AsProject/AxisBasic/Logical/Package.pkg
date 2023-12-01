@@ -8,6 +8,6 @@
     <Object Type="Package">MachineControl</Object>
     <Object Type="Package">Diagnostics</Object>
     <Object Type="Package">Infrastructure</Object>
-    <Object Type="Package" Reference="true">C:\Projects\Loupe\opensource\repo\AxisLib\src\Ar\MotionControl\Package.pkg</Object>
+    <Object Type="Package" Reference="true">..\..\..\src\Ar\MotionControl\Package.pkg</Object>
   </Objects>
 </Package>
