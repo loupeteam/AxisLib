@@ -1,0 +1,12 @@
+(*
+* File: Constants.var
+* Copyright (c) 2023 Loupe
+* https://loupe.team
+* 
+* This file is part of AxisLib, licensed under the MIT License.
+*)
+
+VAR CONSTANT
+	AXLIB_STRLEN_NAME : UINT := 120;
+	AXLIB_STRLEN_ERROR : UINT := 329;
+END_VAR
