@@ -3,7 +3,7 @@ library "jenkinsLibrary@develop"
 buildPublishPipeline(
     slackChannel: "sandbox-github",
     asProjectRepo: "AxisLib",
-    asProjectVersion: "main", 
+    asProjectVersion: "feature/ACP10MappMerge", 
     asProjectPath: "example/ACP10AsProject",
     skipLpmInstall: true,
     packagesToPublish: ['src/ACP10Ar/AxisLib', 'src/ACP10Ar/MotionControl']
