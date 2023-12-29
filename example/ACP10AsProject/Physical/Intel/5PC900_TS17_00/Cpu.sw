@@ -51,7 +51,6 @@
     <LibraryObject Name="standard" Source="Libraries.standard.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="FileIO" Source="Libraries.FileIO.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="AsArLog" Source="Libraries.AsArLog.lby" Memory="UserROM" Language="binary" Debugging="true" />
-    <LibraryObject Name="AxisLib" Source="Libraries.Loupe.AxisLib.lby" Memory="None" Language="ANSIC" Debugging="true" />
     <LibraryObject Name="asstring" Source="Libraries.asstring.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="Acp10_MC" Source="Libraries.Acp10_MC.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="piper" Source="Libraries.Loupe.piper.lby" Memory="UserROM" Language="Binary" Debugging="true" />
@@ -65,6 +64,7 @@
     <LibraryObject Name="logthat" Source="Libraries.Loupe.logthat.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="stringext" Source="Libraries.Loupe.stringext.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="axiserrlib" Source="Libraries.Loupe.axiserrlib.lby" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="AxisLib" Source="Libraries.Loupe.AxisLib.lby" Memory="UserROM" Language="ANSIC" Debugging="true" />
     <LibraryObject Name="powerlnk" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="asieccon" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
   </Libraries>
