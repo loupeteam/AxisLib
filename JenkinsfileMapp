@@ -4,7 +4,7 @@ buildPublishPipeline(
     slackChannel: "sandbox-github",
     asProjectRepo: "AxisLib",
     asProjectVersion: "main", 
-    asProjectPath: "example/AsProject",
+    asProjectPath: "example/MappProject",
     skipLpmInstall: true,
-    packagesToPublish: ['src/Ar/AxisLib', 'src/Ar/MotionControl']
+    packagesToPublish: ['src/MappAr/AxisLib', 'src/MappAr/MotionControl']
 )
