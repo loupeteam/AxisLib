@@ -6,7 +6,7 @@
     <File Description="Initialization code">AxisBasicInit.st</File>
     <File Description="Local data types" Private="true">AxisBasic.typ</File>
     <File Description="Local variables" Private="true">AxisBasic.var</File>
-    <File>PiperModuleInterface.st</File>
-    <File Description="Local variables" Private="true">PiperModuleTemplate.var</File>
+    <File>PiperInterface.st</File>
+    <File Description="Local variables" Private="true">PiperModule.var</File>
   </Files>
 </Program>
