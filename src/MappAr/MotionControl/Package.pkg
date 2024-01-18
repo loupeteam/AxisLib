@@ -4,7 +4,6 @@
   <Objects>
     <Object Type="File" Private="true">MotionControl.typ</Object>
     <Object Type="File">MotionControl.var</Object>
-    <Object Type="Package">Deployment</Object>
     <Object Type="Program" Language="IEC">AxisBasic</Object>
   </Objects>
 </Package>
