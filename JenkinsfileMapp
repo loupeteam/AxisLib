@@ -1,0 +1,10 @@
+library "jenkinsLibrary@develop"
+
+buildPublishPipeline(
+    slackChannel: "sandbox-github",
+    asProjectRepo: "AxisLib",
+    asProjectVersion: "feature/ACP10MappMerge", 
+    asProjectPath: "example/MappAsProject",
+    skipLpmInstall: true,
+    packagesToPublish: ['src/MappAr/AxisLib', 'src/MappAr/MotionControl']
+)

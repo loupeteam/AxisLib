@@ -1,11 +1,11 @@
 # Info
-Library is provided by Loupe  
+Package is provided by Loupe  
 https://loupe.team  
 info@loupe.team  
 1-800-240-7042  
 
 # Description
-This repo provides packages that allow basic control of B&R Mapp Motion servo axes.  
+This repo provides packages that allow basic control of B&R Mapp Motion servo axes.
 
 ### Program Package
 This program package will install the Servo B&R package that will contain the AxisBasic program for a Automation Studio project and all its dependencies that supports Mapp Motion.
@@ -20,8 +20,7 @@ If you only want to install the library package, run `lpm install axislib`.
 For more information about LPM, see https://loupeteam.github.io/LoupeDocs/tools/lpm.html
 
 # Documentation
-For more documentation and examples, see https://loupeteam.github.io/LoupeDocs/libraries/axislib.html (or you can run `lpm docs axislib`)
-
+This repo provides packages that allow basic control of B&R Mapp Motion servo axes.
 # Licensing
 
 This project is licensed under the [MIT License](LICENSE).

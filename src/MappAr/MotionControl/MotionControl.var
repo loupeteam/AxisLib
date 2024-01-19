@@ -1,0 +1,16 @@
+(*
+* File: Types.typ
+* Copyright (c) 2023 Loupe
+* https://loupe.team
+* 
+* This file is part of AxisLib, licensed under the MIT License.
+*
+*)
+
+VAR CONSTANT
+	NUM_AXIS : USINT := 4;
+	MAI_AXIS : USINT := NUM_AXIS-1;
+END_VAR
+VAR
+	gMotorBasic : ARRAY[0..MAI_AXIS] OF AxisBasic_Api_typ;
+END_VAR

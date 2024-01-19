@@ -1,0 +1,20 @@
+(*
+* File: AxisBasic.var
+* Copyright (c) 2023 Loupe
+* https://loupe.team
+* 
+* This file is part of AxisBasic, licensed under the MIT License.
+*)
+VAR
+	axisHmi : axisHmi_typ := (0);
+	axisErrorCollector : ARRAY[0..MAI_MOTOR] OF AxisAddErrorsToCollector;
+	i : UDINT;
+	emptyPar : AxisBasic_IN_PAR_typ;
+	groupStatus : BOOL := FALSE; (*used to tell if the status of the group is all done*)
+	powerOffRequired : BOOL;
+	messageAdded : BOOL;
+	noPistonHome : BOOL;
+	Configuration : Configuration_typ;
+	tempStr : STRING[512];
+	axisExpandLimit : ARRAY[0..MAI_MOTOR] OF AxisExpandLimit;
+END_VAR
