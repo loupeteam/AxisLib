@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
-<Library Version="4.03.0" SubType="ANSIC" xmlns="http://br-automation.co.at/AS/Library">
+<Library Version="4.3.0" SubType="ANSIC" xmlns="http://br-automation.co.at/AS/Library">
   <Files>
     <File Description="Exported data types">Types.typ</File>
     <File Description="Exported constants">Constants.var</File>
@@ -10,7 +10,8 @@
     <File Description="Manage an axis for basic movements and status reporting">AxisBasicCyclic.c</File>
   </Files>
   <Dependencies>
-    <Dependency ObjectName="McAxis" FromVersion="5.15.1" ToVersion="5.19.3" />
-    <Dependency ObjectName="McAcpAx" FromVersion="5.15.1" ToVersion="5.19.3" />
+    <Dependency ObjectName="McAxis" FromVersion="6.4.3" />
+    <Dependency ObjectName="McAcpAx" FromVersion="6.4.3" />
+    <Dependency ObjectName="AsBrStr" />
   </Dependencies>
 </Library>
